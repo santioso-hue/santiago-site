@@ -1,0 +1,142 @@
+@import "tailwindcss";
+
+/*
+  Design tokens for a warm, editorial, research-forward site.
+  Colors live as raw CSS variables on :root (light) and .dark (dark) so the whole
+  palette swaps by toggling one class on <html> (next-themes, attribute="class").
+  The @theme inline block maps those raw vars into Tailwind utilities
+  (bg-bg, text-fg, text-fg-muted, border-border, text-accent, ...).
+*/
+
+/* Make `dark:` utilities respond to the .dark class instead of the OS media query,
+   because next-themes controls the theme via a class on <html>. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  /* Light theme, warm paper */
+  --bg: #fbf9f5;
+  --surface: #f3efe7;
+  --fg: #1a1916;
+  --fg-muted: #57524a;
+  --fg-subtle: #6e685c;
+  --border: #e7e1d5;
+  --border-strong: #d8d1c2;
+  --accent: #3a5a78;
+  --accent-hover: #2c4760;
+  --accent-soft: color-mix(in srgb, var(--accent) 12%, transparent);
+
+  color-scheme: light;
+}
+
+.dark {
+  /* Dark theme, warm near-black */
+  --bg: #1a1916;
+  --surface: #232019;
+  --fg: #ece7dd;
+  --fg-muted: #a8a192;
+  --fg-subtle: #979080;
+  --border: #332f27;
+  --border-strong: #423d33;
+  --accent: #88abcb;
+  --accent-hover: #a2c0da;
+  --accent-soft: color-mix(in srgb, var(--accent) 16%, transparent);
+
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-fg-subtle: var(--fg-subtle);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-soft: var(--accent-soft);
+
+  /* Font CSS variables are injected by next/font (see app/fonts.ts). */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-serif: var(--font-newsreader), ui-serif, Georgia, "Times New Roman", serif;
+}
+
+@layer base {
+  body {
+    background-color: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "cv05", "ss01";
+    /* Smooth fade between light/dark, matching the reference's calm theme transition. */
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: var(--font-newsreader), ui-serif, Georgia, "Times New Roman", serif;
+    font-weight: 500;
+    letter-spacing: -0.012em;
+    text-wrap: balance;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  ::selection {
+    background-color: var(--accent-soft);
+  }
+
+  /* One consistent, accessible focus ring everywhere. */
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 3px;
+  }
+}
+
+/* Staggered entrance for the home hero. Disabled for reduced-motion users. */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .animate-rise {
+    animation: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+}
+
+/* Reading column for long-form prose (About bio, etc.). */
+.prose-reading p {
+  margin-block: 1rem;
+  line-height: 1.75;
+  color: var(--fg-muted);
+}
+
+.prose-reading p:first-child {
+  margin-top: 0;
+}
+
+/* Let the nav pill scroll horizontally on narrow screens without showing a scrollbar. */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
