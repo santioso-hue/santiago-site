@@ -4,7 +4,7 @@ import type { AboutContent } from "./types";
 export const about: AboutContent = {
   bio: [
     "I am a biomedical engineer who completed my B.E. at the City College of New York, where I worked on neural engineering and neuromodulation. My through-line is instrumentation: building and characterizing the hardware and computation that turn a physiological idea into a measurement you can trust.",
-    "My current work, at KTH Royal Institute of Technology in Stockholm, is the computational modeling of neurostimulation in Parkinson's disease patients. Before that, my high-capacity tDCS work at the CCNY Neural Engineering Group covered electrode design, impedance characterization, and the IRB-approved human studies needed to deliver high-dose stimulation safely. I have also built machine-learning pipelines for low-SNR microscopy at the Waller Lab at UC Berkeley, and optimized photon-counting CT image quality at KTH in Stockholm.",
+    "My current work, at KTH Royal Institute of Technology in Stockholm, is the computational modeling of neurostimulation in Parkinson's disease patients. Before that, my high-capacity tDCS work at the CCNY Neural Engineering Group covered electrode design, impedance characterization, and the IRB-approved human studies needed to deliver high-dose stimulation safely. I have also built machine-learning pipelines for low-SNR microscopy at the Computational Imaging Lab at UC Berkeley, and optimized photon-counting CT image quality at KTH in Stockholm.",
     "I care about reproducibility and about closing the loop between a model and a validated device. I am drawn to problems where careful measurement, signal processing, and a bit of hardware come together.",
   ],
 
@@ -13,7 +13,20 @@ export const about: AboutContent = {
       period: "May 2026",
       role: "B.E. Biomedical Engineering",
       org: "The City College of New York, CUNY",
-      detail: "Tau Beta Pi honor society, chapter officer.",
+      logo: { src: "/logos/ccny.png", alt: "The City College of New York" },
+    },
+  ],
+
+  affiliations: [
+    {
+      name: "Tau Beta Pi",
+      role: "Engineering Honor Society",
+      logo: { src: "/logos/tau-beta-pi.png", alt: "Tau Beta Pi" },
+    },
+    {
+      name: "Biomedical Engineering Society",
+      role: "Chapter officer",
+      logo: { src: "/logos/bmes.png", alt: "Biomedical Engineering Society" },
     },
   ],
 
@@ -55,14 +68,36 @@ export const about: AboutContent = {
   ],
 
   honors: [
-    "Rukin Award for Academic and Professional Perseverance in Biomedical Engineering. Department of Biomedical Engineering, CCNY. 2026.",
-    "Wallace H. Coulter Award for Academic Service in Biomedical Engineering. Department of Biomedical Engineering, CCNY. 2025 and 2026. Recognized for outstanding academic service to the biomedical engineering community.",
-    "Endowed Engineering Careers Scholarship. Grove School of Engineering, CCNY. May 2025.",
-    "Tau Beta Pi, Engineering Honor Society. New York Eta Chapter, CCNY. April 2025. Inducted in the top eighth (12.5%) of the junior class.",
-    "NIH U-RISE Scholar (NIGMS T34). National Institutes of Health, at CCNY. January 2025. Competitive NIH-funded undergraduate research training program preparing students for biomedical research PhDs.",
-    "America Needs You Fellowship. America Needs You. January 2023. Two-year fellowship for first-generation college students: mentorship, internship support, and professional-development grants.",
-    "Dean's List, City College of New York.",
+    {
+      title: "Rukin Award for Academic and Professional Perseverance in Biomedical Engineering",
+      detail: "Department of Biomedical Engineering, CCNY. 2026.",
+    },
+    {
+      title: "Wallace H. Coulter Award for Academic Service in Biomedical Engineering",
+      detail: "Department of Biomedical Engineering, CCNY. 2025 and 2026.",
+    },
+    {
+      title: "Endowed Engineering Careers Scholarship",
+      detail: "Grove School of Engineering, CCNY. May 2025.",
+    },
+    {
+      title: "Tau Beta Pi, Engineering Honor Society",
+      detail:
+        "New York Eta Chapter, CCNY. April 2025. Inducted in the top eighth (12.5%) of the junior class.",
+    },
+    {
+      title: "NIH U-RISE Scholar (NIGMS T34)",
+      detail:
+        "National Institutes of Health, at CCNY. January 2025. Competitive NIH-funded undergraduate research training program preparing students for biomedical research PhDs.",
+    },
+    {
+      title: "America Needs You Fellowship",
+      detail:
+        "January 2023. Two-year fellowship for first-generation college students: mentorship, internship support, and professional-development grants.",
+    },
   ],
+
+  now: "Back at KTH in Stockholm for an independent project building patient-specific computational models of tDCS for Parkinson's disease, in collaboration with KTH's Biomedical Imaging Group.",
 
   personal: {
     quote: "All that I am, or hope to be, I owe to my angel, my mother.",

@@ -11,16 +11,9 @@ export function Hero() {
   return (
     <section className="mx-auto flex max-w-4xl flex-col gap-10 md:flex-row md:items-center md:justify-between md:gap-16">
       <div className="max-w-xl">
-        <p
-          className="animate-rise text-xs font-semibold uppercase tracking-[0.18em] text-fg-subtle"
-          style={{ animationDelay: "0ms" }}
-        >
-          {site.affiliation}
-        </p>
-
         <h1
-          className="animate-rise mt-4 text-4xl font-medium leading-[1.04] tracking-tight sm:text-5xl"
-          style={{ animationDelay: "70ms" }}
+          className="animate-rise text-4xl font-medium leading-[1.04] tracking-tight sm:text-5xl"
+          style={{ animationDelay: "0ms" }}
         >
           {site.name}
         </h1>

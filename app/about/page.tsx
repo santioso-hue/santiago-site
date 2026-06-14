@@ -5,6 +5,7 @@ import { site } from "@/content/site";
 import type { AboutContent, TimelineItem } from "@/content/types";
 import { SectionHeading } from "@/components/section-heading";
 import { Tag } from "@/components/tag";
+import { LogoTile } from "@/components/logo-tile";
 
 export const metadata: Metadata = {
   title: "About",
@@ -97,8 +98,67 @@ export default function AboutPage() {
         ))}
       </div>
 
+      {about.now ? (
+        <div className="mt-8 rounded-lg border border-border bg-accent-soft p-4">
+          <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-accent">
+            <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent" />
+            Now
+          </p>
+          <p className="mt-2 text-[15px] leading-relaxed text-fg-muted">
+            {about.now}
+          </p>
+        </div>
+      ) : null}
+
       <Section title="Education">
-        <Timeline items={about.education} />
+        <ul className="space-y-6">
+          {about.education.map((item, i) => (
+            <li key={`${item.org}-${i}`} className="flex items-start gap-4">
+              {item.logo ? (
+                <LogoTile
+                  src={item.logo.src}
+                  alt={item.logo.alt}
+                  className="h-12 w-12 rounded-xl p-2"
+                />
+              ) : null}
+              <div className="min-w-0">
+                <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-0.5">
+                  <h3 className="text-base font-medium text-fg">{item.role}</h3>
+                  <span className="text-sm text-fg-subtle">{item.period}</span>
+                </div>
+                <p className="text-sm text-fg-muted">{item.org}</p>
+                {item.detail ? (
+                  <p className="mt-1.5 text-sm leading-relaxed text-fg-muted">
+                    {item.detail}
+                  </p>
+                ) : null}
+              </div>
+            </li>
+          ))}
+        </ul>
+
+        {about.affiliations ? (
+          <ul className="mt-5 flex flex-wrap gap-2.5">
+            {about.affiliations.map((a) => (
+              <li
+                key={a.name}
+                className="flex items-center gap-2.5 rounded-lg border border-border bg-surface/40 py-1.5 pl-1.5 pr-3.5"
+              >
+                <LogoTile
+                  src={a.logo.src}
+                  alt={a.logo.alt}
+                  className="h-8 w-8 rounded-md p-1"
+                />
+                <span className="leading-tight">
+                  <span className="text-sm font-medium text-fg">{a.name}</span>
+                  {a.role ? (
+                    <span className="block text-xs text-fg-subtle">{a.role}</span>
+                  ) : null}
+                </span>
+              </li>
+            ))}
+          </ul>
+        ) : null}
       </Section>
 
       <Section title="Experience">
@@ -116,14 +176,19 @@ export default function AboutPage() {
       </Section>
 
       <Section title="Honors">
-        <ul className="space-y-2">
+        <ul className="space-y-3">
           {about.honors.map((honor) => (
             <li
-              key={honor}
-              className="flex gap-3 text-[15px] leading-relaxed text-fg-muted"
+              key={honor.title}
+              className="flex gap-3 text-[15px] leading-relaxed"
             >
               <span aria-hidden className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" />
-              {honor}
+              <span>
+                <span className="font-medium text-fg">{honor.title}.</span>{" "}
+                {honor.detail ? (
+                  <span className="text-fg-muted">{honor.detail}</span>
+                ) : null}
+              </span>
             </li>
           ))}
         </ul>

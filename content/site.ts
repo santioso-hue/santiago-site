@@ -10,7 +10,6 @@ export const site: SiteConfig = {
   url: "https://your-domain.com",
   shortName: "S. Osorio Jurado",
   title: "Biomedical engineer. Neural engineering and neuromodulation.",
-  affiliation: "Biomedical Engineering · City College of New York",
   email: "santiagojurado15@hotmail.com",
 
   statement: [
@@ -19,7 +18,7 @@ export const site: SiteConfig = {
   ],
 
   portrait: {
-    src: "/images/portrait.jpg",
+    src: "/images/headshot.jpg",
     alt: "Portrait of Santiago Osorio Jurado",
   },
 
@@ -35,6 +34,7 @@ export const site: SiteConfig = {
 
   nav: [
     { label: "Research", href: "/research" },
+    { label: "Projects", href: "/projects" },
     { label: "Publications", href: "/publications" },
     { label: "About", href: "/about" },
   ],

@@ -39,8 +39,6 @@ export interface SiteConfig {
   shortName: string;
   /** One-line professional title. */
   title: string;
-  /** Affiliation / location line under the title. */
-  affiliation: string;
   /** Contact email (no mailto: prefix). */
   email: string;
   /** 2-3 sentence research statement, one string per paragraph. */
@@ -83,6 +81,18 @@ export interface ResearchEntry {
   video?: { youtubeId: string; title: string };
 }
 
+export interface ProjectEntry {
+  id: string;
+  title: string;
+  period?: string;
+  affiliation?: string;
+  description: string;
+  tags: string[];
+  /** Optional cover figure, shown 16:9 (object-contain). */
+  image?: { src: string; alt: string };
+  links?: ResearchLink[];
+}
+
 export interface Author {
   name: string;
   /** Bold this author (you). */
@@ -119,6 +129,8 @@ export interface TimelineItem {
   org: string;
   /** Optional supporting detail (honors, focus, advisor). */
   detail?: string;
+  /** Optional small institution logo (e.g. on the education entry). */
+  logo?: { src: string; alt: string };
 }
 
 export interface AboutContent {
@@ -129,8 +141,12 @@ export interface AboutContent {
   experience: TimelineItem[];
   /** Research interests, rendered as chips. */
   interests: string[];
-  /** Awards / honors. */
-  honors: string[];
+  /** Awards / honors. Title renders bold, detail muted. */
+  honors: { title: string; detail?: string }[];
+  /** Society memberships, shown with small logos under Education. */
+  affiliations?: { name: string; role?: string; logo: { src: string; alt: string } }[];
+  /** Optional "now" status line (current focus), shown near the top of /about. */
+  now?: string;
   /** Optional personal closing: one line + a photo, shown at the foot of /about. */
   personal?: {
     quote: string;
