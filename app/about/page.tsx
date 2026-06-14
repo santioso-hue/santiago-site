@@ -92,15 +92,30 @@ export default function AboutPage() {
     <div className="mx-auto max-w-3xl">
       <SectionHeading title="About" />
 
-      <div className="prose-reading max-w-prose text-base">
-        <p>
-          <span className="font-medium text-fg">Currently I am</span>{" "}
-          {about.currently}.
-        </p>
-        <p>
-          <span className="font-medium text-fg">Previously, I was</span>{" "}
-          {about.previously}.
-        </p>
+      <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:gap-10">
+        <div className="prose-reading min-w-0 flex-1 text-base">
+          <p>
+            <span className="font-medium text-fg">Currently I am</span>{" "}
+            {about.currently}.
+          </p>
+          <p>
+            <span className="font-medium text-fg">Previously, I was</span>{" "}
+            {about.previously}.
+          </p>
+        </div>
+        {about.photo ? (
+          <figure className="m-0 w-full shrink-0 sm:w-72">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-border bg-surface">
+              <Image
+                src={about.photo.src}
+                alt={about.photo.alt}
+                fill
+                sizes="(max-width: 640px) 100vw, 288px"
+                className="object-cover dark:brightness-90"
+              />
+            </div>
+          </figure>
+        ) : null}
       </div>
 
       <Section title="Education">

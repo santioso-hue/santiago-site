@@ -43,7 +43,7 @@ export interface SiteConfig {
   email: string;
   /** 2-3 sentence research statement, one string per paragraph. */
   statement: string[];
-  /** Portrait shown in the hero. Replace the placeholder in /public/images. */
+  /** Portrait shown in the hero. */
   portrait: { src: string; alt: string };
   /** Profile links rendered as an icon row in the hero and footer. */
   socials: SocialLink[];
@@ -71,8 +71,6 @@ export interface ResearchEntry {
   description: string;
   /** Methods / tools, rendered as chips. */
   tags: string[];
-  /** Optional thumbnail. Replace the placeholder in /public/images. */
-  image?: { src: string; alt: string };
   /** Optional small institution logo, shown above the title. */
   logo?: { src: string; alt: string };
   /** Optional outbound links (paper, code, poster). */
@@ -138,6 +136,8 @@ export interface AboutContent {
   currently: string;
   /** Text after "Previously, I was …". */
   previously: string;
+  /** Optional photo shown beside the intro (e.g. graduation). */
+  photo?: { src: string; alt: string };
   education: TimelineItem[];
   /** Brief trajectory: positions / labs over time. */
   experience: TimelineItem[];

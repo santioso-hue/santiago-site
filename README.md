@@ -43,10 +43,11 @@ will flag a missing or mistyped field.
 
 | File | What it controls |
 |---|---|
-| `content/site.ts` | Your name, title, affiliation, email, research statement, social links, nav, CV path |
-| `content/research.ts` | The cards on **/research** (title, description, tags, links, thumbnail) |
+| `content/site.ts` | Your name, title, email, research statement, social links, nav, CV path |
+| `content/research.ts` | The cards on **/research** (title, description, tags, logo, links, video) |
+| `content/projects.ts` | The cards on **/projects** (title, description, tags, cover image, links) |
 | `content/publications.ts` | The list on **/publications** (authors, venue, year, DOI/URL) |
-| `content/about.ts` | The **/about** page (bio paragraphs, education, experience, interests, honors) |
+| `content/about.ts` | The **/about** page (intro, education, experience, interests, honors, personal note) |
 
 Notes:
 
@@ -68,25 +69,26 @@ icon expects a `mailto:` href. To add a new icon type, add an SVG to
 
 ## Add / replace images
 
-Images live in [`public/images/`](public/images/) and are referenced by path in the
-content files (e.g. `src: "/images/hctdcs.jpg"`).
+Images live in [`public/images/`](public/images/) and institution logos in
+[`public/logos/`](public/logos/), referenced by path in the content files
+(e.g. `src: "/images/headshot.jpg"`).
 
-1. Drop your image into `public/images/` (keep the same filename, or update the `src` in
-   the matching content file).
-2. Recommended: portrait ~600×600 (square), research thumbnails ~1200×750 (16:10).
+1. Drop your image into `public/images/` and reference it from the matching content file.
+2. Recommended: portrait ~600×600 (square), project covers ~1200×675 (16:9).
 
-The repo ships with neutral placeholder JPGs so nothing looks broken before you add real
-images. To regenerate the placeholders:
+Note: replacing a file with the **same name** can show a stale image, because `next/image`
+caches optimized output. Rename the file (and update the `src`) to force a fresh URL.
+
+Optimize images with macOS `sips`:
 
 ```bash
-node scripts/make-placeholders.mjs
-# then convert the PNGs to JPG (macOS): sips -s format jpeg public/images/<name>.png --out public/images/<name>.jpg
+sips -Z 1280 -s format jpeg -s formatOptions 82 in.jpeg --out public/images/out.jpg
 ```
 
 ### Replace the CV
 
-Replace [`public/cv.pdf`](public/cv.pdf) with your real CV (keep the filename, or change
-`cvHref` in `content/site.ts`). A valid placeholder PDF is included.
+Replace the PDF in [`public/`](public/) with your own CV and point `cvHref` in
+`content/site.ts` at it.
 
 ### Favicon
 
@@ -133,13 +135,14 @@ app/
   fonts.ts             next/font configuration
   page.tsx             Home (hero)
   research/page.tsx    Research cards
+  projects/page.tsx    Project cards
   publications/page.tsx Publications list
-  about/page.tsx       Bio, education, experience, interests, honors
+  about/page.tsx       Intro, education, experience, interests, honors, personal note
+  sitemap.ts, robots.ts SEO routes
   icon.svg             Favicon
 components/            Presentational + client components (nav, theme toggle, cards, ...)
 content/               All editable copy and data (+ types)
-public/                images/, cv.pdf
-scripts/               One-off placeholder generators (not part of the build)
+public/                images/, logos/, CV PDF
 ```
 
 ---

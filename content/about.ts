@@ -3,10 +3,15 @@ import type { AboutContent } from "./types";
 /** Long-form bio, education, trajectory, interests, and honors for /about. */
 export const about: AboutContent = {
   currently:
-    "modeling tDCS for Parkinson's at KTH in Stockholm, recently graduated in biomedical engineering from CCNY",
+    "modeling tDCS for Parkinson's at KTH in Stockholm; I recently graduated in biomedical engineering from CCNY",
 
   previously:
-    "building high-capacity tDCS electrodes at CCNY, developing ML models to enhance microscopy at UC Berkeley, and the electronics & software lead on a rodent pain-test capstone",
+    "building high-capacity tDCS electrodes at CCNY, developing ML models to enhance microscopy at UC Berkeley, and leading electronics and software for a rodent pain-test capstone",
+
+  photo: {
+    src: "/images/graduation.jpg",
+    alt: "Santiago Osorio Jurado in cap and gown at his City College of New York graduation, 2026.",
+  },
 
   education: [
     {
@@ -78,22 +83,22 @@ export const about: AboutContent = {
     },
     {
       title: "Endowed Engineering Careers Scholarship",
-      detail: "Grove School of Engineering, CCNY. May 2025.",
+      detail: "Grove School of Engineering, CCNY. 2025.",
     },
     {
       title: "Tau Beta Pi, Engineering Honor Society",
       detail:
-        "New York Eta Chapter, CCNY. April 2025. Inducted in the top eighth (12.5%) of the junior class.",
+        "New York Eta Chapter, CCNY. 2025. Inducted in the top eighth (12.5%) of the junior class.",
     },
     {
       title: "NIH U-RISE Scholar (NIGMS T34)",
       detail:
-        "National Institutes of Health, at CCNY. January 2025. Competitive NIH-funded undergraduate research training program preparing students for biomedical research PhDs.",
+        "National Institutes of Health, at CCNY. 2025. Competitive NIH-funded undergraduate research training program preparing students for biomedical research PhDs.",
     },
     {
       title: "America Needs You Fellowship",
       detail:
-        "January 2023. Two-year fellowship for first-generation college students: mentorship, internship support, and professional-development grants.",
+        "2023. Two-year fellowship for first-generation college students: mentorship, internship support, and professional-development grants.",
     },
   ],
 

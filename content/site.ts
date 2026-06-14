@@ -22,7 +22,6 @@ export const site: SiteConfig = {
     alt: "Portrait of Santiago Osorio Jurado",
   },
 
-  // Add Google Scholar / ORCID here later; their icons are already defined in components/icons.tsx.
   socials: [
     { label: "GitHub", href: "https://github.com/santioso-hue", icon: "github" },
     {

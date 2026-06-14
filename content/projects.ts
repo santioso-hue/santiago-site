@@ -9,9 +9,9 @@ export const projects: ProjectEntry[] = [
     id: "thermal-stimulator",
     title: "Thermal Stimulator for Automated Rodent Pain Testing",
     period: "Aug 2025 – May 2026",
-    affiliation: "Senior Design Capstone · CCNY · Sponsored by Tactorum Inc.",
+    affiliation: "Senior Design Capstone · CCNY",
     description:
-      "A modular thermal-stimulus add-on for Tactorum's Automated Reproducible Mechano-Stimulator (ARM), delivering reproducible rodent thermal pain testing from 30–60 °C. I designed and validated the embedded control system: a closed-loop PID controller (PWM drive, K-type thermocouple feedback) with constant-temperature and 1 °C/s ramp modes, holding ±0.5 °C in constant mode and 0.91–1.07 °C/s on the ramp after diagnosing and fixing an integral-reset ramp undershoot. The team device, selected from 8 concepts with a Pugh matrix, adds a Peltier air-cooling chamber that cut cooldown (50 to 30 °C) from 417 s to 66 s in a sub-1 kg unit. Sponsored by Dr. Justin Burdge (Tactorum Inc.).",
+      "A modular thermal-stimulus add-on for Tactorum's Automated Reproducible Mechano-Stimulator (ARM), delivering reproducible rodent thermal pain testing from 30–60 °C. I designed and validated the embedded control system: a closed-loop PID controller (PWM drive, K-type thermocouple feedback) with constant-temperature and 1 °C/s ramp modes. It holds ±0.5 °C in constant mode and 0.91–1.07 °C/s on the ramp after fixing a ramp undershoot. The team device, selected from 8 concepts with a Pugh matrix, adds a Peltier air-cooling chamber that cut cooldown (50 to 30 °C) from 417 s to 66 s in a sub-1 kg unit. Sponsored by Dr. Justin Burdge (Tactorum Inc.).",
     tags: ["Embedded systems", "PID control", "Arduino", "Thermocouples", "Capstone"],
     image: {
       src: "/images/thermal-stimulator.jpg",
@@ -50,7 +50,7 @@ export const projects: ProjectEntry[] = [
     id: "this-website",
     title: "This Website",
     description:
-      "This site, built from scratch with Next.js 16, React 19, and Tailwind v4. All copy lives in typed content files, so it ships as fast, crawlable HTML, with light/dark theming and no template.",
+      "This site, built with Next.js 16, React 19, and Tailwind v4. All copy lives in typed content files, and every page is statically generated, with light and dark theming.",
     tags: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
     links: [
       { label: "GitHub", href: "https://github.com/santioso-hue/santiago-site" },
