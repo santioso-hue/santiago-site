@@ -6,8 +6,8 @@ import type { SiteConfig } from "./types";
  */
 export const site: SiteConfig = {
   name: "Santiago Osorio Jurado",
-  // TODO: set your real domain (or override with NEXT_PUBLIC_SITE_URL on Vercel).
-  url: "https://your-domain.com",
+  // Canonical production URL (used for Open Graph / canonical metadata).
+  url: "https://santiagoosoriojurado.vercel.app",
   shortName: "S. Osorio Jurado",
   title: "Biomedical engineer. Neural engineering and neuromodulation.",
   email: "santiagojurado15@hotmail.com",
