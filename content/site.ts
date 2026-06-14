@@ -39,5 +39,5 @@ export const site: SiteConfig = {
     { label: "About", href: "/about" },
   ],
 
-  cvHref: "/cv.pdf",
+  cvHref: "/Santiago-Osorio-Jurado-CV.pdf",
 };

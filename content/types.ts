@@ -134,8 +134,10 @@ export interface TimelineItem {
 }
 
 export interface AboutContent {
-  /** Bio paragraphs. */
-  bio: string[];
+  /** Text after "Currently I am …". */
+  currently: string;
+  /** Text after "Previously, I was …". */
+  previously: string;
   education: TimelineItem[];
   /** Brief trajectory: positions / labs over time. */
   experience: TimelineItem[];
@@ -145,8 +147,6 @@ export interface AboutContent {
   honors: { title: string; detail?: string }[];
   /** Society memberships, shown with small logos under Education. */
   affiliations?: { name: string; role?: string; logo: { src: string; alt: string } }[];
-  /** Optional "now" status line (current focus), shown near the top of /about. */
-  now?: string;
   /** Optional personal closing: one line + a photo, shown at the foot of /about. */
   personal?: {
     quote: string;

@@ -2,11 +2,11 @@ import type { AboutContent } from "./types";
 
 /** Long-form bio, education, trajectory, interests, and honors for /about. */
 export const about: AboutContent = {
-  bio: [
-    "I am a biomedical engineer with a B.E. from the City College of New York, where I worked on neural engineering and neuromodulation. I focus on instrumentation: building and characterizing the hardware and computation behind reliable measurements.",
-    "My current work, at KTH Royal Institute of Technology in Stockholm, is the computational modeling of neurostimulation in Parkinson's disease patients. Before that, my high-capacity tDCS work at the CCNY Neural Engineering Group covered electrode design, impedance characterization, and the IRB-approved human studies needed to deliver high-dose stimulation safely. I have also built machine-learning pipelines for low-SNR microscopy at the Computational Imaging Lab at UC Berkeley, and optimized photon-counting CT image quality at KTH in Stockholm.",
-    "I value reproducibility and work that connects a model to a validated device. The problems I like most combine careful measurement, signal processing, and hardware.",
-  ],
+  currently:
+    "modeling tDCS for Parkinson's at KTH in Stockholm, recently graduated in biomedical engineering from CCNY",
+
+  previously:
+    "building high-capacity tDCS electrodes at CCNY, developing ML models to enhance microscopy at UC Berkeley, and the electronics & software lead on a rodent pain-test capstone",
 
   education: [
     {
@@ -96,8 +96,6 @@ export const about: AboutContent = {
         "January 2023. Two-year fellowship for first-generation college students: mentorship, internship support, and professional-development grants.",
     },
   ],
-
-  now: "Back at KTH in Stockholm for an independent project building patient-specific computational models of tDCS for Parkinson's disease, in collaboration with KTH's Biomedical Imaging Group.",
 
   personal: {
     quote: "All that I am, or hope to be, I owe to my angel, my mother.",

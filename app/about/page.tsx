@@ -93,22 +93,15 @@ export default function AboutPage() {
       <SectionHeading title="About" />
 
       <div className="prose-reading max-w-prose text-base">
-        {about.bio.map((paragraph, i) => (
-          <p key={i}>{paragraph}</p>
-        ))}
+        <p>
+          <span className="font-medium text-fg">Currently I am</span>{" "}
+          {about.currently}.
+        </p>
+        <p>
+          <span className="font-medium text-fg">Previously, I was</span>{" "}
+          {about.previously}.
+        </p>
       </div>
-
-      {about.now ? (
-        <div className="mt-8 rounded-lg border border-border bg-accent-soft p-4">
-          <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-            <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent" />
-            Now
-          </p>
-          <p className="mt-2 text-[15px] leading-relaxed text-fg-muted">
-            {about.now}
-          </p>
-        </div>
-      ) : null}
 
       <Section title="Education">
         <ul className="space-y-6">
