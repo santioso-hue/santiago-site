@@ -1,4 +1,4 @@
-/** Small white logo tile — keeps colored or dark marks legible in light and dark. */
+/** Small white logo tile. Keeps colored or dark marks legible in light and dark. */
 export function LogoTile({
   src,
   alt,

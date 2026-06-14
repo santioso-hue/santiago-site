@@ -13,8 +13,8 @@ export const site: SiteConfig = {
   email: "santiagojurado15@hotmail.com",
 
   statement: [
-    "I am a biomedical engineer working at the intersection of neural engineering and neuromodulation. My work spans stimulation hardware, computational imaging, and patient-specific electric-field modeling.",
-    "I build rigorous, reproducible tools that carry a method from the bench to validated human use: from high-capacity tDCS electrodes characterized by impedance spectroscopy to machine-learning pipelines for low-SNR imaging.",
+    "I am a biomedical engineer focused on neural engineering and neuromodulation. I work on stimulation hardware, computational imaging, and patient-specific electric-field modeling.",
+    "My projects range from high-capacity tDCS electrodes, characterized by impedance spectroscopy, to machine-learning pipelines for low-SNR imaging.",
   ],
 
   portrait: {

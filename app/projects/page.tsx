@@ -7,7 +7,7 @@ import { SectionHeading } from "@/components/section-heading";
 export const metadata: Metadata = {
   title: "Projects",
   description:
-    "Things I've built — hardware, simulation pipelines, and software.",
+    "Things I've built: hardware, simulation pipelines, and software.",
 };
 
 export default function ProjectsPage() {
@@ -15,7 +15,7 @@ export default function ProjectsPage() {
     <div className="mx-auto max-w-3xl">
       <SectionHeading
         title="Projects"
-        lede="Things I've built — hardware, simulation pipelines, and software."
+        lede="Things I've built: hardware, simulation pipelines, and software."
       />
 
       <div className="space-y-8">

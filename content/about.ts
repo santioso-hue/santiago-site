@@ -3,9 +3,9 @@ import type { AboutContent } from "./types";
 /** Long-form bio, education, trajectory, interests, and honors for /about. */
 export const about: AboutContent = {
   bio: [
-    "I am a biomedical engineer who completed my B.E. at the City College of New York, where I worked on neural engineering and neuromodulation. My through-line is instrumentation: building and characterizing the hardware and computation that turn a physiological idea into a measurement you can trust.",
+    "I am a biomedical engineer with a B.E. from the City College of New York, where I worked on neural engineering and neuromodulation. I focus on instrumentation: building and characterizing the hardware and computation behind reliable measurements.",
     "My current work, at KTH Royal Institute of Technology in Stockholm, is the computational modeling of neurostimulation in Parkinson's disease patients. Before that, my high-capacity tDCS work at the CCNY Neural Engineering Group covered electrode design, impedance characterization, and the IRB-approved human studies needed to deliver high-dose stimulation safely. I have also built machine-learning pipelines for low-SNR microscopy at the Computational Imaging Lab at UC Berkeley, and optimized photon-counting CT image quality at KTH in Stockholm.",
-    "I care about reproducibility and about closing the loop between a model and a validated device. I am drawn to problems where careful measurement, signal processing, and a bit of hardware come together.",
+    "I value reproducibility and work that connects a model to a validated device. The problems I like most combine careful measurement, signal processing, and hardware.",
   ],
 
   education: [

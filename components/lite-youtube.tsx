@@ -36,7 +36,7 @@ export function LiteYouTube({
           aria-label={`Play video: ${title}`}
           className="group absolute inset-0 h-full w-full cursor-pointer"
         >
-          {/* Static thumbnail only — the heavy player loads on click. */}
+          {/* Static thumbnail only; the heavy player loads on click. */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={`https://i.ytimg.com/vi/${youtubeId}/hqdefault.jpg`}
