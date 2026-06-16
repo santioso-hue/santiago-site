@@ -11,13 +11,13 @@ export const metadata: Metadata = {
 
 export default function ProjectsPage() {
   return (
-    <div className="mx-auto max-w-3xl">
+    <div className="mx-auto max-w-5xl">
       <SectionHeading
         title="Projects"
         lede="Things I've built: hardware, simulation pipelines, and software."
       />
 
-      <div className="space-y-8">
+      <div className="grid items-start gap-6 sm:grid-cols-2">
         {projects.map((entry) => (
           <ProjectCard key={entry.id} entry={entry} />
         ))}

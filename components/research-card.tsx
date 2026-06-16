@@ -1,5 +1,5 @@
-import { ArrowUpRight } from "lucide-react";
 import type { ResearchEntry } from "@/content/types";
+import { CardLinks } from "./card-links";
 import { Tag } from "./tag";
 import { LiteYouTube } from "./lite-youtube";
 
@@ -45,29 +45,7 @@ export function ResearchCard({ entry }: { entry: ResearchEntry }) {
             </ul>
           ) : null}
 
-          {entry.links && entry.links.length > 0 ? (
-            <ul className="mt-4 flex flex-wrap gap-x-4 gap-y-1.5">
-              {entry.links.map((link) => {
-                const external =
-                  link.href.startsWith("http") ||
-                  /\.(pdf|jpe?g|png)$/i.test(link.href);
-                return (
-                  <li key={link.label}>
-                    <a
-                      href={link.href}
-                      {...(external
-                        ? { target: "_blank", rel: "noreferrer noopener" }
-                        : {})}
-                      className="inline-flex items-center gap-0.5 text-sm font-medium text-accent underline-offset-4 hover:underline"
-                    >
-                      {link.label}
-                      <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
-                    </a>
-                  </li>
-                );
-              })}
-            </ul>
-          ) : null}
+          {entry.links ? <CardLinks links={entry.links} /> : null}
         </div>
       </div>
 

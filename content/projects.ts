@@ -1,8 +1,8 @@
 import type { ProjectEntry } from "./types";
 
 /**
- * Projects, shown as cards on /projects (most relevant first).
- * Add, remove, or reorder freely. Each needs a unique `id`.
+ * Projects, shown as cards on /projects (dated entries newest first; undated
+ * entries keep their slot). Add, remove, or reorder freely. Each needs a unique `id`.
  */
 export const projects: ProjectEntry[] = [
   {
@@ -31,6 +31,17 @@ export const projects: ProjectEntry[] = [
     },
     links: [
       { label: "Code", href: "https://github.com/santioso-hue/tDCS-head-model" },
+    ],
+  },
+  {
+    id: "helmet-mechanics",
+    title: "Mechanical Analysis of Motorcycle Helmets",
+    period: "2025",
+    description:
+      "A biomechanical analysis of how motorcycle helmets protect against traumatic brain injury. We dissected the mechanical design of helmets and identified flaws in current testing standards and metrics used to predict injury. These metrics fail to account for rotational acceleration, which is believed to be the primary cause of several injuries. Finally, we propose design improvements to enhance helmet safety.",
+    tags: ["Biomechanics", "Traumatic brain injury", "Impact mechanics", "Mechanical design"],
+    links: [
+      { label: "Poster", href: "/posters/motorcycle-helmet-mechanics.jpg" },
     ],
   },
   {

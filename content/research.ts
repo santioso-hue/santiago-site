@@ -36,7 +36,7 @@ export const research: ResearchEntry[] = [
     title: "Machine Learning for Darkfield Microscopy",
     affiliation: "UC Berkeley · Computational Imaging Lab (Prof. Laura Waller)",
     period: "Jun – Dec 2025",
-    logo: { src: "/logos/uc-berkeley.png", alt: "University of California, Berkeley" },
+    logo: { src: "/logos/uc-berkeley-seal.png", alt: "University of California, Berkeley" },
     description:
       "A head-to-head benchmark of a U-Net-based model and a CNN-transformer hybrid for enhancing short-exposure, low-SNR darkfield microscopy. Trained and evaluated on simulated and phase-target datasets, the U-Net gave better denoising and preserved finer structure, recovering detail from photon-starved frames for label-free live-cell imaging.",
     tags: ["Deep learning", "U-Net", "Vision transformers", "Computational imaging", "PyTorch"],
