@@ -41,8 +41,8 @@ export interface SiteConfig {
   title: string;
   /** Contact email (no mailto: prefix). */
   email: string;
-  /** 2-3 sentence research statement, one string per paragraph. */
-  statement: string[];
+  /** First-person one-liner shown in the hero (and used as the meta description). */
+  tagline: string;
   /** Portrait shown in the hero. */
   portrait: { src: string; alt: string };
   /** Profile links rendered as an icon row in the hero and footer. */

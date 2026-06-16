@@ -11,8 +11,8 @@ export const projects: ProjectEntry[] = [
     period: "Aug 2025 – May 2026",
     affiliation: "Senior Design Capstone · CCNY",
     description:
-      "A modular thermal-stimulus add-on for Tactorum's Automated Reproducible Mechano-Stimulator (ARM), delivering reproducible rodent thermal pain testing from 30–60 °C. I designed and validated the embedded control system: a closed-loop PID controller (PWM drive, K-type thermocouple feedback) with constant-temperature and 1 °C/s ramp modes. It holds ±0.5 °C in constant mode and 0.91–1.07 °C/s on the ramp after fixing a ramp undershoot. The team device, selected from 8 concepts with a Pugh matrix, adds a Peltier air-cooling chamber that cut cooldown (50 to 30 °C) from 417 s to 66 s in a sub-1 kg unit. Sponsored by Dr. Justin Burdge (Tactorum Inc.).",
-    tags: ["Embedded systems", "PID control", "Arduino", "Thermocouples", "Capstone"],
+      "A modular thermal-stimulus add-on for Tactorum's [Automated Reproducible Mechano-Stimulator (ARM)](https://tactorum.com), delivering reproducible rodent thermal pain testing from 30–60 °C. I designed and validated the embedded control system: a closed-loop PID controller with constant-temperature and 1 °C/s ramp modes, and ±0.5 °C accuracy. The device features a Peltier air-cooling chamber that cuts cooldown (50 to 30 °C) from 417 s to 66 s.",
+    tags: ["Embedded systems", "PID control", "Arduino", "Control systems"],
     image: {
       src: "/images/thermal-stimulator.jpg",
       alt: "Labeled CAD breakdown of the thermal stimulator: probe assembly with ceramic heater and soldering-iron tip, K-type thermocouple, waterproof magnetic-mount housing, Peltier air-cooling chamber, and Arduino control-stack housing.",
@@ -23,7 +23,7 @@ export const projects: ProjectEntry[] = [
     title: "Patient-Specific Head Model & tDCS E-Field Simulation",
     affiliation: "Independent project",
     description:
-      "An end-to-end, open pipeline that builds a subject-specific finite-element head model from a single structural MRI and simulates tDCS electric fields, applied to my own T1 scan with SimNIBS 4.6 and FSL. SimNIBS charm generates a 5-tissue model (scalp, skull, CSF, gray and white matter); an independent FSL pipeline (BET, FAST) cross-checks the segmentation. A C3/Fp2 motor-cortex montage at 2 mA yields a peak gray-matter field of 0.41 V/m (99.9th percentile), consistent with the published 0.2–0.5 V/m range. Full pipeline, configs, and QC figures released publicly for reproducibility.",
+      "An open pipeline that builds a subject-specific finite-element head model from a single MRI and simulates tDCS electric fields, applied to my own T1 scan with SimNIBS and FSL. A C3/Fp2 montage at 2 mA gives a peak gray-matter field of 0.41 V/m, within the published range.",
     tags: ["Python", "SimNIBS", "FSL", "FEM", "tDCS", "Neuroimaging"],
     image: {
       src: "/images/tdcs-headmodel.jpg",
@@ -50,8 +50,8 @@ export const projects: ProjectEntry[] = [
     period: "2024",
     affiliation: "Biodesign Hackathon · CCNY (team project)",
     description:
-      "A low-cost wearable that eases Restless Leg Syndrome (RLS) without the side effects of medication. A triaxial accelerometer on an Arduino Nano detects involuntary leg movements and triggers vibration motors in a compression sleeve, with both manual and automatic modes, at an estimated $9.52 unit cost versus $70–80 for existing devices. Built with a seven-person team at CCNY's Biodesign Hackathon (Blackstone LaunchPad · ZAHN Innovation Center).",
-    tags: ["Medical devices", "Wearables", "Arduino", "Embedded systems", "Biodesign"],
+      "A wearable that eases Restless Leg Syndrome (RLS) without the side effects of medication. A triaxial accelerometer on an Arduino Nano detects involuntary leg movements and triggers vibration motors in a compression sleeve, with both manual and automatic modes.",
+    tags: ["Medical devices", "Wearables", "Arduino", "Embedded systems", "Sensors"],
     image: {
       src: "/images/relief-sleeve.jpg",
       alt: "Breadboard prototype of the Relief Sleeve: an Arduino Nano driving vibration motors, with a triaxial accelerometer for detecting leg movement.",

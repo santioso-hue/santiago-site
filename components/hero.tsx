@@ -3,14 +3,14 @@ import { site } from "@/content/site";
 import { SocialLinks } from "./social-links";
 
 /**
- * Home hero: sparse and content-first. Name + title + research statement on the left,
- * a small portrait on the right. Children fade/rise in with a short stagger on load
- * (disabled under prefers-reduced-motion via the .animate-rise media guard).
+ * Landing hero: name, a one-line bio, contact, and social links beside a photo.
+ * Sits at the top of the home page, above the About content. Children fade/rise in
+ * with a short stagger on load (disabled under prefers-reduced-motion).
  */
 export function Hero() {
   return (
-    <section className="mx-auto flex max-w-4xl flex-col gap-10 md:flex-row md:items-center md:justify-between md:gap-16">
-      <div className="max-w-xl">
+    <section className="flex flex-col gap-10 md:flex-row md:items-center md:gap-10">
+      <div className="max-w-xl flex-1">
         <h1
           className="animate-rise text-4xl font-medium leading-[1.04] tracking-tight sm:text-5xl"
           style={{ animationDelay: "0ms" }}
@@ -22,22 +22,10 @@ export function Hero() {
           className="animate-rise mt-4 text-lg leading-snug text-fg-muted"
           style={{ animationDelay: "140ms" }}
         >
-          {site.title}
+          {site.tagline}
         </p>
 
-        <div
-          className="animate-rise mt-6 space-y-4 text-base leading-relaxed text-fg-muted"
-          style={{ animationDelay: "210ms" }}
-        >
-          {site.statement.map((paragraph, i) => (
-            <p key={i}>{paragraph}</p>
-          ))}
-        </div>
-
-        <p
-          className="animate-rise mt-7"
-          style={{ animationDelay: "280ms" }}
-        >
+        <p className="animate-rise mt-6" style={{ animationDelay: "210ms" }}>
           <a
             href={`mailto:${site.email}`}
             className="text-sm font-medium text-accent underline-offset-4 hover:underline"
@@ -48,26 +36,25 @@ export function Hero() {
 
         <div
           className="animate-rise mt-3 -ml-2"
-          style={{ animationDelay: "340ms" }}
+          style={{ animationDelay: "280ms" }}
         >
           <SocialLinks />
         </div>
       </div>
 
       <div
-        className="animate-rise w-44 shrink-0 self-start sm:w-52 md:w-64 md:self-auto"
+        className="animate-rise w-full shrink-0 sm:w-80"
         style={{ animationDelay: "140ms" }}
       >
-        <div className="relative aspect-square overflow-hidden rounded-2xl border border-border bg-surface">
-          <Image
-            src={site.portrait.src}
-            alt={site.portrait.alt}
-            fill
-            sizes="(max-width: 768px) 176px, 256px"
-            className="object-cover dark:brightness-90"
-            priority
-          />
-        </div>
+        <Image
+          src={site.portrait.src}
+          alt={site.portrait.alt}
+          width={1500}
+          height={869}
+          sizes="(max-width: 640px) 100vw, 320px"
+          className="h-auto w-full rounded-2xl border border-border dark:brightness-90"
+          priority
+        />
       </div>
     </section>
   );

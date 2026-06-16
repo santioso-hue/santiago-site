@@ -17,9 +17,11 @@ export default function ProjectsPage() {
         lede="Things I've built: hardware, simulation pipelines, and software."
       />
 
-      <div className="grid items-start gap-6 sm:grid-cols-2">
+      <div className="columns-1 gap-6 sm:columns-2">
         {projects.map((entry) => (
-          <ProjectCard key={entry.id} entry={entry} />
+          <div key={entry.id} className="mb-6 break-inside-avoid">
+            <ProjectCard entry={entry} />
+          </div>
         ))}
       </div>
     </div>

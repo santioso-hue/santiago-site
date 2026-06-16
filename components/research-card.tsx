@@ -1,5 +1,6 @@
 import type { ResearchEntry } from "@/content/types";
 import { CardLinks } from "./card-links";
+import { richText } from "./rich-text";
 import { Tag } from "./tag";
 import { LiteYouTube } from "./lite-youtube";
 
@@ -32,7 +33,7 @@ export function ResearchCard({ entry }: { entry: ResearchEntry }) {
           ) : null}
 
           <p className="mt-3 text-[15px] leading-relaxed text-fg-muted">
-            {entry.description}
+            {richText(entry.description)}
           </p>
 
           {entry.tags.length > 0 ? (

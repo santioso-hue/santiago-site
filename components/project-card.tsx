@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { ProjectEntry } from "@/content/types";
 import { CardLinks } from "./card-links";
+import { richText } from "./rich-text";
 import { Tag } from "./tag";
 
 /** One project card: optional cover figure on top, then title, meta, description, tags, links. */
@@ -32,7 +33,7 @@ export function ProjectCard({ entry }: { entry: ProjectEntry }) {
         ) : null}
 
         <p className="mt-3 text-[15px] leading-relaxed text-fg-muted">
-          {entry.description}
+          {richText(entry.description)}
         </p>
 
         {entry.tags.length > 0 ? (

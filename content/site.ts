@@ -12,14 +12,12 @@ export const site: SiteConfig = {
   title: "Biomedical engineer. Neural engineering and neuromodulation.",
   email: "santiagojurado15@hotmail.com",
 
-  statement: [
-    "I am a biomedical engineer focused on neural engineering and neuromodulation. I work on stimulation hardware, computational imaging, and patient-specific electric-field modeling.",
-    "My projects range from high-capacity tDCS electrodes, characterized by impedance spectroscopy, to machine-learning pipelines for low-SNR imaging.",
-  ],
+  tagline:
+    "I'm a biomedical engineer working on neural stimulation and computational imaging.",
 
   portrait: {
-    src: "/images/headshot.jpg",
-    alt: "Portrait of Santiago Osorio Jurado",
+    src: "/images/presenting.jpg",
+    alt: "Santiago Osorio Jurado presenting his senior design project at City College of New York.",
   },
 
   socials: [
@@ -35,7 +33,6 @@ export const site: SiteConfig = {
     { label: "Research", href: "/research" },
     { label: "Projects", href: "/projects" },
     { label: "Publications", href: "/publications" },
-    { label: "About", href: "/about" },
   ],
 
   cvHref: "/Santiago-Osorio-Jurado-CV.pdf",

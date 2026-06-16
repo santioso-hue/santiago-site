@@ -1,16 +1,9 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import { about } from "@/content/about";
 import { site } from "@/content/site";
 import type { AboutContent, TimelineItem } from "@/content/types";
-import { SectionHeading } from "@/components/section-heading";
 import { Tag } from "@/components/tag";
 import { LogoTile } from "@/components/logo-tile";
-
-export const metadata: Metadata = {
-  title: "About",
-  description: `About ${site.name}: bio, education, and research interests.`,
-};
 
 /** A titled block. Serif subheading + content, with consistent vertical rhythm. */
 function Section({
@@ -56,7 +49,7 @@ function Timeline({ items }: { items: TimelineItem[] }) {
   );
 }
 
-/** Personal closing: one serif-italic line beside a photo, at the foot of the page. */
+/** Personal closing: one serif-italic line beside a photo. */
 function Personal({ data }: { data: NonNullable<AboutContent["personal"]> }) {
   return (
     <section className="mt-16 border-t border-border pt-12">
@@ -87,11 +80,13 @@ function Personal({ data }: { data: NonNullable<AboutContent["personal"]> }) {
   );
 }
 
-export default function AboutPage() {
+/**
+ * The full About content (intro, education, experience, interests, honors, CV, and the
+ * personal closing), rendered on the home page beneath the hero.
+ */
+export function AboutBody() {
   return (
-    <div className="mx-auto max-w-3xl">
-      <SectionHeading title="About" />
-
+    <div className="mt-14 border-t border-border pt-12">
       <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:gap-10">
         <div className="prose-reading min-w-0 flex-1 text-base">
           <p>

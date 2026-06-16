@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     default: `${site.name}, ${site.title}`,
     template: `%s · ${site.name}`,
   },
-  description: site.statement[0],
+  description: site.tagline,
   authors: [{ name: site.name }],
   creator: site.name,
   openGraph: {
@@ -25,12 +25,12 @@ export const metadata: Metadata = {
     url: siteUrl,
     siteName: site.name,
     title: `${site.name}, ${site.title}`,
-    description: site.statement[0],
+    description: site.tagline,
   },
   twitter: {
     card: "summary_large_image",
     title: `${site.name}, ${site.title}`,
-    description: site.statement[0],
+    description: site.tagline,
   },
   robots: { index: true, follow: true },
   verification: {
