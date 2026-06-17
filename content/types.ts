@@ -129,6 +129,8 @@ export interface TimelineItem {
   detail?: string;
   /** Optional small institution logo (e.g. on the education entry). */
   logo?: { src: string; alt: string };
+  /** Optional advisors/professors for this role, shown as profile-link chips. */
+  professors?: { name: string; href: string }[];
 }
 
 export interface AboutContent {
@@ -143,8 +145,8 @@ export interface AboutContent {
   experience: TimelineItem[];
   /** Research interests, rendered as chips. */
   interests: string[];
-  /** Awards / honors. Title renders bold, detail muted. */
-  honors: { title: string; detail?: string }[];
+  /** Awards / honors. Title renders bold (a link when `href` is set), detail muted. */
+  honors: { title: string; detail?: string; href?: string }[];
   /** Society memberships, shown with small logos under Education. */
   affiliations?: { name: string; role?: string; logo: { src: string; alt: string } }[];
   /** Optional personal closing: one line + a photo, shown at the foot of /about. */

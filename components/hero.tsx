@@ -1,5 +1,7 @@
 import Image from "next/image";
 import { site } from "@/content/site";
+import { FieldHero } from "./field-hero";
+import { richText } from "./rich-text";
 import { SocialLinks } from "./social-links";
 
 /**
@@ -9,7 +11,8 @@ import { SocialLinks } from "./social-links";
  */
 export function Hero() {
   return (
-    <section className="flex flex-col gap-10 md:flex-row md:items-center md:gap-10">
+    <section className="relative isolate flex flex-col gap-10 md:flex-row md:items-center md:gap-10">
+      <FieldHero />
       <div className="max-w-xl flex-1">
         <h1
           className="animate-rise text-4xl font-medium leading-[1.04] tracking-tight sm:text-5xl"
@@ -22,7 +25,7 @@ export function Hero() {
           className="animate-rise mt-4 text-lg leading-snug text-fg-muted"
           style={{ animationDelay: "140ms" }}
         >
-          {site.tagline}
+          {richText(site.tagline)}
         </p>
 
         <p className="animate-rise mt-6" style={{ animationDelay: "210ms" }}>

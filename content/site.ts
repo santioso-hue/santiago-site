@@ -13,7 +13,7 @@ export const site: SiteConfig = {
   email: "santiagojurado15@hotmail.com",
 
   tagline:
-    "I'm a biomedical engineer working on neural stimulation and computational imaging.",
+    "I'm a biomedical engineer working on *neural stimulation* and computational imaging.",
 
   portrait: {
     src: "/images/presenting.jpg",

@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import { inter, newsreader } from "./fonts";
+import { hanken, jetbrainsMono, newsreader } from "./fonts";
 import { site } from "@/content/site";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Nav } from "@/components/nav";
@@ -54,7 +54,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${inter.variable} ${newsreader.variable}`}
+      className={`${hanken.variable} ${newsreader.variable} ${jetbrainsMono.variable}`}
     >
       <body className="min-h-screen antialiased">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
@@ -67,6 +67,7 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
+          <div aria-hidden className="grain-overlay" />
         </ThemeProvider>
       </body>
     </html>

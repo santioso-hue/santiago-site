@@ -1,4 +1,4 @@
-import { Newsreader, Inter } from "next/font/google";
+import { Newsreader, Hanken_Grotesk, JetBrains_Mono } from "next/font/google";
 
 // Editorial serif for headings. Variable font with an optical-size axis, so large
 // headings automatically get tighter, more refined letterforms. Italic is loaded for
@@ -10,9 +10,18 @@ export const newsreader = Newsreader({
   style: ["normal", "italic"],
 });
 
-// Clean, highly legible body sans (requested in the spec). Variable font.
-export const inter = Inter({
+// Body sans with warmth and character (Hanken Grotesk) — a distinctive, human grotesque
+// rather than a template default. Variable font; next/font self-hosts it.
+export const hanken = Hanken_Grotesk({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-inter",
+  variable: "--font-hanken",
+});
+
+// Monospace "meta" voice — dates, tags, and source/year tags. A third typographic
+// register (mono) alongside the serif display and grotesk body reads as lab precision.
+export const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-jetbrains",
 });

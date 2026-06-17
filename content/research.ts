@@ -20,7 +20,7 @@ export const research: ResearchEntry[] = [
     title: "High-Capacity tDCS (HC-tDCS)",
     affiliation: "CCNY Neural Engineering Group (Prof. Marom Bikson)",
     period: "Jan 2025 – present",
-    logo: { src: "/logos/ccny.png", alt: "The City College of New York" },
+    logo: { src: "/logos/ccny-seal-purple.png", alt: "The City College of New York" },
     description:
       "Design and validation of high-capacity electrodes that deliver transcranial direct-current stimulation at currents up to 6 mA without skin irritation. The work pairs electrochemical impedance spectroscopy (EIS) characterization of the electrode-skin interface with an IRB-approved human-subject study establishing safety and tolerability at high dose.",
     tags: ["Electrode design", "EIS", "tDCS", "IRB / human subjects", "Electrochemistry"],

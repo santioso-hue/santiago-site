@@ -18,20 +18,21 @@ export const about: AboutContent = {
       period: "May 2026",
       role: "B.E. Biomedical Engineering",
       org: "The City College of New York, CUNY",
-      logo: { src: "/logos/ccny.png", alt: "The City College of New York" },
+      detail: "Graduated with honors",
+      logo: { src: "/logos/ccny-seal-purple.png", alt: "The City College of New York" },
     },
   ],
 
   affiliations: [
     {
       name: "Tau Beta Pi",
-      role: "Engineering Honor Society",
-      logo: { src: "/logos/tau-beta-pi.png", alt: "Tau Beta Pi" },
+      role: "Engineering Honor Society · top 12.5%",
+      logo: { src: "/logos/tau-beta-pi-blue.png", alt: "Tau Beta Pi" },
     },
     {
       name: "Biomedical Engineering Society",
       role: "Chapter officer",
-      logo: { src: "/logos/bmes.png", alt: "Biomedical Engineering Society" },
+      logo: { src: "/logos/bmes-blue.png", alt: "Biomedical Engineering Society" },
     },
   ],
 
@@ -40,25 +41,41 @@ export const about: AboutContent = {
       period: "May 2026 – present",
       role: "Visiting Researcher",
       org: "KTH Royal Institute of Technology, Stockholm",
+      logo: { src: "/logos/kth.png", alt: "KTH Royal Institute of Technology" },
       detail: "Computational modeling of neurostimulation in Parkinson's disease patients.",
+      professors: [
+        { name: "Prof. Rodrigo Moreno", href: "https://www.kth.se/profile/rodmore?l=en" },
+      ],
     },
     {
       period: "Jan 2025 – present",
-      role: "Undergraduate Researcher",
+      role: "Neuroengineering Researcher",
       org: "CCNY Neural Engineering Group",
+      logo: { src: "/logos/ccny-seal-purple.png", alt: "The City College of New York" },
       detail: "High-capacity tDCS: electrode design, EIS, IRB human-subject validation at 6 mA.",
+      professors: [
+        { name: "Prof. Marom Bikson", href: "https://www.neuralengr.org/bikson" },
+      ],
     },
     {
       period: "Jun – Dec 2025",
-      role: "Research Intern",
+      role: "Machine Learning Researcher",
       org: "Computational Imaging Lab, UC Berkeley",
+      logo: { src: "/logos/uc-berkeley-seal.png", alt: "University of California, Berkeley" },
       detail: "Deep learning (U-Net vs. CNN-transformer hybrids) for low-SNR darkfield microscopy.",
+      professors: [
+        { name: "Prof. Laura Waller", href: "https://www.laurawaller.com/" },
+      ],
     },
     {
       period: "May – Sep 2024",
-      role: "Research Intern",
+      role: "Medical Imaging Researcher",
       org: "KTH Royal Institute of Technology, Stockholm",
+      logo: { src: "/logos/kth.png", alt: "KTH Royal Institute of Technology" },
       detail: "Contrast-to-noise optimization on a Siemens NAEOTOM Alpha photon-counting CT.",
+      professors: [
+        { name: "Prof. Mats Persson", href: "https://www.kth.se/profile/persson6?l=en" },
+      ],
     },
   ],
 
@@ -75,30 +92,26 @@ export const about: AboutContent = {
   honors: [
     {
       title: "Rukin Award for Academic and Professional Perseverance in Biomedical Engineering",
-      detail: "Department of Biomedical Engineering, CCNY. 2026.",
+      detail: "CCNY BME · 2026",
     },
     {
       title: "Wallace H. Coulter Award for Academic Service in Biomedical Engineering",
-      detail: "Department of Biomedical Engineering, CCNY. 2025 and 2026.",
+      detail: "CCNY BME · 2025, 2026",
     },
     {
       title: "Endowed Engineering Careers Scholarship",
-      detail: "Grove School of Engineering, CCNY. 2025.",
-    },
-    {
-      title: "Tau Beta Pi, Engineering Honor Society",
-      detail:
-        "New York Eta Chapter, CCNY. 2025. Inducted in the top eighth (12.5%) of the junior class.",
+      href: "https://www.ccny.cuny.edu/news/1m-gift-grove-school-establishes-scholarship-fund-undergrads",
+      detail: "Grove School · 2025",
     },
     {
       title: "NIH U-RISE Scholar (NIGMS T34)",
-      detail:
-        "National Institutes of Health, at CCNY. 2025. Competitive NIH-funded undergraduate research training program preparing students for biomedical research PhDs.",
+      href: "https://www.ccny.cuny.edu/urise",
+      detail: "NIH · 2025",
     },
     {
       title: "America Needs You Fellowship",
-      detail:
-        "2023. Two-year fellowship for first-generation college students: mentorship, internship support, and professional-development grants.",
+      href: "https://americaneedsyou.org/",
+      detail: "2023",
     },
   ],
 

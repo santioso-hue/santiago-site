@@ -7,7 +7,7 @@ import { Tag } from "./tag";
 /** One project card: optional cover figure on top, then title, meta, description, tags, links. */
 export function ProjectCard({ entry }: { entry: ProjectEntry }) {
   return (
-    <article className="overflow-hidden rounded-lg border border-border bg-surface/40 transition-colors hover:border-border-strong">
+    <article className="overflow-hidden rounded-lg border border-border bg-surface/40 transition-[border-color,box-shadow] duration-200 hover:border-accent/40 hover:shadow-md">
       {entry.image ? (
         <div className="relative aspect-[16/9] w-full border-b border-border bg-white">
           <Image
@@ -24,7 +24,9 @@ export function ProjectCard({ entry }: { entry: ProjectEntry }) {
         <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
           <h2 className="text-lg font-medium tracking-tight">{entry.title}</h2>
           {entry.period ? (
-            <span className="text-sm text-fg-subtle">{entry.period}</span>
+            <span className="font-mono text-[13px] text-fg-subtle">
+              {entry.period}
+            </span>
           ) : null}
         </div>
 
