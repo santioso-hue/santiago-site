@@ -1,6 +1,7 @@
 import { ArrowUpRight, FileImage, FileText } from "lucide-react";
 import type { ResearchLink } from "@/content/types";
 import { GitHubIcon } from "./icons";
+import { newTabProps } from "./ui";
 
 /**
  * Outbound links for a card (paper, code, poster), each led by a matching glyph.
@@ -32,16 +33,14 @@ export function CardLinks({ links }: { links: ResearchLink[] }) {
           <li key={link.label}>
             <a
               href={link.href}
-              {...(external
-                ? { target: "_blank", rel: "noreferrer noopener" }
-                : {})}
+              {...(external ? newTabProps : {})}
               className="inline-flex items-center gap-1.5 text-sm font-medium text-accent underline-offset-4 hover:underline"
             >
               {LeadingIcon ? (
                 <LeadingIcon className="h-4 w-4" aria-hidden />
               ) : null}
               {link.label}
-              {LeadingIcon ? null : (
+              {!LeadingIcon && (
                 <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
               )}
             </a>

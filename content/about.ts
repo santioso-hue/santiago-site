@@ -13,15 +13,13 @@ export const about: AboutContent = {
     alt: "Santiago Osorio Jurado in cap and gown at his City College of New York graduation, 2026.",
   },
 
-  education: [
-    {
-      period: "May 2026",
-      role: "B.E. Biomedical Engineering",
-      org: "The City College of New York, CUNY",
-      detail: "Graduated with honors",
-      logo: { src: "/logos/ccny-seal-purple.png", alt: "The City College of New York" },
-    },
-  ],
+  education: {
+    period: "May 2026",
+    role: "B.E. Biomedical Engineering",
+    org: "The City College of New York, CUNY",
+    detail: "Graduated with honors",
+    logo: { src: "/logos/ccny-seal-purple.png", alt: "The City College of New York" },
+  },
 
   affiliations: [
     {
@@ -61,7 +59,11 @@ export const about: AboutContent = {
       period: "Jun – Dec 2025",
       role: "Machine Learning Researcher",
       org: "Computational Imaging Lab, UC Berkeley",
-      logo: { src: "/logos/uc-berkeley-seal.png", alt: "University of California, Berkeley" },
+      logo: {
+        src: "/logos/uc-berkeley-seal.png",
+        alt: "University of California, Berkeley",
+        keepColor: true,
+      },
       detail: "Deep learning (U-Net vs. CNN-transformer hybrids) for low-SNR darkfield microscopy.",
       professors: [
         { name: "Prof. Laura Waller", href: "https://www.laurawaller.com/" },

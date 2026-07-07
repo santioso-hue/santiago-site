@@ -1,5 +1,6 @@
 import { site } from "@/content/site";
 import { socialIcons } from "./icons";
+import { externalLinkProps } from "./ui";
 
 /** Row of icon links to profiles, with an underline that expands from center on hover. */
 export function SocialLinks({ className = "" }: { className?: string }) {
@@ -7,16 +8,13 @@ export function SocialLinks({ className = "" }: { className?: string }) {
     <ul className={`flex flex-wrap items-center gap-1 ${className}`}>
       {site.socials.map((social) => {
         const Icon = socialIcons[social.icon];
-        const external = social.href.startsWith("http");
         return (
           <li key={social.label}>
             <a
               href={social.href}
               aria-label={social.label}
               title={social.label}
-              {...(external
-                ? { target: "_blank", rel: "noreferrer noopener" }
-                : {})}
+              {...externalLinkProps(social.href)}
               className="group relative inline-flex h-10 w-10 items-center justify-center text-fg-muted transition-colors hover:text-accent focus-visible:text-accent"
             >
               <Icon className="h-[18px] w-[18px]" />

@@ -1,13 +1,12 @@
 import Image from "next/image";
 import type { ProjectEntry } from "@/content/types";
-import { CardLinks } from "./card-links";
-import { richText } from "./rich-text";
-import { Tag } from "./tag";
+import { CardBody } from "./card-body";
+import { cardSurface } from "./ui";
 
 /** One project card: optional cover figure on top, then title, meta, description, tags, links. */
 export function ProjectCard({ entry }: { entry: ProjectEntry }) {
   return (
-    <article className="overflow-hidden rounded-lg border border-border bg-surface/40 transition-[border-color,box-shadow] duration-200 hover:border-accent/40 hover:shadow-md">
+    <article className={`overflow-hidden ${cardSurface}`}>
       {entry.image ? (
         <div className="relative aspect-[16/9] w-full border-b border-border bg-white">
           <Image
@@ -21,34 +20,7 @@ export function ProjectCard({ entry }: { entry: ProjectEntry }) {
       ) : null}
 
       <div className="p-5">
-        <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
-          <h2 className="text-lg font-medium tracking-tight">{entry.title}</h2>
-          {entry.period ? (
-            <span className="font-mono text-[13px] text-fg-subtle">
-              {entry.period}
-            </span>
-          ) : null}
-        </div>
-
-        {entry.affiliation ? (
-          <p className="mt-1 text-sm text-fg-muted">{entry.affiliation}</p>
-        ) : null}
-
-        <p className="mt-3 text-[15px] leading-relaxed text-fg-muted">
-          {richText(entry.description)}
-        </p>
-
-        {entry.tags.length > 0 ? (
-          <ul className="mt-4 flex flex-wrap gap-1.5">
-            {entry.tags.map((tag) => (
-              <li key={tag}>
-                <Tag>{tag}</Tag>
-              </li>
-            ))}
-          </ul>
-        ) : null}
-
-        {entry.links ? <CardLinks links={entry.links} /> : null}
+        <CardBody entry={entry} />
       </div>
     </article>
   );

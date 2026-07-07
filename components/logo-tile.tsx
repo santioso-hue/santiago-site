@@ -1,21 +1,20 @@
 /**
  * Institution logo that blends into the card surface (no opaque tile). Monochrome /
- * line-art marks are flipped light in dark mode so they stay legible; filled colored
- * seals (which already read on any background) are left untouched.
+ * line-art marks are flipped light in dark mode so they stay legible; pass `keepColor`
+ * for filled, multi-color seals that already read on any background.
  */
 export function LogoTile({
   src,
   alt,
+  keepColor = false,
   className,
 }: {
   src: string;
   alt: string;
+  /** Keep original colors in dark mode instead of inverting to light. */
+  keepColor?: boolean;
   className?: string;
 }) {
-  // Filled colored seals (e.g. the UC Berkeley seal) read on any background, and
-  // inverting them would wreck their color — so only flip the dark line-art marks.
-  const invertInDark = !src.includes("uc-berkeley");
-
   return (
     <span
       className={`flex shrink-0 items-center justify-center ${className ?? ""}`}
@@ -25,7 +24,7 @@ export function LogoTile({
         src={src}
         alt={alt}
         className={`max-h-full max-w-full object-contain${
-          invertInDark ? " dark:[filter:invert(1)_hue-rotate(180deg)]" : ""
+          keepColor ? "" : " dark:[filter:invert(1)_hue-rotate(180deg)]"
         }`}
       />
     </span>

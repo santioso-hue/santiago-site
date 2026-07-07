@@ -1,3 +1,5 @@
+import { externalLinkProps } from "./ui";
+
 const TOKEN = /\[([^\]]+)\]\(([^)]+)\)|\*([^*]+)\*/g;
 
 /**
@@ -14,12 +16,11 @@ export function richText(text: string): React.ReactNode {
     if (idx > last) nodes.push(text.slice(last, idx));
     const [, label, href, em] = m;
     if (href) {
-      const external = href.startsWith("http");
       nodes.push(
         <a
           key={idx}
           href={href}
-          {...(external ? { target: "_blank", rel: "noreferrer noopener" } : {})}
+          {...externalLinkProps(href)}
           className="font-medium text-accent underline underline-offset-2 hover:text-accent-hover"
         >
           {label}

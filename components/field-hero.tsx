@@ -32,7 +32,10 @@ export function FieldHero() {
     };
     readAccent();
     const themeObs = new MutationObserver(readAccent);
-    themeObs.observe(document.documentElement, { attributes: true });
+    themeObs.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
 
     const resize = () => {
       const r = canvas.getBoundingClientRect();
@@ -55,29 +58,35 @@ export function FieldHero() {
       { x: 0.12, y: 0.7, q: 1 },
     ];
 
+    // Live (pixel-space) charge positions and a scratch field vector, reused every
+    // frame so the draw loop stays allocation-free.
+    const live = charges.map((c) => ({ x: 0, y: 0, q: c.q }));
+    const field: [number, number] = [0, 0];
+    const fieldAt = (px: number, py: number) => {
+      let ex = 0;
+      let ey = 0;
+      for (const c of live) {
+        const dx = px - c.x;
+        const dy = py - c.y;
+        const r2 = dx * dx + dy * dy + 600;
+        const inv = c.q / (r2 * Math.sqrt(r2));
+        ex += inv * dx;
+        ey += inv * dy;
+      }
+      field[0] = ex;
+      field[1] = ey;
+      return field;
+    };
+
     const draw = (time: number) => {
       ctx.clearRect(0, 0, w, h);
       if (w < 2 || h < 2) return;
 
-      const live = charges.map((c, i) => ({
-        x: (c.x + Math.sin(time * 0.00018 + i * 1.3) * 0.04) * w,
-        y: (c.y + Math.cos(time * 0.00022 + i * 0.7) * 0.04) * h,
-        q: c.q,
-      }));
-
-      const fieldAt = (px: number, py: number) => {
-        let ex = 0;
-        let ey = 0;
-        for (const c of live) {
-          const dx = px - c.x;
-          const dy = py - c.y;
-          const r2 = dx * dx + dy * dy + 600;
-          const inv = c.q / (r2 * Math.sqrt(r2));
-          ex += inv * dx;
-          ey += inv * dy;
-        }
-        return [ex, ey];
-      };
+      for (let i = 0; i < charges.length; i++) {
+        const c = charges[i];
+        live[i].x = (c.x + Math.sin(time * 0.00018 + i * 1.3) * 0.04) * w;
+        live[i].y = (c.y + Math.cos(time * 0.00022 + i * 0.7) * 0.04) * h;
+      }
 
       ctx.lineWidth = 1;
       ctx.strokeStyle = accent;
@@ -95,7 +104,7 @@ export function FieldHero() {
           ctx.moveTo(x, y);
           for (let s = 0; s < STEPS; s++) {
             const [ex, ey] = fieldAt(x, y);
-            const m = Math.hypot(ex, ey) || 1;
+            const m = Math.sqrt(ex * ex + ey * ey) || 1;
             x += (ex / m) * STEP;
             y += (ey / m) * STEP;
             if (x < -60 || x > w + 60 || y < -60 || y > h + 60) break;

@@ -26,6 +26,18 @@ export interface NavItem {
   href: string;
 }
 
+/** A small institution/organization logo mark. */
+export interface Logo {
+  src: string;
+  alt: string;
+  /**
+   * Keep original colors in dark mode. Set on filled, multi-color marks (e.g. the
+   * UC Berkeley seal) that read on any background; by default marks are inverted
+   * light so line-art stays legible on the dark surface.
+   */
+  keepColor?: boolean;
+}
+
 export interface SiteConfig {
   /** Full name, used in the hero and metadata. */
   name: string;
@@ -72,7 +84,7 @@ export interface ResearchEntry {
   /** Methods / tools, rendered as chips. */
   tags: string[];
   /** Optional small institution logo, shown above the title. */
-  logo?: { src: string; alt: string };
+  logo?: Logo;
   /** Optional outbound links (paper, code, poster). */
   links?: ResearchLink[];
   /** Optional inline presentation video (lazy, click-to-play). */
@@ -128,7 +140,7 @@ export interface TimelineItem {
   /** Optional supporting detail (honors, focus, advisor). */
   detail?: string;
   /** Optional small institution logo (e.g. on the education entry). */
-  logo?: { src: string; alt: string };
+  logo?: Logo;
   /** Optional advisors/professors for this role, shown as profile-link chips. */
   professors?: { name: string; href: string }[];
 }
@@ -140,7 +152,8 @@ export interface AboutContent {
   previously: string;
   /** Optional photo shown beside the intro (e.g. graduation). */
   photo?: { src: string; alt: string };
-  education: TimelineItem[];
+  /** The degree; the Education card is built around exactly one entry. */
+  education: TimelineItem;
   /** Brief trajectory: positions / labs over time. */
   experience: TimelineItem[];
   /** Research interests, rendered as chips. */
@@ -148,7 +161,7 @@ export interface AboutContent {
   /** Awards / honors. Title renders bold (a link when `href` is set), detail muted. */
   honors: { title: string; detail?: string; href?: string }[];
   /** Society memberships, shown with small logos under Education. */
-  affiliations?: { name: string; role?: string; logo: { src: string; alt: string } }[];
+  affiliations?: { name: string; role?: string; logo: Logo }[];
   /** Optional personal closing: one line + a photo, shown at the foot of /about. */
   personal?: {
     quote: string;

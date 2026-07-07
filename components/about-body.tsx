@@ -5,11 +5,10 @@ import { site } from "@/content/site";
 import type { AboutContent, TimelineItem } from "@/content/types";
 import { LogoTile } from "@/components/logo-tile";
 import { Reveal } from "@/components/reveal";
+import { cardSurface, metaMono } from "@/components/ui";
 
-// Card surface that lifts on hover — accent-tinted border + soft shadow, matching the
-// project/research cards. Reused by the Education and Experience entries.
-const cardClass =
-  "rounded-lg border border-border bg-surface/40 p-5 transition-[border-color,box-shadow] duration-200 hover:border-accent/40 hover:shadow-md";
+// The shared card surface plus the padding the Education and Experience entries use.
+const cardClass = `${cardSurface} p-5`;
 
 /** A titled block. Serif subheading + content, with consistent vertical rhythm. */
 function Section({
@@ -95,7 +94,7 @@ function Personal({ data }: { data: NonNullable<AboutContent["personal"]> }) {
  * inside the Education card, since they were all earned during undergrad.
  */
 export function AboutBody() {
-  const edu = about.education[0];
+  const edu = about.education;
 
   return (
     <div className="mt-14 border-t border-border pt-12">
@@ -134,6 +133,7 @@ export function AboutBody() {
                   <LogoTile
                     src={edu.logo.src}
                     alt={edu.logo.alt}
+                    keepColor={edu.logo.keepColor}
                     className="h-24 w-24 shrink-0 rounded-2xl p-3.5"
                   />
                 ) : null}
@@ -177,6 +177,7 @@ export function AboutBody() {
                           <LogoTile
                             src={a.logo.src}
                             alt={a.logo.alt}
+                            keepColor={a.logo.keepColor}
                             className="h-8 w-8 rounded-md p-1"
                           />
                           <span className="leading-tight">
@@ -253,18 +254,19 @@ export function AboutBody() {
                           {item.detail}
                         </p>
                       ) : null}
-                      {item.professors && item.professors.length > 0 ? (
+                      {item.professors?.length ? (
                         <Professors items={item.professors} />
                       ) : null}
                     </div>
                     <div className="flex shrink-0 flex-col items-end gap-2.5">
-                      <span className="whitespace-nowrap font-mono text-[13px] text-fg-subtle">
+                      <span className={`whitespace-nowrap ${metaMono}`}>
                         {item.period}
                       </span>
                       {item.logo ? (
                         <LogoTile
                           src={item.logo.src}
                           alt={item.logo.alt}
+                          keepColor={item.logo.keepColor}
                           className="h-20 w-20 rounded-2xl p-2.5"
                         />
                       ) : null}
@@ -283,7 +285,7 @@ export function AboutBody() {
             .map((x, i) => (i === 0 ? x : x.toLowerCase()))
             .slice(0, -1)
             .join(", ")}
-          , and {about.interests[about.interests.length - 1].toLowerCase()}.
+          , and {about.interests.at(-1)!.toLowerCase()}.
         </p>
       </Section>
 
