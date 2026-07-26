@@ -17,7 +17,7 @@ export const about: AboutContent = {
     period: "May 2026",
     role: "B.E. Biomedical Engineering",
     org: "The City College of New York, CUNY",
-    detail: "Graduated with honors",
+    detail: "Magna Cum Laude, Dean's List",
     logo: { src: "/logos/ccny-seal-purple.png", alt: "The City College of New York" },
   },
 
@@ -95,6 +95,10 @@ export const about: AboutContent = {
     {
       title: "Rukin Award for Academic and Professional Perseverance in Biomedical Engineering",
       detail: "CCNY BME · 2026",
+    },
+    {
+      title: "BMES Student Chapter Executive Board Award",
+      detail: "CCNY BME · 2025, 2026",
     },
     {
       title: "Wallace H. Coulter Award for Academic Service in Biomedical Engineering",
