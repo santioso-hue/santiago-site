@@ -36,7 +36,7 @@ export const about: AboutContent = {
 
   experience: [
     {
-      period: "May 2026 – present",
+      period: "May 2026 – Present",
       role: "Visiting Researcher",
       org: "KTH Royal Institute of Technology, Stockholm",
       logo: { src: "/logos/kth.png", alt: "KTH Royal Institute of Technology" },
@@ -46,7 +46,7 @@ export const about: AboutContent = {
       ],
     },
     {
-      period: "Jan 2025 – present",
+      period: "Jan 2025 – Present",
       role: "Neuroengineering Researcher",
       org: "CCNY Neural Engineering Group",
       logo: { src: "/logos/ccny-seal-purple.png", alt: "The City College of New York" },

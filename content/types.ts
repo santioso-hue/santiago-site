@@ -77,7 +77,7 @@ export interface ResearchEntry {
   title: string;
   /** Lab / institution, e.g. "UC Berkeley · Waller Lab". */
   affiliation?: string;
-  /** Time span, e.g. "2024 – present". */
+  /** Time span, e.g. "2024 – Present". */
   period?: string;
   /** One-paragraph description. */
   description: string;

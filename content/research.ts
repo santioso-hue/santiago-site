@@ -9,7 +9,7 @@ export const research: ResearchEntry[] = [
     id: "pd-neurostim",
     title: "Using diffusion MRI to personalize tDCS in Parkinson's",
     affiliation: "KTH Royal Institute of Technology · Stockholm",
-    period: "May 2026 – present",
+    period: "May 2026 – Present",
     logo: { src: "/logos/kth.png", alt: "KTH Royal Institute of Technology" },
     description:
       "A pipeline for patient-specific tDCS head models in Parkinson's disease, where standard models assign one fixed conductivity per tissue and ignore disease-related changes in brain microstructure. Building on the diffusion-MRI dataset of Olsson et al. (2025), covering 12 patients and 17 controls, I map mean diffusivity to electrical conductivity, build subject-specific finite-element models in SimNIBS, and compare the induced electric fields between patients and controls.",
@@ -19,7 +19,7 @@ export const research: ResearchEntry[] = [
     id: "hc-tdcs",
     title: "High-Capacity tDCS (HC-tDCS)",
     affiliation: "CCNY Neural Engineering Group (Prof. Marom Bikson)",
-    period: "Jan 2025 – present",
+    period: "Jan 2025 – Present",
     logo: { src: "/logos/ccny-seal-purple.png", alt: "The City College of New York" },
     description:
       "Design and validation of high-capacity electrodes that deliver transcranial direct-current stimulation at currents up to 6 mA without skin irritation. The work pairs electrochemical impedance spectroscopy (EIS) characterization of the electrode-skin interface with an IRB-approved human-subject study establishing safety and tolerability at high dose.",
