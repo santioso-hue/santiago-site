@@ -7,6 +7,21 @@ import type { Publication } from "./types";
  */
 export const publications: Publication[] = [
   {
+    id: "md-dmri-tdcs-pd",
+    authors: [
+      { name: "S. Osorio Jurado", isMe: true },
+      { name: "M. Skorpil" },
+      { name: "P. Svenningsson" },
+      { name: "R. Moreno" },
+      { name: "C. Olsson" },
+    ],
+    title:
+      "Anisotropic conductivity modeling for tDCS in Parkinson's disease using multidimensional diffusion MRI",
+    venue: "Target: NeuroImage: Clinical",
+    year: 2026,
+    type: "in-preparation",
+  },
+  {
     id: "hc-tdcs-2025",
     authors: [
       { name: "K. Donnery" },
@@ -25,5 +40,67 @@ export const publications: Publication[] = [
     year: 2025,
     type: "preprint",
     doi: "10.1101/2025.06.11.659142",
+  },
+];
+
+/**
+ * Conference talks and posters, shown below the publications list (newest first).
+ * `url` links the poster itself where one is available in /public/posters.
+ */
+export const talks: Publication[] = [
+  {
+    id: "nyc-neuromodulation-2026",
+    authors: [
+      { name: "S. Osorio Jurado", isMe: true },
+      { name: "C. Olsson" },
+      { name: "R. Moreno" },
+    ],
+    title:
+      "Anisotropic conductivity modeling for tDCS in Parkinson's disease using multidimensional diffusion MRI",
+    venue: "NYC Neuromodulation Conference, New York, NY",
+    year: 2026,
+    type: "poster",
+  },
+  {
+    id: "uuc-kth-2026",
+    authors: [
+      { name: "S. Osorio Jurado", isMe: true },
+      { name: "C. Olsson" },
+      { name: "R. Moreno" },
+    ],
+    title:
+      "Anisotropic conductivity modeling for tDCS in Parkinson's disease using multidimensional diffusion MRI",
+    venue:
+      "Urban University Conference Series (UUC2026), KTH Royal Institute of Technology, Stockholm",
+    year: 2026,
+    type: "poster",
+  },
+  {
+    id: "abrcms-2025",
+    authors: [{ name: "S. Osorio", isMe: true }, { name: "et al." }],
+    title: "High-Capacity transcranial Direct Current Stimulation (HC-tDCS)",
+    venue: "ABRCMS, San Antonio, TX",
+    year: 2025,
+    type: "poster",
+  },
+  {
+    id: "superb-2025",
+    authors: [{ name: "S. Osorio", isMe: true }],
+    title:
+      "Deep-learning denoising for extreme short-exposure darkfield microscopy",
+    venue: "SUPERB Summer Research Symposium, UC Berkeley",
+    year: 2025,
+    type: "talk",
+    url: "/posters/darkfield-microscopy-superb-2025.jpg",
+  },
+  {
+    id: "ires-2024",
+    authors: [{ name: "S. Osorio", isMe: true }],
+    title:
+      "Optimal tube-voltage selection in photon-counting CT for iodine contrast imaging",
+    venue: "NSF IRES Research Symposium, KTH and CCNY",
+    year: 2024,
+    type: "poster",
+    url: "/posters/photon-counting-ct-cnr.jpg",
   },
 ];

@@ -113,7 +113,9 @@ export type PublicationType =
   | "journal"
   | "conference"
   | "preprint"
+  | "in-preparation"
   | "poster"
+  | "talk"
   | "thesis";
 
 export interface Publication {

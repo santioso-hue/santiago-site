@@ -5,7 +5,9 @@ const TYPE_LABELS: Record<PublicationType, string> = {
   journal: "Journal",
   conference: "Conference",
   preprint: "Preprint",
+  "in-preparation": "In preparation",
   poster: "Poster",
+  talk: "Talk",
   thesis: "Thesis",
 };
 

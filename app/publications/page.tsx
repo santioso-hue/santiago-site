@@ -1,28 +1,43 @@
 import type { Metadata } from "next";
-import { publications } from "@/content/publications";
+import { publications, talks } from "@/content/publications";
 import { PublicationItem } from "@/components/publication-item";
 import { SectionHeading } from "@/components/section-heading";
 
 export const metadata: Metadata = {
   title: "Publications",
-  description: "Preprints and papers by Santiago Osorio Jurado.",
+  description:
+    "Papers, preprints, and conference presentations by Santiago Osorio Jurado.",
 };
 
+/** Newest first. */
+const byYear = (a: { year: number }, b: { year: number }) => b.year - a.year;
+
 export default function PublicationsPage() {
-  // Newest first.
-  const sorted = [...publications].sort((a, b) => b.year - a.year);
+  const papers = [...publications].sort(byYear);
+  const presentations = [...talks].sort(byYear);
 
   return (
     <div className="mx-auto max-w-3xl">
       <SectionHeading
         title="Publications"
-        lede="Preprints and papers, newest first. Links resolve to the DOI where available."
+        lede="Papers and preprints, newest first. Links resolve to the DOI where available."
       />
       <div>
-        {sorted.map((pub) => (
+        {papers.map((pub) => (
           <PublicationItem key={pub.id} pub={pub} />
         ))}
       </div>
+
+      {presentations.length > 0 ? (
+        <section className="mt-14">
+          <h2 className="mb-5 text-lg text-fg">Talks and posters</h2>
+          <div>
+            {presentations.map((pub) => (
+              <PublicationItem key={pub.id} pub={pub} />
+            ))}
+          </div>
+        </section>
+      ) : null}
     </div>
   );
 }
