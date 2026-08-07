@@ -85,10 +85,22 @@ export interface ResearchEntry {
   tags: string[];
   /** Optional small institution logo, shown above the title. */
   logo?: Logo;
+  /** Optional figure from the work, shown in the card's left column. */
+  image?: { src: string; alt: string; width: number; height: number };
+  /**
+   * Set when the entry has enough material to warrant its own page. Only then does
+   * the title link to /research/<id>; otherwise the card stands on its own.
+   */
+  detailPage?: boolean;
   /** Optional outbound links (paper, code, poster). */
   links?: ResearchLink[];
-  /** Optional inline presentation video (lazy, click-to-play). */
+  /** Optional inline presentation video (lazy, click-to-play), shown on the detail page. */
   video?: { youtubeId: string; title: string };
+  /**
+   * Optional extra paragraphs shown only on the entry's detail page, after the
+   * description. Supports the same inline `[label](href)` and `*emphasis*` markup.
+   */
+  body?: string[];
 }
 
 export interface ProjectEntry {

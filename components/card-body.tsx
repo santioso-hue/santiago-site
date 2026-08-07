@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { ResearchLink } from "@/content/types";
 import { CardLinks } from "./card-links";
 import { richText } from "./rich-text";
@@ -27,9 +28,12 @@ interface CardBodyEntry {
 export function CardBody({
   entry,
   size = "base",
+  titleHref,
 }: {
   entry: CardBodyEntry;
   size?: keyof typeof SIZES;
+  /** When set, the title links here (e.g. to the entry's detail page). */
+  titleHref?: string;
 }) {
   return (
     <>
@@ -37,7 +41,16 @@ export function CardBody({
         className={`flex flex-wrap items-baseline justify-between ${SIZES[size].gap} gap-y-1`}
       >
         <h2 className={`${SIZES[size].title} font-medium tracking-tight`}>
-          {entry.title}
+          {titleHref ? (
+            <Link
+              href={titleHref}
+              className="underline-offset-4 transition-colors hover:text-accent hover:underline"
+            >
+              {entry.title}
+            </Link>
+          ) : (
+            entry.title
+          )}
         </h2>
         {entry.period ? (
           <span className={metaMono}>{entry.period}</span>
