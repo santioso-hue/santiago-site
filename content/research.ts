@@ -83,21 +83,39 @@ export const research: ResearchEntry[] = [
     },
     figures: [
       {
-        src: "/images/research/darkfield-reconstruction.jpg",
-        alt: "Three darkfield microscopy panels: a nearly black short-exposure input, the model's reconstruction recovering cell structure, and the ground-truth image.",
-        width: 592,
-        height: 200,
+        src: "/images/research/darkfield-cells.jpg",
+        alt: "Six darkfield microscopy panels of cells in two rows, one per model, each showing the short-exposure input, the model's reconstruction, and the long-exposure ground truth.",
+        width: 1400,
+        height: 886,
         caption:
-          "Short-exposure input, the model's reconstruction, and the ground-truth image.",
+          "Simulation dataset. Short-exposure input, reconstruction, and long-exposure ground truth for SID (top) and SNR-Aware (bottom). Both models visibly improve the short-exposure image, and SID denoises better while preserving finer detail.",
+      },
+      {
+        src: "/images/research/darkfield-targets.jpg",
+        alt: "The same three-panel comparison on USAF resolution targets, with red and blue insets magnifying fine features.",
+        width: 1400,
+        height: 712,
+        caption:
+          "Experimental dataset. The same comparison on USAF phase targets acquired with an LED array microscope, with insets on the finest features.",
+      },
+      {
+        src: "/images/research/darkfield-error.jpg",
+        alt: "Two heat maps of absolute reconstruction error, SID on the left and SNR-Aware on the right, where brighter regions mean larger error.",
+        width: 1400,
+        height: 604,
+        caption:
+          "Absolute error against ground truth, where brighter regions mean larger error. SID leaves lower residual error, especially in fine-detail regions: 0.6 percent mean error against 1.7 percent for SNR-Aware.",
       },
     ],
     detailPage: true,
     description:
-      "A controlled comparison of a U-Net against a CNN-transformer hybrid for denoising short-exposure, low-SNR darkfield microscopy. The U-Net preserved finer structure and recovered more detail at low photon counts.",
+      "A benchmark of two deep-learning models, SID and SNR-Aware, on short-exposure darkfield microscopy. Trained from scratch on simulated and experimental image pairs, SID denoised better and preserved finer detail, at 0.6 percent mean reconstruction error against 1.7 percent.",
     body: [
-      "Both models were trained and evaluated on simulated and phase-target datasets, scored on PSNR, SSIM, and error maps. The goal is label-free live-cell imaging at exposures short enough to avoid photodamage.",
+      "Dynamic biological samples need short exposures to avoid motion blur, which leaves darkfield images with very low signal-to-noise. Traditional pipelines treat denoising and brightening as separate steps, and those steps compound their errors at low SNR. Deep-learning models built for low-light photography handle both at once, but had not been tested on darkfield microscopy.",
+      "I trained both models from scratch on identical splits: 768 simulated pairs, made by darkening high-SNR cell images and adding Poisson-Gaussian noise, and 720 experimental pairs of USAF phase targets acquired on an LED array microscope. Each pair is a 512 by 512 patch of a short-exposure input and its long-exposure ground truth, scored on PSNR, SSIM, and per-pixel error against that reference.",
+      "SID won on both datasets, with better denoising, better fine-detail preservation, and shorter training time. The transformer-based SNR-Aware model likely needs larger and more diverse data than this study provided. Testing so far covers static samples only, so live dynamic samples would be the next step.",
     ],
-    tags: ["Deep learning", "U-Net", "Vision transformers", "Computational imaging", "PyTorch"],
+    tags: ["Deep learning", "PyTorch", "Computational imaging", "Image restoration", "Vision transformers"],
     video: { youtubeId: "NfUxkJLmI1U", title: "SUPERB 2025 Presentation" },
     links: [
       {
