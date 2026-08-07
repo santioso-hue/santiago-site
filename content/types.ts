@@ -85,8 +85,25 @@ export interface ResearchEntry {
   tags: string[];
   /** Optional small institution logo, shown above the title. */
   logo?: Logo;
-  /** Optional figure from the work, shown in the card's left column. */
-  image?: { src: string; alt: string; width: number; height: number };
+  /**
+   * Optional abstract, shown at the top of the detail page. Verbatim from the
+   * paper; one string per paragraph.
+   */
+  abstract?: string[];
+  /** Optional figures, shown on the detail page each with its caption. */
+  figures?: {
+    src: string;
+    alt: string;
+    width: number;
+    height: number;
+    caption: string;
+  }[];
+  /**
+   * Optional standalone visual for the card: a transparent render that reads on
+   * its own, without a caption or surrounding figure. Sits directly on the card
+   * surface, like the institution logos.
+   */
+  visual?: { src: string; alt: string; width: number; height: number };
   /**
    * Set when the entry has enough material to warrant its own page. Only then does
    * the title link to /research/<id>; otherwise the card stands on its own.

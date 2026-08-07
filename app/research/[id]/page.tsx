@@ -85,20 +85,35 @@ export default async function ResearchDetailPage({
         ))}
       </div>
 
-      {entry.image ? (
-        <figure className="mt-8">
-          <Image
-            src={entry.image.src}
-            alt={entry.image.alt}
-            width={entry.image.width}
-            height={entry.image.height}
-            sizes="(max-width: 768px) 100vw, 768px"
-            className="h-auto w-full rounded-lg border border-border bg-white"
-          />
-          <figcaption className="mt-3 text-sm leading-relaxed text-fg-subtle">
-            {entry.image.alt}
-          </figcaption>
-        </figure>
+      {entry.abstract ? (
+        <section className="mt-10">
+          <h2 className="mb-4 text-lg text-fg">Abstract</h2>
+          <div className="prose-reading text-base">
+            {entry.abstract.map((paragraph, i) => (
+              <p key={i}>{paragraph}</p>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
+      {entry.figures?.length ? (
+        <section className="mt-10 flex flex-col gap-10">
+          {entry.figures.map((fig) => (
+            <figure key={fig.src} className="m-0">
+              <Image
+                src={fig.src}
+                alt={fig.alt}
+                width={fig.width}
+                height={fig.height}
+                sizes="(max-width: 768px) 100vw, 768px"
+                className="h-auto w-full rounded-lg border border-border bg-white"
+              />
+              <figcaption className="mt-3 text-sm leading-relaxed text-fg-subtle">
+                {fig.caption}
+              </figcaption>
+            </figure>
+          ))}
+        </section>
       ) : null}
 
       {entry.tags.length > 0 ? (

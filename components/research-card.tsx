@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { ResearchEntry } from "@/content/types";
 import { CardBody } from "./card-body";
 import { LiteYouTube } from "./lite-youtube";
@@ -29,6 +30,17 @@ export function ResearchCard({ entry }: { entry: ResearchEntry }) {
             titleHref={entry.detailPage ? `/research/${entry.id}` : undefined}
           />
         </div>
+
+        {entry.visual ? (
+          <Image
+            src={entry.visual.src}
+            alt={entry.visual.alt}
+            width={entry.visual.width}
+            height={entry.visual.height}
+            sizes="176px"
+            className="hidden h-auto w-36 shrink-0 self-center lg:block"
+          />
+        ) : null}
       </div>
 
       {entry.video ? (

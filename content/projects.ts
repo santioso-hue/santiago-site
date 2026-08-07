@@ -19,6 +19,26 @@ export const projects: ProjectEntry[] = [
     },
   },
   {
+    id: "worldcup-predictor",
+    title: "World Cup 2026 Predictor",
+    period: "2026",
+    description:
+      "Win probabilities for the 2026 World Cup, recomputed from real results as the tournament plays out. Elo ratings fitted on the full history of international matches set team strength, a Dixon-Coles model converts those into goal distributions, and a Monte Carlo simulation plays out whatever is left of the bracket. Every finished match feeds back in.",
+    tags: [
+      "Python",
+      "Statistical modeling",
+      "Monte Carlo simulation",
+      "Data pipelines",
+      "Streamlit",
+    ],
+    links: [
+      {
+        label: "Code",
+        href: "https://github.com/santioso-hue/worldcup2026-predictor",
+      },
+    ],
+  },
+  {
     id: "tdcs-head-model",
     title: "Patient-Specific Head Model & tDCS E-Field Simulation",
     affiliation: "Independent project",
