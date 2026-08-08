@@ -52,21 +52,22 @@ export const talks: Publication[] = [
     id: "nyc-neuromodulation-2026",
     authors: [
       { name: "S. Osorio Jurado", isMe: true },
-      { name: "C. Olsson" },
       { name: "R. Moreno" },
+      { name: "C. Olsson" },
     ],
     title:
       "Anisotropic conductivity modeling for tDCS in Parkinson's disease using multidimensional diffusion MRI",
     venue: "NYC Neuromodulation Conference, New York, NY",
     year: 2026,
     type: "poster",
+    url: "/posters/mre-tdcs-pd-neuromodulation-2026.jpg",
   },
   {
     id: "uuc-kth-2026",
     authors: [
       { name: "S. Osorio Jurado", isMe: true },
-      { name: "C. Olsson" },
       { name: "R. Moreno" },
+      { name: "C. Olsson" },
     ],
     title:
       "Anisotropic conductivity modeling for tDCS in Parkinson's disease using multidimensional diffusion MRI",
@@ -82,6 +83,7 @@ export const talks: Publication[] = [
     venue: "ABRCMS, San Antonio, TX",
     year: 2025,
     type: "poster",
+    url: "/posters/hc-tdcs-abrcms-2025.jpg",
   },
   {
     id: "superb-2025",
