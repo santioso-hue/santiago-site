@@ -6,7 +6,7 @@ export const about: AboutContent = {
     "modeling tDCS for Parkinson's at KTH in Stockholm; I recently graduated in biomedical engineering from CCNY",
 
   previously:
-    "building high-capacity tDCS electrodes at CCNY, developing ML models to enhance microscopy at UC Berkeley, and leading electronics and software for a rodent pain-test capstone",
+    "building high-capacity tDCS electrodes at CCNY, training models to denoise darkfield microscopy at UC Berkeley, and leading electronics and software for a rodent pain-test capstone",
 
   photo: {
     src: "/images/graduation.jpg",
@@ -64,7 +64,7 @@ export const about: AboutContent = {
         alt: "University of California, Berkeley",
         keepColor: true,
       },
-      detail: "Deep learning (U-Net vs. CNN-transformer hybrids) for low-SNR darkfield microscopy.",
+      detail: "Benchmarked SID against SNR-Aware for denoising low-SNR darkfield microscopy.",
       professors: [
         { name: "Prof. Laura Waller", href: "https://www.laurawaller.com/" },
       ],

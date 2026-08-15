@@ -78,7 +78,12 @@ export const talks: Publication[] = [
   },
   {
     id: "abrcms-2025",
-    authors: [{ name: "S. Osorio", isMe: true }, { name: "et al." }],
+    authors: [
+      { name: "S. Osorio", isMe: true },
+      { name: "K. Donnery" },
+      { name: "M. FallahRad" },
+      { name: "et al." },
+    ],
     title: "High-Capacity transcranial Direct Current Stimulation (HC-tDCS)",
     venue: "ABRCMS, San Antonio, TX",
     year: 2025,

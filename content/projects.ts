@@ -11,7 +11,7 @@ export const projects: ProjectEntry[] = [
     period: "Aug 2025 – May 2026",
     affiliation: "Senior Design Capstone · CCNY",
     description:
-      "A modular thermal-stimulus add-on for Tactorum's [Automated Reproducible Mechano-Stimulator (ARM)](https://tactorum.com), delivering reproducible rodent thermal pain testing from 30–60 °C. I designed and validated the embedded control system: a closed-loop PID controller with constant-temperature and 1 °C/s ramp modes, and ±0.5 °C accuracy. The device features a Peltier air-cooling chamber that cuts cooldown (50 to 30 °C) from 417 s to 66 s.",
+      "A modular thermal-stimulus add-on for Tactorum's [Automated Reproducible Mechano-Stimulator (ARM)](https://tactorum.com) that runs reproducible rodent thermal pain tests from 30–60 °C. I designed and validated the embedded control system: a closed-loop PID controller with constant-temperature and 1 °C/s ramp modes, holding ±0.5 °C. A Peltier air-cooling chamber cuts the 50 to 30 °C cooldown from 417 s to 66 s.",
     tags: ["Embedded systems", "PID control", "Arduino", "Control systems"],
     image: {
       src: "/images/thermal-stimulator.jpg",
@@ -23,7 +23,7 @@ export const projects: ProjectEntry[] = [
     title: "World Cup 2026 Predictor",
     period: "2026",
     description:
-      "Win probabilities for the 2026 World Cup, recomputed from real results as the tournament plays out. Elo ratings fitted on the full history of international matches set team strength, a Dixon-Coles model converts those into goal distributions, and a Monte Carlo simulation plays out whatever is left of the bracket. Every finished match feeds back in.",
+      "Win probabilities for the 2026 World Cup, recomputed after every match. Elo ratings fitted on the full history of international matches set team strength, a Dixon-Coles model turns those into goal distributions, and a Monte Carlo simulation plays out whatever is left of the bracket.",
     tags: [
       "Python",
       "Statistical modeling",
@@ -43,7 +43,7 @@ export const projects: ProjectEntry[] = [
     title: "Patient-Specific Head Model & tDCS E-Field Simulation",
     affiliation: "Independent project",
     description:
-      "An open pipeline that builds a subject-specific finite-element head model from a single MRI and simulates tDCS electric fields, applied to my own T1 scan with SimNIBS and FSL. A C3/Fp2 montage at 2 mA gives a peak gray-matter field of 0.41 V/m, within the published range.",
+      "A pipeline that builds a subject-specific finite-element head model from a single MRI and simulates the tDCS electric field. I ran it on my own T1 scan with SimNIBS and FSL: a C3/Fp2 montage at 2 mA gives a peak gray-matter field of 0.41 V/m, within the published range.",
     tags: ["Python", "SimNIBS", "FSL", "FEM", "tDCS", "Neuroimaging"],
     image: {
       src: "/images/tdcs-headmodel.jpg",
@@ -58,7 +58,7 @@ export const projects: ProjectEntry[] = [
     title: "Mechanical Analysis of Motorcycle Helmets",
     period: "2025",
     description:
-      "A biomechanical analysis of how motorcycle helmets protect against traumatic brain injury. We dissected the mechanical design of helmets and identified flaws in current testing standards and metrics used to predict injury. These metrics fail to account for rotational acceleration, which is believed to be the primary cause of several injuries. Finally, we propose design improvements to enhance helmet safety.",
+      "A biomechanical analysis of how motorcycle helmets protect against traumatic brain injury. We took apart their mechanical design and found gaps in the testing standards and injury metrics currently in use: they largely ignore rotational acceleration, which drives many of the injuries helmets are meant to prevent. We propose design changes that would account for it.",
     tags: ["Biomechanics", "Traumatic brain injury", "Impact mechanics", "Mechanical design"],
     links: [
       { label: "Poster", href: "/posters/motorcycle-helmet-mechanics.jpg" },
@@ -70,7 +70,7 @@ export const projects: ProjectEntry[] = [
     period: "2024",
     affiliation: "Biodesign Hackathon · CCNY (team project)",
     description:
-      "A wearable that eases Restless Leg Syndrome (RLS) without the side effects of medication. A triaxial accelerometer on an Arduino Nano detects involuntary leg movements and triggers vibration motors in a compression sleeve, with both manual and automatic modes.",
+      "A wearable meant to ease Restless Leg Syndrome (RLS) without the side effects of medication. A triaxial accelerometer on an Arduino Nano detects involuntary leg movements and triggers vibration motors in a compression sleeve, with both manual and automatic modes.",
     tags: ["Medical devices", "Wearables", "Arduino", "Embedded systems", "Sensors"],
     image: {
       src: "/images/relief-sleeve.jpg",
