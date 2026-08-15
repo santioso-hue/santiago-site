@@ -40,7 +40,8 @@ export const about: AboutContent = {
       role: "Visiting Researcher",
       org: "KTH Royal Institute of Technology, Stockholm",
       logo: { src: "/logos/kth.png", alt: "KTH Royal Institute of Technology" },
-      detail: "Computational modeling of neurostimulation in Parkinson's disease patients.",
+      detail:
+        "First tDCS conductivity model derived from multidimensional diffusion MRI, evaluated in 29 Parkinson's patients and controls.",
       professors: [
         { name: "Prof. Rodrigo Moreno", href: "https://www.kth.se/profile/rodmore?l=en" },
       ],
@@ -50,7 +51,8 @@ export const about: AboutContent = {
       role: "Neuroengineering Researcher",
       org: "CCNY Neural Engineering Group",
       logo: { src: "/logos/ccny-seal-purple.png", alt: "The City College of New York" },
-      detail: "High-capacity tDCS: electrode design, EIS, IRB human-subject validation at 6 mA.",
+      detail:
+        "High-capacity tDCS: electrode design, EIS, and IRB human-subject validation at 6 mA, triple the conventional dose.",
       professors: [
         { name: "Prof. Marom Bikson", href: "https://www.neuralengr.org/bikson" },
       ],
@@ -64,7 +66,8 @@ export const about: AboutContent = {
         alt: "University of California, Berkeley",
         keepColor: true,
       },
-      detail: "Benchmarked SID against SNR-Aware for denoising low-SNR darkfield microscopy.",
+      detail:
+        "Benchmarked SID against SNR-Aware for denoising low-SNR darkfield microscopy; SID achieved up to 13 dB higher PSNR.",
       professors: [
         { name: "Prof. Laura Waller", href: "https://www.laurawaller.com/" },
       ],
@@ -74,7 +77,8 @@ export const about: AboutContent = {
       role: "Medical Imaging Researcher",
       org: "KTH Royal Institute of Technology, Stockholm",
       logo: { src: "/logos/kth.png", alt: "KTH Royal Institute of Technology" },
-      detail: "Contrast-to-noise optimization on a Siemens NAEOTOM Alpha photon-counting CT.",
+      detail:
+        "Contrast-to-noise optimization on a Siemens NAEOTOM Alpha photon-counting CT; 90 kVp yielded the highest iodine CNR of the four tube voltages tested.",
       professors: [
         { name: "Prof. Mats Persson", href: "https://www.kth.se/profile/persson6?l=en" },
       ],
