@@ -41,6 +41,18 @@ export function ResearchCard({ entry }: { entry: ResearchEntry }) {
             className="hidden h-auto w-36 shrink-0 self-center lg:block"
           />
         ) : null}
+
+        {entry.photo ? (
+          <div className="relative hidden aspect-[4/5] w-36 shrink-0 self-center overflow-hidden rounded-xl border border-border bg-surface lg:block">
+            <Image
+              src={entry.photo.src}
+              alt={entry.photo.alt}
+              fill
+              sizes="144px"
+              className="object-cover dark:brightness-90"
+            />
+          </div>
+        ) : null}
       </div>
 
       {entry.video ? (

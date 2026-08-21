@@ -17,9 +17,10 @@ export const publications: Publication[] = [
     ],
     title:
       "Anisotropic conductivity modeling for tDCS in Parkinson's disease using multidimensional diffusion MRI",
-    venue: "Target: NeuroImage: Clinical",
+    venue: "bioRxiv · Target: Frontiers in Human Neuroscience",
     year: 2026,
-    type: "in-preparation",
+    type: "preprint",
+    doi: "10.64898/2026.08.02.742293",
   },
   {
     id: "hc-tdcs-2025",
@@ -105,7 +106,7 @@ export const talks: Publication[] = [
     authors: [{ name: "S. Osorio", isMe: true }],
     title:
       "Optimal tube-voltage selection in photon-counting CT for iodine contrast imaging",
-    venue: "NSF IRES Research Symposium, KTH and CCNY",
+    venue: "IRES Research Symposium, KTH and CCNY",
     year: 2024,
     type: "poster",
     url: "/posters/photon-counting-ct-cnr.jpg",

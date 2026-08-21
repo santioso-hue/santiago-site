@@ -9,7 +9,7 @@ export const research: ResearchEntry[] = [
     id: "pd-neurostim",
     title: "Using diffusion MRI to personalize tDCS in Parkinson's",
     affiliation: "KTH Royal Institute of Technology (Prof. Rodrigo Moreno)",
-    period: "May 2026 – Present",
+    period: "May – Aug 2026",
     logo: { src: "/logos/kth.png", alt: "KTH Royal Institute of Technology" },
     figures: [
       {
@@ -41,6 +41,12 @@ export const research: ResearchEntry[] = [
       height: 620,
     },
     detailPage: true,
+    links: [
+      {
+        label: "Preprint (bioRxiv)",
+        href: "https://doi.org/10.64898/2026.08.02.742293",
+      },
+    ],
     description:
       "Anisotropy in tDCS is conventionally derived from single-shell DTI. I built the first head model to derive it from multidimensional diffusion MRI, then compared the predicted electric fields against DTI and isotropic models across 29 participants and four montages.",
     tags: ["Parkinson's disease", "tDCS", "MD-dMRI", "SimNIBS", "Finite element modeling"],
@@ -51,6 +57,10 @@ export const research: ResearchEntry[] = [
     affiliation: "CCNY Neural Engineering Group (Prof. Marom Bikson)",
     period: "Jan 2025 – Present",
     logo: { src: "/logos/ccny-seal-purple.png", alt: "The City College of New York" },
+    photo: {
+      src: "/images/research/hc-tdcs-electrodes.jpg",
+      alt: "Santiago Osorio Jurado wearing two high-capacity tDCS electrodes on his forehead during a bench test at the CCNY Neural Engineering Group.",
+    },
     figures: [
       {
         src: "/images/research/hc-tdcs-layers.jpg",

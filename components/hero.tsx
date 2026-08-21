@@ -52,8 +52,8 @@ export function Hero() {
         <Image
           src={site.portrait.src}
           alt={site.portrait.alt}
-          width={1500}
-          height={869}
+          width={site.portrait.width}
+          height={site.portrait.height}
           sizes="(max-width: 640px) 100vw, 320px"
           className="h-auto w-full rounded-2xl border border-border dark:brightness-90"
           priority

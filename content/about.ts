@@ -3,10 +3,10 @@ import type { AboutContent } from "./types";
 /** Long-form bio, education, trajectory, interests, and honors for /about. */
 export const about: AboutContent = {
   currently:
-    "modeling tDCS for Parkinson's at KTH in Stockholm; I recently graduated in biomedical engineering from CCNY",
+    "a research engineer in the Bikson lab, building high-current tES electrodes, finishing a first-author paper on computational models of tDCS, and applying to PhD programs for Fall 2027",
 
   previously:
-    "building high-capacity tDCS electrodes at CCNY, training models to denoise darkfield microscopy at UC Berkeley, and leading electronics and software for a rodent pain-test capstone",
+    "building the electronics and software for Tactorum's rodent thermal stimulator, training ML models to denoise darkfield microscopy at UC Berkeley, and finishing my B.E. in biomedical engineering at CCNY",
 
   photo: {
     src: "/images/graduation.jpg",
@@ -36,7 +36,18 @@ export const about: AboutContent = {
 
   experience: [
     {
-      period: "May 2026 – Present",
+      period: "Aug 2026 – Present",
+      role: "Research Engineer",
+      org: "CCNY Neural Engineering Group",
+      logo: { src: "/logos/ccny-seal-purple.png", alt: "The City College of New York" },
+      detail:
+        "Leading electrode fabrication and scale-up for the lab's high-capacity tES hardware, running IRB-approved human-subject stimulation sessions, and developing an independent research project toward first authorship.",
+      professors: [
+        { name: "Prof. Marom Bikson", href: "https://www.neuralengr.org/bikson" },
+      ],
+    },
+    {
+      period: "May – Aug 2026",
       role: "Visiting Researcher",
       org: "KTH Royal Institute of Technology, Stockholm",
       logo: { src: "/logos/kth.png", alt: "KTH Royal Institute of Technology" },
@@ -47,8 +58,8 @@ export const about: AboutContent = {
       ],
     },
     {
-      period: "Jan 2025 – Present",
-      role: "Neuroengineering Researcher",
+      period: "Jan 2025 – May 2026",
+      role: "Undergraduate Researcher",
       org: "CCNY Neural Engineering Group",
       logo: { src: "/logos/ccny-seal-purple.png", alt: "The City College of New York" },
       detail:
@@ -59,8 +70,8 @@ export const about: AboutContent = {
     },
     {
       period: "Jun – Dec 2025",
-      role: "Machine Learning Researcher",
-      org: "Computational Imaging Lab, UC Berkeley",
+      role: "Machine Learning Research Intern",
+      org: "Computational Imaging Lab, UC Berkeley · SUPERB",
       logo: {
         src: "/logos/uc-berkeley-seal.png",
         alt: "University of California, Berkeley",
@@ -74,8 +85,8 @@ export const about: AboutContent = {
     },
     {
       period: "May – Sep 2024",
-      role: "Medical Imaging Researcher",
-      org: "KTH Royal Institute of Technology, Stockholm",
+      role: "Medical Imaging Research Intern",
+      org: "KTH Royal Institute of Technology, Stockholm · IRES",
       logo: { src: "/logos/kth.png", alt: "KTH Royal Institute of Technology" },
       detail:
         "Contrast-to-noise optimization on a Siemens NAEOTOM Alpha photon-counting CT; 90 kVp yielded the highest iodine CNR of the four tube voltages tested.",

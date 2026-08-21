@@ -16,8 +16,10 @@ export const site: SiteConfig = {
     "I'm a biomedical engineer working on *neural stimulation* and computational imaging.",
 
   portrait: {
-    src: "/images/presenting.jpg",
-    alt: "Santiago Osorio Jurado presenting his senior design project at City College of New York.",
+    src: "/images/portrait-neuromodulation-2026.jpg",
+    alt: "Santiago Osorio Jurado beside his poster on anisotropic conductivity modeling for tDCS in Parkinson's disease at the 2026 NYC Neuromodulation Conference.",
+    width: 1600,
+    height: 1333,
   },
 
   socials: [

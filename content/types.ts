@@ -55,8 +55,8 @@ export interface SiteConfig {
   email: string;
   /** First-person one-liner shown in the hero (and used as the meta description). */
   tagline: string;
-  /** Portrait shown in the hero. */
-  portrait: { src: string; alt: string };
+  /** Portrait shown in the hero, at its natural aspect (intrinsic pixel size required). */
+  portrait: { src: string; alt: string; width: number; height: number };
   /** Profile links rendered as an icon row in the hero and footer. */
   socials: SocialLink[];
   /** Primary nav destinations (left to right). */
@@ -104,6 +104,11 @@ export interface ResearchEntry {
    * surface, like the institution logos.
    */
   visual?: { src: string; alt: string; width: number; height: number };
+  /**
+   * Optional photograph for the card, shown as a rounded portrait thumbnail in the
+   * same right-column slot `visual` uses for transparent renders. Set one or the other.
+   */
+  photo?: { src: string; alt: string };
   /**
    * Set when the entry has enough material to warrant its own page. Only then does
    * the title link to /research/<id>; otherwise the card stands on its own.
