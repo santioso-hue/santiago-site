@@ -4,8 +4,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { research } from "@/content/research";
-import { CardLinks } from "@/components/card-links";
-import { LogoTile } from "@/components/logo-tile";
 import { richText } from "@/components/rich-text";
 import { Tag } from "@/components/tag";
 import { metaMono } from "@/components/ui";
@@ -53,28 +51,17 @@ export default async function ResearchDetailPage({
         Research
       </Link>
 
-      <header className="mt-6 flex items-start gap-4 sm:gap-5">
-        {entry.logo ? (
-          <LogoTile
-            src={entry.logo.src}
-            alt={entry.logo.alt}
-            keepColor={entry.logo.keepColor}
-            className="h-14 w-14 shrink-0 rounded-2xl p-2.5 sm:h-16 sm:w-16"
-          />
-        ) : null}
-
-        <div className="min-w-0 flex-1">
-          <h1 className="text-2xl font-medium tracking-tight sm:text-3xl">
-            {entry.title}
-          </h1>
-          <div className="mt-2 flex flex-wrap items-baseline gap-x-3 gap-y-1">
-            {entry.affiliation ? (
-              <p className="text-sm text-fg-muted">{entry.affiliation}</p>
-            ) : null}
-            {entry.period ? (
-              <span className={metaMono}>{entry.period}</span>
-            ) : null}
-          </div>
+      <header className="mt-8">
+        <h1 className="text-2xl font-medium tracking-tight sm:text-3xl">
+          {entry.title}
+        </h1>
+        <div className="mt-2 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+          {entry.affiliation ? (
+            <p className="text-sm text-fg-muted">{entry.affiliation}</p>
+          ) : null}
+          {entry.period ? (
+            <span className={metaMono}>{entry.period}</span>
+          ) : null}
         </div>
       </header>
 
@@ -98,7 +85,7 @@ export default async function ResearchDetailPage({
 
       {entry.figures?.length ? (
         <section className="mt-10 flex flex-col gap-10">
-          {entry.figures.map((fig) => (
+          {entry.figures.map((fig, i) => (
             <figure key={fig.src} className="m-0">
               <Image
                 src={fig.src}
@@ -109,6 +96,9 @@ export default async function ResearchDetailPage({
                 className="h-auto w-full rounded-lg border border-border bg-white"
               />
               <figcaption className="mt-3 text-sm leading-relaxed text-fg-subtle">
+                <span className={`${metaMono} mr-2`}>
+                  Fig. {i + 1}
+                </span>
                 {fig.caption}
               </figcaption>
             </figure>
@@ -116,8 +106,28 @@ export default async function ResearchDetailPage({
         </section>
       ) : null}
 
+      {entry.links?.length ? (
+        <ul className="mt-10 flex flex-col gap-2.5 border-t border-border pt-6">
+          {entry.links.map((link) => (
+            <li key={link.href} className="flex flex-wrap items-baseline gap-x-3 gap-y-0.5">
+              <a
+                href={link.href}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="font-mono text-xs font-medium text-accent underline-offset-4 hover:underline"
+              >
+                {link.label} &rarr;
+              </a>
+              {link.note ? (
+                <span className="text-sm text-fg-subtle">{link.note}</span>
+              ) : null}
+            </li>
+          ))}
+        </ul>
+      ) : null}
+
       {entry.tags.length > 0 ? (
-        <ul className="mt-8 flex flex-wrap gap-1.5">
+        <ul className="mt-6 flex flex-wrap gap-1.5">
           {entry.tags.map((tag) => (
             <li key={tag}>
               <Tag>{tag}</Tag>
@@ -125,8 +135,6 @@ export default async function ResearchDetailPage({
           ))}
         </ul>
       ) : null}
-
-      {entry.links ? <CardLinks links={entry.links} /> : null}
     </div>
   );
 }

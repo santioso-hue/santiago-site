@@ -45,6 +45,7 @@ export const research: ResearchEntry[] = [
       {
         label: "Preprint (bioRxiv)",
         href: "https://doi.org/10.64898/2026.08.02.742293",
+        note: "Osorio Jurado et al., 2026 \u00b7 under review at Frontiers in Human Neuroscience",
       },
     ],
     description:
@@ -61,23 +62,39 @@ export const research: ResearchEntry[] = [
       src: "/images/research/hc-tdcs-electrodes.jpg",
       alt: "Santiago Osorio Jurado wearing two high-capacity tDCS electrodes on his forehead during a bench test at the CCNY Neural Engineering Group.",
     },
+    detailPage: true,
+    body: [
+      "Human tES dosing runs from 2 mA for tDCS to roughly 1 A for electroconvulsive therapy, with almost nothing explored between. The ceiling is not physiology but the electrode-skin interface, which turns painful past 2 mA, right where cortical fields still sit under the 1 V/m engagement threshold. HC-tDCS redesigns that interface with multi-layer hydrogel electrodes: subjects report the same pain at 6 mA as conventional sponges at 2 mA.",
+      "That opens the door to tripling the dose in patients, and our electrodes now supply external 6 mA depression trials. Improving the design (potentially to the point where it runs off its own printed battery, with no external stimulator) and scaling up production are the next steps.",
+    ],
     figures: [
       {
-        src: "/images/research/hc-tdcs-layers.jpg",
-        alt: "Exploded view of the high-capacity electrode showing its stacked layers, including the redox layer and hydrogel interface.",
-        width: 635,
-        height: 283,
+        src: "/images/research/hc-tdcs-efield-models.jpg",
+        alt: "Three simulated head models colored by cortical electric field: a 2 mA F3-F4 sponge montage, the hydrogel electrodes at 2 mA, and the hydrogel electrodes at 6 mA.",
+        width: 1400,
+        height: 547,
         caption:
-          "Exploded view of the high-capacity electrode, showing the stacked layers and the hydrogel interface.",
+          "Predicted cortical fields: a conventional 2 mA sponge montage beside the hydrogel electrodes at 2 and 6 mA. Peak frontal fields reach 1.95 to 3.25 V/m at 6 mA, against 0.49 to 0.95 V/m for the sponge.",
       },
     ],
     description:
-      "High-capacity electrodes that deliver transcranial direct-current stimulation at 6 mA, triple the conventional dose, without skin irritation. I characterized the electrode-skin interface by impedance spectroscopy and validated safety and tolerability in an IRB-approved human-subject study.",
+      "High-capacity electrodes that deliver transcranial direct current stimulation at 6 mA, triple the conventional dose, without skin irritation. We characterized the electrode-skin interface by impedance spectroscopy and validated safety and tolerability in an IRB-approved human-subject study.",
     tags: ["Electrode design", "EIS", "tDCS", "IRB / human subjects", "Electrochemistry"],
     links: [
       {
         label: "Preprint (bioRxiv)",
         href: "https://www.biorxiv.org/content/10.1101/2025.06.11.659142v1",
+        note: "Donnery et al., 2025 \u00b7 electrode design, EIS, and tolerability data",
+      },
+      {
+        label: "NCT07226011",
+        href: "https://clinicaltrials.gov/study/NCT07226011",
+        note: "MUSC Brain Stimulation Lab \u00b7 accelerated 6 mA tDCS for depression, recruiting",
+      },
+      {
+        label: "NCT07657234",
+        href: "https://clinicaltrials.gov/study/NCT07657234",
+        note: "University of S\u00e3o Paulo \u00b7 6 mA tDCS for late-life depression",
       },
     ],
   },

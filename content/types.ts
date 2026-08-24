@@ -69,6 +69,12 @@ export interface ResearchLink {
   /** e.g. "Preprint", "Code", "Poster". */
   label: string;
   href: string;
+  /**
+   * One-line plain-language description, shown after the label on detail pages
+   * (e.g. "MUSC Brain Stimulation Lab · 6 mA tDCS for depression, recruiting").
+   * Cards ignore it.
+   */
+  note?: string;
 }
 
 export interface ResearchEntry {
