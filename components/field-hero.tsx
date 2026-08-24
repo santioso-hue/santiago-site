@@ -5,8 +5,10 @@ import { useEffect, useRef } from "react";
 /**
  * A faint, slowly-drifting field of electric-field streamlines behind the hero — a quiet
  * nod to the tDCS / electric-field modeling work. Streamlines are traced from a handful
- * of point charges whose positions gently oscillate over time. Canvas-based and cheap;
- * paused under prefers-reduced-motion and whenever it scrolls out of view.
+ * of point charges whose positions gently oscillate over time. The visitor's cursor
+ * carries its own charge: nearby lines bend around it and relax back when it leaves,
+ * and on touch a tap injects a charge that decays over about a second. Canvas-based and
+ * cheap; paused under prefers-reduced-motion and whenever it scrolls out of view.
  */
 export function FieldHero() {
   const ref = useRef<HTMLCanvasElement>(null);
@@ -61,6 +63,12 @@ export function FieldHero() {
     // Live (pixel-space) charge positions and a scratch field vector, reused every
     // frame so the draw loop stays allocation-free.
     const live = charges.map((c) => ({ x: 0, y: 0, q: c.q }));
+
+    // The visitor's cursor as a charge. Position lerps toward the pointer and the
+    // magnitude ramps in and out, so lines bend and relax without popping. A tap
+    // (touch) sets strength directly and lets it decay along the same ramp.
+    const cursor = { x: 0, y: 0, tx: 0, ty: 0, strength: 0, target: 0 };
+
     const field: [number, number] = [0, 0];
     const fieldAt = (px: number, py: number) => {
       let ex = 0;
@@ -73,10 +81,48 @@ export function FieldHero() {
         ex += inv * dx;
         ey += inv * dy;
       }
+      if (cursor.strength > 0.01) {
+        const dx = px - cursor.x;
+        const dy = py - cursor.y;
+        const r2 = dx * dx + dy * dy + 600;
+        const inv = (1.6 * cursor.strength) / (r2 * Math.sqrt(r2));
+        ex += inv * dx;
+        ey += inv * dy;
+      }
       field[0] = ex;
       field[1] = ey;
       return field;
     };
+
+    // Pointer listeners live on the hero section (the canvas itself is
+    // pointer-events-none so text and links above it stay interactive).
+    const host = canvas.parentElement;
+    const toLocal = (clientX: number, clientY: number) => {
+      const r = canvas.getBoundingClientRect();
+      cursor.tx = clientX - r.left;
+      cursor.ty = clientY - r.top;
+    };
+    const onMove = (e: MouseEvent) => {
+      toLocal(e.clientX, e.clientY);
+      cursor.target = 1;
+    };
+    const onLeave = () => {
+      cursor.target = 0;
+    };
+    const onTouch = (e: TouchEvent) => {
+      const t = e.touches[0];
+      if (!t) return;
+      toLocal(t.clientX, t.clientY);
+      cursor.x = cursor.tx;
+      cursor.y = cursor.ty;
+      cursor.strength = 1;
+      cursor.target = 0;
+    };
+    if (!reduce && host) {
+      host.addEventListener("mousemove", onMove, { passive: true });
+      host.addEventListener("mouseleave", onLeave, { passive: true });
+      host.addEventListener("touchstart", onTouch, { passive: true });
+    }
 
     const draw = (time: number) => {
       ctx.clearRect(0, 0, w, h);
@@ -88,29 +134,47 @@ export function FieldHero() {
         live[i].y = (c.y + Math.cos(time * 0.00022 + i * 0.7) * 0.04) * h;
       }
 
+      cursor.x += (cursor.tx - cursor.x) * 0.15;
+      cursor.y += (cursor.ty - cursor.y) * 0.15;
+      cursor.strength += (cursor.target - cursor.strength) * 0.08;
+
       ctx.lineWidth = 1;
       ctx.strokeStyle = accent;
-      ctx.globalAlpha = 0.12;
       const STEPS = 64;
       const STEP = 7;
       const PER = 16;
+      const trace = (sx: number, sy: number) => {
+        let x = sx;
+        let y = sy;
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+        for (let s = 0; s < STEPS; s++) {
+          const [ex, ey] = fieldAt(x, y);
+          const m = Math.sqrt(ex * ex + ey * ey) || 1;
+          x += (ex / m) * STEP;
+          y += (ey / m) * STEP;
+          if (x < -60 || x > w + 60 || y < -60 || y > h + 60) break;
+          ctx.lineTo(x, y);
+        }
+        ctx.stroke();
+      };
+
+      ctx.globalAlpha = 0.12;
       for (const c of live) {
         if (c.q <= 0) continue;
         for (let k = 0; k < PER; k++) {
           const a = (k / PER) * Math.PI * 2;
-          let x = c.x + Math.cos(a) * 16;
-          let y = c.y + Math.sin(a) * 16;
-          ctx.beginPath();
-          ctx.moveTo(x, y);
-          for (let s = 0; s < STEPS; s++) {
-            const [ex, ey] = fieldAt(x, y);
-            const m = Math.sqrt(ex * ex + ey * ey) || 1;
-            x += (ex / m) * STEP;
-            y += (ey / m) * STEP;
-            if (x < -60 || x > w + 60 || y < -60 || y > h + 60) break;
-            ctx.lineTo(x, y);
-          }
-          ctx.stroke();
+          trace(c.x + Math.cos(a) * 16, c.y + Math.sin(a) * 16);
+        }
+      }
+
+      // The field wakes up under the hand: the cursor charge seeds its own lines,
+      // brightening with strength and fading back out along the same ramp.
+      if (cursor.strength > 0.02) {
+        ctx.globalAlpha = 0.12 + 0.16 * cursor.strength;
+        for (let k = 0; k < 10; k++) {
+          const a = (k / 10) * Math.PI * 2;
+          trace(cursor.x + Math.cos(a) * 14, cursor.y + Math.sin(a) * 14);
         }
       }
       ctx.globalAlpha = 1;
@@ -144,6 +208,11 @@ export function FieldHero() {
       ro.disconnect();
       io.disconnect();
       themeObs.disconnect();
+      if (host) {
+        host.removeEventListener("mousemove", onMove);
+        host.removeEventListener("mouseleave", onLeave);
+        host.removeEventListener("touchstart", onTouch);
+      }
     };
   }, []);
 
