@@ -89,7 +89,7 @@ export const research: ResearchEntry[] = [
       {
         label: "NCT07226011",
         href: "https://clinicaltrials.gov/study/NCT07226011",
-        note: "MUSC Brain Stimulation Lab \u00b7 accelerated 6 mA tDCS for depression, recruiting",
+        note: "MUSC Brain Stimulation Lab \u00b7 accelerated 6 mA tDCS for depression",
       },
       {
         label: "NCT07657234",

@@ -71,7 +71,7 @@ export interface ResearchLink {
   href: string;
   /**
    * One-line plain-language description, shown after the label on detail pages
-   * (e.g. "MUSC Brain Stimulation Lab · 6 mA tDCS for depression, recruiting").
+   * (e.g. "MUSC Brain Stimulation Lab · 6 mA tDCS for depression").
    * Cards ignore it.
    */
   note?: string;
