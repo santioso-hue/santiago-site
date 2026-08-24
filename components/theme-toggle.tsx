@@ -33,7 +33,6 @@ export function ThemeToggle() {
 
   const current = (theme as ThemeChoice) ?? "system";
   const next = ORDER[(ORDER.indexOf(current) + 1) % ORDER.length];
-  const Icon = ICONS[current];
 
   return (
     <button
@@ -41,9 +40,22 @@ export function ThemeToggle() {
       onClick={() => setTheme(next)}
       aria-label={`Theme: ${current}. Switch to ${next}.`}
       title={`Theme: ${current} (click for ${next})`}
-      className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-fg-muted transition-colors hover:bg-surface hover:text-fg"
+      className="relative inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-fg-muted transition-colors hover:bg-surface hover:text-fg"
     >
-      <Icon className="h-[18px] w-[18px]" aria-hidden />
+      {ORDER.map((choice) => {
+        const Icon = ICONS[choice];
+        return (
+          <Icon
+            key={choice}
+            aria-hidden
+            className={`absolute h-[18px] w-[18px] transition-all duration-200 ease-out ${
+              choice === current
+                ? "rotate-0 scale-100 opacity-100"
+                : "-rotate-90 scale-50 opacity-0"
+            }`}
+          />
+        );
+      })}
     </button>
   );
 }

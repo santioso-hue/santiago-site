@@ -65,14 +65,17 @@ export function PublicationItem({ pub }: { pub: Publication }) {
           href={href}
           target="_blank"
           rel="noreferrer noopener"
-          className="mt-2 inline-flex items-center gap-0.5 text-sm font-medium text-accent underline-offset-4 hover:underline"
+          className="group mt-2 inline-flex items-center gap-0.5 text-sm font-medium text-accent underline-offset-4 hover:underline"
         >
           {pub.doi
             ? `doi.org/${pub.doi}`
             : ext
               ? `Poster (${ext}${size ? `, ${size}` : ""})`
               : "View"}
-          <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
+          <ArrowUpRight
+            className="h-3.5 w-3.5 transition-transform duration-150 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+            aria-hidden
+          />
         </a>
       ) : null}
 

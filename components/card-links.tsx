@@ -34,14 +34,17 @@ export function CardLinks({ links }: { links: ResearchLink[] }) {
             <a
               href={link.href}
               {...(external ? newTabProps : {})}
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-accent underline-offset-4 hover:underline"
+              className="group inline-flex items-center gap-1.5 text-sm font-medium text-accent underline-offset-4 hover:underline"
             >
               {LeadingIcon ? (
                 <LeadingIcon className="h-4 w-4" aria-hidden />
               ) : null}
               {link.label}
               {!LeadingIcon && (
-                <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
+                <ArrowUpRight
+                  className="h-3.5 w-3.5 transition-transform duration-150 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                  aria-hidden
+                />
               )}
             </a>
           </li>

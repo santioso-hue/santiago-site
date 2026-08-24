@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { research } from "@/content/research";
 import type { ResearchEntry } from "@/content/types";
+import { FigureLightbox } from "@/components/figure-lightbox";
 import { richText } from "@/components/rich-text";
 import { Tag } from "@/components/tag";
 import { metaMono } from "@/components/ui";
@@ -15,14 +16,16 @@ type Figure = NonNullable<ResearchEntry["figures"]>[number];
 function ResearchFigure({ fig, number }: { fig: Figure; number: number }) {
   return (
     <figure className="m-0">
-      <Image
-        src={fig.src}
-        alt={fig.alt}
-        width={fig.width}
-        height={fig.height}
-        sizes="(max-width: 768px) 100vw, 768px"
-        className="h-auto w-full rounded-lg border border-border bg-white"
-      />
+      <FigureLightbox src={fig.src} alt={fig.alt} width={fig.width} height={fig.height}>
+        <Image
+          src={fig.src}
+          alt={fig.alt}
+          width={fig.width}
+          height={fig.height}
+          sizes="(max-width: 768px) 100vw, 768px"
+          className="h-auto w-full rounded-lg border border-border bg-white"
+        />
+      </FigureLightbox>
       <figcaption className="mt-3 text-sm leading-relaxed text-fg-subtle">
         <span className={`${metaMono} mr-2`}>Fig. {number}</span>
         {fig.caption}
@@ -141,9 +144,12 @@ export default async function ResearchDetailPage({
                 href={link.href}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="font-mono text-xs font-medium text-accent underline-offset-4 hover:underline"
+                className="group font-mono text-xs font-medium text-accent underline-offset-4 hover:underline"
               >
-                {link.label} &rarr;
+                {link.label}{" "}
+                <span className="inline-block transition-transform duration-150 group-hover:translate-x-0.5">
+                  &rarr;
+                </span>
               </a>
               {link.note ? (
                 <span className="text-sm text-fg-subtle">{link.note}</span>
@@ -171,7 +177,10 @@ export default async function ResearchDetailPage({
           >
             <span className={metaMono}>Next</span>
             <span className="text-sm font-medium text-fg transition-colors group-hover:text-accent">
-              {nextEntry.title} &rarr;
+              {nextEntry.title}{" "}
+              <span className="inline-block transition-transform duration-150 group-hover:translate-x-0.5">
+                &rarr;
+              </span>
             </span>
           </Link>
         </div>

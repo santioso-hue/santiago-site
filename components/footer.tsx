@@ -4,6 +4,10 @@ import { SocialLinks } from "./social-links";
 /** Site footer: identity + social links. Rendered at build time (server component). */
 export function Footer() {
   const year = new Date().getFullYear();
+  const updated = new Date().toLocaleString("en-US", {
+    month: "long",
+    year: "numeric",
+  });
 
   return (
     <footer className="mt-24 border-t border-border">
@@ -11,8 +15,8 @@ export function Footer() {
         <div>
           <p className="font-serif text-base font-medium">{site.name}</p>
           <p className="mt-0.5 text-sm text-fg-muted">{site.title}</p>
-          <p className="mt-2 text-xs text-fg-subtle">
-            © {year} {site.name}
+          <p className="mt-2 font-mono text-xs text-fg-subtle">
+            © {year} {site.name} · Updated {updated}
           </p>
         </div>
         <div className="-ml-2 sm:ml-0">
