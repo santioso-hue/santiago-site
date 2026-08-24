@@ -103,6 +103,11 @@ export interface ResearchEntry {
     width: number;
     height: number;
     caption: string;
+    /**
+     * 1-based abstract paragraph this figure follows, interleaving it with the
+     * text. Figures without it render in a block after all prose (the default).
+     */
+    afterParagraph?: number;
   }[];
   /**
    * Optional standalone visual for the card: a transparent render that reads on
@@ -170,6 +175,8 @@ export interface Publication {
   doi?: string;
   /** Direct link (arXiv, bioRxiv, PDF) if there is no DOI yet. */
   url?: string;
+  /** Optional BibTeX entry, shown in a collapsible block under the citation. */
+  bibtex?: string;
 }
 
 export interface TimelineItem {

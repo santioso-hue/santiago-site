@@ -1,5 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 import type { Publication, PublicationType } from "@/content/types";
+import { publicFileSize } from "@/lib/asset-size";
 
 const TYPE_LABELS: Record<PublicationType, string> = {
   journal: "Journal",
@@ -14,6 +15,9 @@ const TYPE_LABELS: Record<PublicationType, string> = {
 /** One citation row. Links to the DOI when present, otherwise the provided URL. */
 export function PublicationItem({ pub }: { pub: Publication }) {
   const href = pub.doi ? `https://doi.org/${pub.doi}` : pub.url;
+  const isLocalFile = !pub.doi && pub.url?.startsWith("/");
+  const ext = isLocalFile ? pub.url!.split(".").pop()!.toUpperCase() : null;
+  const size = isLocalFile ? publicFileSize(pub.url!) : null;
 
   return (
     <article className="border-t border-border py-6 first:border-t-0 first:pt-0">
@@ -63,9 +67,24 @@ export function PublicationItem({ pub }: { pub: Publication }) {
           rel="noreferrer noopener"
           className="mt-2 inline-flex items-center gap-0.5 text-sm font-medium text-accent underline-offset-4 hover:underline"
         >
-          {pub.doi ? `doi.org/${pub.doi}` : "View"}
+          {pub.doi
+            ? `doi.org/${pub.doi}`
+            : ext
+              ? `Poster (${ext}${size ? `, ${size}` : ""})`
+              : "View"}
           <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
         </a>
+      ) : null}
+
+      {pub.bibtex ? (
+        <details className="mt-3">
+          <summary className="cursor-pointer font-mono text-xs font-medium text-fg-subtle transition-colors hover:text-accent">
+            BibTeX
+          </summary>
+          <pre className="mt-2 overflow-x-auto rounded-lg border border-border bg-surface p-4 font-mono text-[11px] leading-relaxed text-fg-muted">
+            {pub.bibtex}
+          </pre>
+        </details>
       ) : null}
     </article>
   );

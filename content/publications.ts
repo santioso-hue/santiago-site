@@ -21,6 +21,15 @@ export const publications: Publication[] = [
     year: 2026,
     type: "preprint",
     doi: "10.64898/2026.08.02.742293",
+    bibtex: `@article{osorio2026anisotropic,
+  title   = {Anisotropic conductivity modeling for tDCS in Parkinson's disease
+             using multidimensional diffusion MRI},
+  author  = {Osorio Jurado, Santiago and Skorpil, Mikael and Svenningsson, Per
+             and Moreno, Rodrigo and Olsson, Christoffer},
+  journal = {bioRxiv},
+  year    = {2026},
+  doi     = {10.64898/2026.08.02.742293}
+}`,
   },
   {
     id: "hc-tdcs-2025",

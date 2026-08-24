@@ -6,6 +6,7 @@ import type { AboutContent, TimelineItem } from "@/content/types";
 import { LogoTile } from "@/components/logo-tile";
 import { Reveal } from "@/components/reveal";
 import { cardSurface, metaMono } from "@/components/ui";
+import { publicFileSize } from "@/lib/asset-size";
 
 // The shared card surface plus the padding the Education and Experience entries use.
 const cardClass = `${cardSurface} p-5`;
@@ -95,6 +96,7 @@ function Personal({ data }: { data: NonNullable<AboutContent["personal"]> }) {
  */
 export function AboutBody() {
   const edu = about.education;
+  const cvSize = publicFileSize(site.cvHref);
 
   return (
     <div className="mt-14 border-t border-border pt-12">
@@ -296,7 +298,7 @@ export function AboutBody() {
           rel="noreferrer noopener"
           className="inline-flex items-center gap-1.5 rounded-md border border-border bg-surface px-4 py-2 text-sm font-medium text-fg transition-colors hover:border-border-strong hover:text-accent"
         >
-          Download CV (PDF)
+          Download CV ({cvSize ? `PDF, ${cvSize}` : "PDF"})
         </a>
       </Section>
 

@@ -13,26 +13,17 @@ export const research: ResearchEntry[] = [
     logo: { src: "/logos/kth.png", alt: "KTH Royal Institute of Technology" },
     figures: [
       {
-        src: "/images/research/tdcs-modeling-pipeline.jpg",
-        alt: "Modeling pipeline: T1 and T2 structural scans plus DTI and MD-dMRI diffusion scans feed a charm head segmentation and a finite-element solver, which returns the cortical electric field for each conductivity model.",
-        width: 1400,
-        height: 1111,
+        src: "/images/research/tdcs-fig1-pipeline.jpg",
+        alt: "Two-panel figure. A: pipeline from structural and diffusion MRI through a shared head segmentation and mesh to the finite-element field solver. B: the four electrode montages rendered on a head, conventional pads and 4 x 1 high-definition rings over M1 and DLPFC, anode in red, cathodes in blue.",
+        width: 1029,
+        height: 1299,
         caption:
-          "Overview of the modeling pipeline. For each participant, the structural and diffusion MR images feed a single head segmentation and finite-element mesh. The three conductivity models share that mesh and the same field solver, and differ only in the conductivity assigned to brain tissue.",
-      },
-      {
-        src: "/images/research/tdcs-orientation.jpg",
-        alt: "Left: a transverse brain slice colored by the angle between the two tensors' principal diffusion directions. Right: box plots of that angle per region across the cohort.",
-        width: 1299,
-        height: 685,
-        caption:
-          "Orientation divergence between the two anisotropic models: the acute angle between the principal diffusion direction of the single-shell DTI tensor and that of the QTI mean tensor. (A) Voxel-wise angle on a representative transverse slice, with opacity tracking fractional anisotropy. (B) Angles across the cohort (n = 29), one box per region, ordered by median.",
+          "Overview of the modeling pipeline and the electrode montages. (A) Each participant's structural and diffusion MR images feed a single head segmentation and finite-element mesh; the three conductivity models share that mesh and solver, differing only in the conductivity assigned to brain tissue. (B) The four montages: conventional pads and 4 x 1 high-definition rings at the M1 and DLPFC targets, anode in red, cathodes in blue.",
       },
     ],
-    abstract: [
-      "Transcranial direct current stimulation (tDCS) dose depends on how brain conductivity is modeled. White matter anisotropy is conventionally estimated from single-shell diffusion tensor imaging (DTI). Multidimensional diffusion MRI (MD-dMRI), specifically q-space trajectory imaging (QTI), instead gives a mean tensor expected to carry less kurtosis bias. Our primary question was whether replacing the conventional single-shell tensor with this mean tensor would change the predicted field.",
-      "We built, to our knowledge, the first MD-dMRI tDCS conductivity model and compared it against DTI and isotropic models in 29 participants (12 with Parkinson's disease, 17 controls) across four montages, with the same mesh, electrodes, and solver. The three models agreed within a few percent. The two anisotropic models differed mainly in tensor orientation (about 21 degrees in white matter), with small differences in field magnitude. Field did not differ between patients and controls in any region or montage (which was an exploratory, underpowered comparison). Whole-brain electric field correlated with MR elastography stiffness (partial r = +0.58) but attenuated to non-significance once cerebrospinal fluid morphology was accounted for (r = +0.06 to +0.09).",
-      "With no ground-truth field or conductivity available, the study establishes the feasibility of the MD-dMRI model and characterizes field sensitivity rather than improved dosimetry accuracy. The choice of diffusion tensor is second order for dose, which is primarily influenced by individual anatomy. For Parkinson's disease, modeling efforts should focus on cerebrospinal fluid- and atrophy-aware head models and dose normalization, rather than a more complex diffusion tensor.",
+    body: [
+      "The three conductivity models produce nearly identical fields: across the cortical surface they differ by a median of 1.8 percent, and the two anisotropic tensors point about 21 degrees apart in white matter without changing the predicted dose. Whole-brain field also tracked MR elastography stiffness, until cerebrospinal fluid volume was accounted for and the correlation vanished.",
+      "For tDCS dosing, the tensor choice is second order; individual anatomy, cerebrospinal fluid, and atrophy govern the field, and that is where personalization effort should go. Presented at the 2026 NYC Neuromodulation Conference and the Urban University Conference at KTH.",
     ],
     visual: {
       src: "/images/research/tdcs-field-render.png",
@@ -115,32 +106,15 @@ export const research: ResearchEntry[] = [
         width: 1400,
         height: 886,
         caption:
-          "Simulation dataset. Short-exposure input, reconstruction, and long-exposure ground truth for SID (top) and SNR-Aware (bottom). Both models visibly improve the short-exposure image, and SID denoises better while preserving finer detail.",
-      },
-      {
-        src: "/images/research/darkfield-targets.jpg",
-        alt: "The same three-panel comparison on USAF resolution targets, with red and blue insets magnifying fine features.",
-        width: 1400,
-        height: 712,
-        caption:
-          "Experimental dataset. The same comparison on USAF phase targets acquired with an LED array microscope, with insets on the finest features.",
-      },
-      {
-        src: "/images/research/darkfield-error.jpg",
-        alt: "Two heat maps of absolute reconstruction error, SID on the left and SNR-Aware on the right, where brighter regions mean larger error.",
-        width: 1400,
-        height: 604,
-        caption:
-          "Absolute error against ground truth, where brighter regions mean larger error. SID leaves lower residual error, especially in fine-detail regions: 0.6 percent mean error against 1.7 percent for SNR-Aware.",
+          "Short-exposure input, reconstruction, and long-exposure ground truth for SID (top) and SNR-Aware (bottom). Both models visibly improve the input; SID denoises better while preserving finer detail.",
       },
     ],
     detailPage: true,
     description:
       "A benchmark of two deep-learning models, SID and SNR-Aware, on short-exposure darkfield microscopy. Trained from scratch on simulated and experimental image pairs, SID denoised better and preserved finer detail, at 0.6 percent mean reconstruction error against 1.7 percent.",
     body: [
-      "Dynamic biological samples need short exposures to avoid motion blur, which leaves darkfield images with very low signal-to-noise. Traditional pipelines treat denoising and brightening as separate steps, and those steps compound their errors at low SNR. Deep-learning models built for low-light photography handle both at once, but had not been tested on darkfield microscopy.",
-      "I trained both models from scratch on identical splits: 768 simulated pairs, made by darkening high-SNR cell images and adding Poisson-Gaussian noise, and 720 experimental pairs of USAF phase targets acquired on an LED array microscope. Each pair is a 512 by 512 patch of a short-exposure input and its long-exposure ground truth, scored on PSNR, SSIM, and per-pixel error against that reference.",
-      "SID won on both datasets, with better denoising, better fine-detail preservation, and shorter training time. The transformer-based SNR-Aware model likely needs larger and more diverse data than this study provided. Testing so far covers static samples only, so live dynamic samples would be the next step.",
+      "Dynamic biological samples need short exposures to avoid motion blur, which leaves darkfield images with very low signal-to-noise, and pipelines that denoise and brighten separately compound their errors down there. I trained both models from scratch on identical splits, 768 simulated cell pairs and 720 experimental USAF-target pairs from an LED array microscope, and SID won on both datasets: better denoising, finer detail, shorter training time.",
+      "The transformer-based SNR-Aware model likely needs larger and more diverse data than this study provided, and everything tested so far is static. Live dynamic samples are the next step.",
     ],
     tags: ["Deep learning", "PyTorch", "Computational imaging", "Image restoration", "Vision transformers"],
     video: { youtubeId: "NfUxkJLmI1U", title: "SUPERB 2025 Presentation" },

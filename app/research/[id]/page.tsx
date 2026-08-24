@@ -4,9 +4,32 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { research } from "@/content/research";
+import type { ResearchEntry } from "@/content/types";
 import { richText } from "@/components/rich-text";
 import { Tag } from "@/components/tag";
 import { metaMono } from "@/components/ui";
+
+type Figure = NonNullable<ResearchEntry["figures"]>[number];
+
+/** One captioned figure; `number` is its position across the whole entry. */
+function ResearchFigure({ fig, number }: { fig: Figure; number: number }) {
+  return (
+    <figure className="m-0">
+      <Image
+        src={fig.src}
+        alt={fig.alt}
+        width={fig.width}
+        height={fig.height}
+        sizes="(max-width: 768px) 100vw, 768px"
+        className="h-auto w-full rounded-lg border border-border bg-white"
+      />
+      <figcaption className="mt-3 text-sm leading-relaxed text-fg-subtle">
+        <span className={`${metaMono} mr-2`}>Fig. {number}</span>
+        {fig.caption}
+      </figcaption>
+    </figure>
+  );
+}
 
 type Params = { id: string };
 
@@ -40,6 +63,18 @@ export default async function ResearchDetailPage({
   const { id } = await params;
   const entry = findEntry(id);
   if (!entry) notFound();
+
+  const figures = entry.figures ?? [];
+  const figNumber = (fig: Figure) => figures.indexOf(fig) + 1;
+  const inlineFigures = (paragraph: number) =>
+    figures.filter((f) => f.afterParagraph === paragraph);
+  const trailingFigures = figures.filter((f) => !f.afterParagraph);
+
+  const detailEntries = research.filter((r) => r.detailPage);
+  const nextEntry =
+    detailEntries.length > 1
+      ? detailEntries[(detailEntries.indexOf(entry) + 1) % detailEntries.length]
+      : null;
 
   return (
     <div className="mx-auto max-w-3xl">
@@ -77,31 +112,23 @@ export default async function ResearchDetailPage({
           <h2 className="mb-4 text-lg text-fg">Abstract</h2>
           <div className="prose-reading text-base">
             {entry.abstract.map((paragraph, i) => (
-              <p key={i}>{paragraph}</p>
+              <div key={i}>
+                <p>{paragraph}</p>
+                {inlineFigures(i + 1).map((fig) => (
+                  <div key={fig.src} className="my-8">
+                    <ResearchFigure fig={fig} number={figNumber(fig)} />
+                  </div>
+                ))}
+              </div>
             ))}
           </div>
         </section>
       ) : null}
 
-      {entry.figures?.length ? (
+      {trailingFigures.length ? (
         <section className="mt-10 flex flex-col gap-10">
-          {entry.figures.map((fig, i) => (
-            <figure key={fig.src} className="m-0">
-              <Image
-                src={fig.src}
-                alt={fig.alt}
-                width={fig.width}
-                height={fig.height}
-                sizes="(max-width: 768px) 100vw, 768px"
-                className="h-auto w-full rounded-lg border border-border bg-white"
-              />
-              <figcaption className="mt-3 text-sm leading-relaxed text-fg-subtle">
-                <span className={`${metaMono} mr-2`}>
-                  Fig. {i + 1}
-                </span>
-                {fig.caption}
-              </figcaption>
-            </figure>
+          {trailingFigures.map((fig) => (
+            <ResearchFigure key={fig.src} fig={fig} number={figNumber(fig)} />
           ))}
         </section>
       ) : null}
@@ -134,6 +161,20 @@ export default async function ResearchDetailPage({
             </li>
           ))}
         </ul>
+      ) : null}
+
+      {nextEntry ? (
+        <div className="mt-12 border-t border-border pt-6">
+          <Link
+            href={`/research/${nextEntry.id}`}
+            className="group inline-flex flex-wrap items-baseline gap-x-3"
+          >
+            <span className={metaMono}>Next</span>
+            <span className="text-sm font-medium text-fg transition-colors group-hover:text-accent">
+              {nextEntry.title} &rarr;
+            </span>
+          </Link>
+        </div>
       ) : null}
     </div>
   );

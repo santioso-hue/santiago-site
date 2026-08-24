@@ -70,7 +70,7 @@ export const projects: ProjectEntry[] = [
     period: "2024",
     affiliation: "Biodesign Hackathon · CCNY (team project)",
     description:
-      "A wearable meant to ease Restless Leg Syndrome (RLS) without the side effects of medication. A triaxial accelerometer on an Arduino Nano detects involuntary leg movements and triggers vibration motors in a compression sleeve, with both manual and automatic modes.",
+      "A hackathon wearable for Restless Leg Syndrome: an accelerometer detects involuntary leg movements and answers them with vibration through a compression sleeve.",
     tags: ["Medical devices", "Wearables", "Arduino", "Embedded systems", "Sensors"],
     image: {
       src: "/images/relief-sleeve.jpg",
@@ -81,7 +81,7 @@ export const projects: ProjectEntry[] = [
     id: "this-website",
     title: "This Website",
     description:
-      "This site, built with Next.js 16, React 19, and Tailwind v4. All copy lives in typed content files, and every page is statically generated, with light and dark theming.",
+      "Next.js 16, React 19, and Tailwind v4; statically generated, all copy in typed content files.",
     tags: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
     links: [
       { label: "GitHub", href: "https://github.com/santioso-hue/santiago-site" },
