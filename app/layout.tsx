@@ -56,7 +56,7 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${hanken.variable} ${newsreader.variable} ${jetbrainsMono.variable}`}
     >
-      <body className="min-h-screen antialiased">
+      <body className="min-h-screen antialiased" suppressHydrationWarning>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <SkipLink />
           <Nav />
