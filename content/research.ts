@@ -60,12 +60,12 @@ export const research: ResearchEntry[] = [
     ],
     figures: [
       {
-        src: "/images/research/hc-tdcs-efield-models.jpg",
-        alt: "Three simulated head models colored by cortical electric field: a 2 mA F3-F4 sponge montage, the hydrogel electrodes at 2 mA, and the hydrogel electrodes at 6 mA.",
-        width: 1400,
-        height: 547,
+        src: "/images/research/hc-tdcs-dosimetry.jpg",
+        alt: "Manuscript dosimetry figure: anatomical head models for the F3-F4 and bifrontotemporal montages, simulated cortical fields for a 2 mA sponge and the hydrogel electrodes at 2 and 6 mA, and box plots of peak electric field magnitude across 1 to 6 mA.",
+        width: 2048,
+        height: 1198,
         caption:
-          "Predicted cortical fields: a conventional 2 mA sponge montage beside the hydrogel electrodes at 2 and 6 mA. Peak frontal fields reach 1.95 to 3.25 V/m at 6 mA, against 0.49 to 0.95 V/m for the sponge.",
+          "Predicted cortical fields: a conventional 2 mA sponge montage beside the hydrogel electrodes at 2 and 6 mA, and peak field across doses. At 6 mA, frontal fields reach 1.95 to 3.25 V/m, against 0.49 to 0.95 V/m for the sponge.",
       },
     ],
     description:
@@ -75,7 +75,7 @@ export const research: ResearchEntry[] = [
       {
         label: "Preprint (bioRxiv)",
         href: "https://www.biorxiv.org/content/10.1101/2025.06.11.659142v1",
-        note: "Donnery et al., 2025 \u00b7 electrode design, EIS, and tolerability data",
+        note: "Donnery et al., 2025 · under review at Brain Stimulation",
       },
       {
         label: "NCT07226011",

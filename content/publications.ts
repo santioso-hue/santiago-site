@@ -17,7 +17,7 @@ export const publications: Publication[] = [
     ],
     title:
       "Anisotropic conductivity modeling for tDCS in Parkinson's disease using multidimensional diffusion MRI",
-    venue: "bioRxiv · Target: Frontiers in Human Neuroscience",
+    venue: "bioRxiv · Under review at Frontiers in Human Neuroscience",
     year: 2026,
     type: "preprint",
     doi: "10.64898/2026.08.02.742293",
@@ -46,7 +46,7 @@ export const publications: Publication[] = [
       { name: "M. Bikson" },
     ],
     title: "High-Capacity transcranial Direct Current Stimulation (HC-tDCS)",
-    venue: "bioRxiv",
+    venue: "bioRxiv · Under review at Brain Stimulation",
     year: 2025,
     type: "preprint",
     doi: "10.1101/2025.06.11.659142",
