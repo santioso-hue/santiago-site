@@ -45,6 +45,31 @@ export const viewport: Viewport = {
   ],
 };
 
+// Structured data: who this site is about, for search engines.
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: site.name,
+  url: site.url,
+  jobTitle: "Research Engineer",
+  worksFor: {
+    "@type": "Organization",
+    name: "CCNY Neural Engineering Group",
+  },
+  alumniOf: {
+    "@type": "CollegeOrUniversity",
+    name: "The City College of New York, CUNY",
+  },
+  knowsAbout: [
+    "Neural engineering",
+    "Neuromodulation",
+    "Transcranial electrical stimulation",
+    "Computational imaging",
+    "Medical imaging",
+  ],
+  sameAs: site.socials.map((s) => s.href),
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -57,6 +82,10 @@ export default function RootLayout({
       className={`${hanken.variable} ${newsreader.variable} ${jetbrainsMono.variable}`}
     >
       <body className="min-h-screen antialiased" suppressHydrationWarning>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <SkipLink />
           <Nav />
