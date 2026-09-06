@@ -56,7 +56,7 @@ export const research: ResearchEntry[] = [
     detailPage: true,
     body: [
       "Human tES dosing runs from 2 mA for tDCS to roughly 1 A for electroconvulsive therapy, with almost nothing explored between. The ceiling is not physiology but the electrode-skin interface, which turns painful past 2 mA, right where cortical fields still sit under the 1 V/m engagement threshold. HC-tDCS redesigns that interface with multi-layer hydrogel electrodes: subjects report the same pain at 6 mA as conventional sponges at 2 mA.",
-      "That opens the door to tripling the dose in patients, and our electrodes now supply external 6 mA depression trials. Improving the design (potentially to the point where it runs off its own printed battery, with no external stimulator) and scaling up production are the next steps.",
+      "That opens the door to tripling the dose in patients, and our electrodes now supply an external 6 mA depression trial. Improving the design (potentially to the point where it runs off its own printed battery, with no external stimulator) and scaling up production are the next steps.",
     ],
     figures: [
       {
@@ -81,11 +81,6 @@ export const research: ResearchEntry[] = [
         label: "NCT07226011",
         href: "https://clinicaltrials.gov/study/NCT07226011",
         note: "MUSC Brain Stimulation Lab \u00b7 accelerated 6 mA tDCS for depression",
-      },
-      {
-        label: "NCT07657234",
-        href: "https://clinicaltrials.gov/study/NCT07657234",
-        note: "University of S\u00e3o Paulo \u00b7 6 mA tDCS for late-life depression",
       },
     ],
   },
@@ -131,16 +126,6 @@ export const research: ResearchEntry[] = [
     affiliation: "KTH Royal Institute of Technology (Prof. Mats Persson)",
     period: "May – Sep 2024",
     logo: { src: "/logos/kth.png", alt: "KTH Royal Institute of Technology" },
-    figures: [
-      {
-        src: "/images/research/photon-ct-phantom.jpg",
-        alt: "The Gammex multi-energy phantom beside a photon-counting CT scan of it, with circular regions of interest marked on the iodine inserts.",
-        width: 640,
-        height: 262,
-        caption:
-          "The Gammex multi-energy phantom and a photon-counting CT scan of it, with the regions of interest used for contrast-to-noise marked.",
-      },
-    ],
     description:
       "Optimization of iodine contrast-to-noise on a Siemens NAEOTOM Alpha photon-counting CT by tuning tube voltage and reconstruction. 90 kVp with 40 keV virtual monoenergetic reconstruction was optimal at clinically relevant dose.",
     tags: ["Photon-counting CT", "Image quality", "CNR optimization", "Medical imaging"],
