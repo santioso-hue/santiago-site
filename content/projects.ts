@@ -74,7 +74,7 @@ export const projects: ProjectEntry[] = [
     tags: ["Medical devices", "Wearables", "Arduino", "Embedded systems", "Sensors"],
     image: {
       src: "/images/relief-sleeve.jpg",
-      alt: "Breadboard prototype of the Relief Sleeve: an Arduino Nano driving vibration motors, with a triaxial accelerometer for detecting leg movement.",
+      alt: "Breadboard wiring diagram of the Relief Sleeve: an Arduino Micro driving two vibration motors through a transistor, with a triaxial accelerometer breakout for detecting leg movement.",
     },
   },
   {

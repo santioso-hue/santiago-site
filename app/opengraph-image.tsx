@@ -59,6 +59,7 @@ export default function OpenGraphImage() {
             {site.url.replace("https://", "")}
           </div>
         </div>
+        {/* eslint-disable-next-line jsx-a11y/alt-text -- rendered to a PNG; alt lives in the route's exported `alt` */}
         <img
           src={portraitSrc}
           width={384}
