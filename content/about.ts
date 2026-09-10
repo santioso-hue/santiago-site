@@ -41,7 +41,7 @@ export const about: AboutContent = {
       org: "CCNY Neural Engineering Group",
       logo: { src: "/logos/ccny-seal-purple.png", alt: "The City College of New York" },
       detail:
-        "Leading electrode fabrication and scale-up for the lab's high-capacity tES hardware, running IRB-approved human-subject stimulation sessions, and developing an independent research project toward first authorship.",
+        "Scaling up the high-capacity tES electrodes used in an external 6 mA depression trial at MUSC (NCT07226011); running IRB-approved tolerability sessions and improving the next-generation design.",
       professors: [
         { name: "Prof. Marom Bikson", href: "https://www.neuralengr.org/bikson" },
       ],
@@ -127,12 +127,12 @@ export const about: AboutContent = {
     {
       title: "NIH U-RISE Scholar (NIGMS T34)",
       href: "https://www.ccny.cuny.edu/urise",
-      detail: "NIH · 2025",
+      detail: "NIH · 2025–2026",
     },
     {
       title: "America Needs You Fellowship",
       href: "https://americaneedsyou.org/",
-      detail: "2023",
+      detail: "2023–2024",
     },
   ],
 
