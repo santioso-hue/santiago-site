@@ -40,7 +40,7 @@ export const research: ResearchEntry[] = [
       },
     ],
     description:
-      "Anisotropy in tDCS is conventionally derived from single-shell DTI. I built the first head model to derive it from multidimensional diffusion MRI, then compared the predicted electric fields against DTI and isotropic models across 29 participants and four montages.",
+      "Anisotropy in tDCS is conventionally derived from single-shell DTI. I built, to our knowledge, the first head model to derive it from multidimensional diffusion MRI, then compared the predicted electric fields against DTI and isotropic models across 29 participants and four montages.",
     tags: ["Parkinson's disease", "tDCS", "MD-dMRI", "SimNIBS", "Finite element modeling"],
   },
   {

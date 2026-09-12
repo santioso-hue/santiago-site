@@ -24,7 +24,7 @@ export const about: AboutContent = {
   affiliations: [
     {
       name: "Tau Beta Pi",
-      role: "Engineering Honor Society · top 12.5%",
+      role: "Engineering Honor Society · top eighth of juniors",
       logo: { src: "/logos/tau-beta-pi-blue.png", alt: "Tau Beta Pi" },
     },
     {
@@ -52,7 +52,7 @@ export const about: AboutContent = {
       org: "KTH Royal Institute of Technology, Stockholm",
       logo: { src: "/logos/kth.png", alt: "KTH Royal Institute of Technology" },
       detail:
-        "First tDCS conductivity model derived from multidimensional diffusion MRI, evaluated in 29 Parkinson's patients and controls.",
+        "To our knowledge the first tDCS conductivity model derived from multidimensional diffusion MRI, evaluated in 29 Parkinson's patients and controls.",
       professors: [
         { name: "Prof. Rodrigo Moreno", href: "https://www.kth.se/profile/rodmore?l=en" },
       ],
