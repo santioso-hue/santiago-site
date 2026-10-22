@@ -9,7 +9,7 @@ export const research: ResearchEntry[] = [
     id: "pd-neurostim",
     title: "Using diffusion MRI to personalize tDCS in Parkinson's",
     affiliation: "KTH Royal Institute of Technology (Prof. Rodrigo Moreno)",
-    period: "May – Aug 2026",
+    period: "Jun – Aug 2026",
     logo: { src: "/logos/kth.png", alt: "KTH Royal Institute of Technology" },
     figures: [
       {
@@ -34,9 +34,9 @@ export const research: ResearchEntry[] = [
     detailPage: true,
     links: [
       {
-        label: "Preprint (bioRxiv)",
-        href: "https://doi.org/10.64898/2026.08.02.742293",
-        note: "Osorio Jurado et al., 2026 \u00b7 under review at Frontiers in Human Neuroscience",
+        label: "Paper (Frontiers in Human Neuroscience)",
+        href: "https://doi.org/10.3389/fnhum.2026.1972676",
+        note: "Osorio Jurado et al., 2026 \u00b7 Frontiers in Human Neuroscience",
       },
     ],
     description:
@@ -56,7 +56,7 @@ export const research: ResearchEntry[] = [
     detailPage: true,
     body: [
       "Human tES dosing runs from 2 mA for tDCS to roughly 1 A for electroconvulsive therapy, with almost nothing explored between. The ceiling is not physiology but the electrode-skin interface, which turns painful past 2 mA, right where cortical fields still sit under the 1 V/m engagement threshold. HC-tDCS redesigns that interface with multi-layer hydrogel electrodes: subjects report the same pain at 6 mA as conventional sponges at 2 mA.",
-      "That opens the door to tripling the dose in patients, and our electrodes now supply an external 6 mA depression trial. Improving the design (potentially to the point where it runs off its own printed battery, with no external stimulator) and scaling up production are the next steps.",
+      "That opens the door to tripling the dose in patients. Our electrodes now supply an external 6 mA depression trial at MUSC and two trials at UT Southwestern, and a single-use carbon version has shown tolerability comparable to silver. Improving the design (potentially to the point where it runs off its own printed battery, with no external stimulator) and scaling up production are the next steps.",
     ],
     figures: [
       {
@@ -73,9 +73,9 @@ export const research: ResearchEntry[] = [
     tags: ["Electrode design", "EIS", "tDCS", "IRB / human subjects", "Electrochemistry"],
     links: [
       {
-        label: "Preprint (bioRxiv)",
-        href: "https://www.biorxiv.org/content/10.1101/2025.06.11.659142v1",
-        note: "Donnery et al., 2025 · under review at Brain Stimulation",
+        label: "Paper (Brain Stimulation)",
+        href: "https://doi.org/10.1016/j.brs.2026.103233",
+        note: "Donnery et al., 2026 · Brain Stimulation",
       },
       {
         label: "NCT07226011",
@@ -88,7 +88,7 @@ export const research: ResearchEntry[] = [
     id: "darkfield-ml",
     title: "Machine Learning for Darkfield Microscopy",
     affiliation: "UC Berkeley · Computational Imaging Lab (Prof. Laura Waller)",
-    period: "Jun – Dec 2025",
+    period: "Jun – Aug 2025",
     logo: {
       src: "/logos/uc-berkeley-seal.png",
       alt: "University of California, Berkeley",

@@ -17,18 +17,20 @@ export const publications: Publication[] = [
     ],
     title:
       "Anisotropic conductivity modeling for tDCS in Parkinson's disease using multidimensional diffusion MRI",
-    venue: "bioRxiv · Under review at Frontiers in Human Neuroscience",
+    venue: "Frontiers in Human Neuroscience, 20, 1972676",
     year: 2026,
-    type: "preprint",
-    doi: "10.64898/2026.08.02.742293",
+    type: "journal",
+    doi: "10.3389/fnhum.2026.1972676",
     bibtex: `@article{osorio2026anisotropic,
   title   = {Anisotropic conductivity modeling for tDCS in Parkinson's disease
              using multidimensional diffusion MRI},
   author  = {Osorio Jurado, Santiago and Skorpil, Mikael and Svenningsson, Per
              and Moreno, Rodrigo and Olsson, Christoffer},
-  journal = {bioRxiv},
+  journal = {Frontiers in Human Neuroscience},
+  volume  = {20},
+  pages   = {1972676},
   year    = {2026},
-  doi     = {10.64898/2026.08.02.742293}
+  doi     = {10.3389/fnhum.2026.1972676}
 }`,
   },
   {
@@ -36,20 +38,21 @@ export const publications: Publication[] = [
     authors: [
       { name: "K. Donnery" },
       { name: "M. FallahRad" },
-      { name: "N. Khadka" },
-      { name: "M. Saw" },
-      { name: "B. Babaev" },
       { name: "S. Osorio", isMe: true },
       { name: "M. Belali Koochesfahani" },
+      { name: "N. Khadka" },
+      { name: "M. Saw" },
+      { name: "J. Mo" },
+      { name: "B. Babaev" },
       { name: "R. Bhuiyan" },
       { name: "J. M. Elwassif" },
       { name: "M. Bikson" },
     ],
     title: "High-Capacity transcranial Direct Current Stimulation (HC-tDCS)",
-    venue: "bioRxiv · Under review at Brain Stimulation",
-    year: 2025,
-    type: "preprint",
-    doi: "10.1101/2025.06.11.659142",
+    venue: "Brain Stimulation, Article 103233",
+    year: 2026,
+    type: "journal",
+    doi: "10.1016/j.brs.2026.103233",
   },
 ];
 

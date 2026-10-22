@@ -53,8 +53,10 @@ export interface SiteConfig {
   title: string;
   /** Contact email (no mailto: prefix). */
   email: string;
-  /** First-person one-liner shown in the hero (and used as the meta description). */
+  /** First-person one-liner shown in the hero; may contain *emphasis* markup. */
   tagline: string;
+  /** Plain-text summary for the meta description and link previews (no markup). */
+  description: string;
   /** Portrait shown in the hero, at its natural aspect (intrinsic pixel size required). */
   portrait: { src: string; alt: string; width: number; height: number };
   /** Profile links rendered as an icon row in the hero and footer. */
@@ -205,8 +207,8 @@ export interface AboutContent {
   education: TimelineItem;
   /** Brief trajectory: positions / labs over time. */
   experience: TimelineItem[];
-  /** Research interests, rendered as chips. */
-  interests: string[];
+  /** Research interests, one sentence rendered as prose. */
+  interests: string;
   /** Awards / honors. Title renders bold (a link when `href` is set), detail muted. */
   honors: { title: string; detail?: string; href?: string }[];
   /** Society memberships, shown with small logos under Education. */

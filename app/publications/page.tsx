@@ -20,7 +20,7 @@ export default function PublicationsPage() {
     <div className="mx-auto max-w-3xl">
       <SectionHeading
         title="Publications"
-        lede="Papers and preprints, newest first. Links resolve to the DOI where available."
+        lede="Journal articles, newest first. Each title links to its DOI."
       />
       <div>
         {papers.map((pub) => (

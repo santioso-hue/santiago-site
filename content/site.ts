@@ -15,6 +15,9 @@ export const site: SiteConfig = {
   tagline:
     "I'm a biomedical engineer working on *neural stimulation* and computational imaging.",
 
+  description:
+    "Biomedical engineer working on neural stimulation and computational imaging.",
+
   portrait: {
     src: "/images/portrait-neuromodulation-2026.jpg",
     alt: "Santiago Osorio Jurado beside his poster on anisotropic conductivity modeling for tDCS in Parkinson's disease at the 2026 NYC Neuromodulation Conference.",
@@ -37,5 +40,5 @@ export const site: SiteConfig = {
     { label: "Publications", href: "/publications" },
   ],
 
-  cvHref: "/Santiago-Osorio-Jurado-CV-2026-08.pdf",
+  cvHref: "/Santiago-Osorio-Jurado-CV-2026-10.pdf",
 };

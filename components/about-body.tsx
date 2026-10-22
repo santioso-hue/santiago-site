@@ -283,11 +283,7 @@ export function AboutBody() {
 
       <Section title="Research interests">
         <p className="text-[15px] leading-relaxed text-fg-muted">
-          {about.interests
-            .map((x, i) => (i === 0 ? x : x.toLowerCase()))
-            .slice(0, -1)
-            .join(", ")}
-          , and {about.interests.at(-1)!.toLowerCase()}.
+          {about.interests}
         </p>
       </Section>
 

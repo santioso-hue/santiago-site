@@ -3,10 +3,10 @@ import type { AboutContent } from "./types";
 /** Long-form bio, education, trajectory, interests, and honors for /about. */
 export const about: AboutContent = {
   currently:
-    "a research engineer in the Bikson lab, building high-current tES electrodes, finishing a first-author paper on computational models of tDCS, and applying to PhD programs for Fall 2027",
+    "a research engineer in Marom Bikson's lab at CCNY, making the high-capacity electrodes for two trials at UT Southwestern, modeling cerebellar tDCS for a randomized trial in multiple system atrophy, and applying to PhD programs for Fall 2027",
 
   previously:
-    "building the electronics and software for Tactorum's rodent thermal stimulator, training ML models to denoise darkfield microscopy at UC Berkeley, and finishing my B.E. in biomedical engineering at CCNY",
+    "modeling tDCS in Parkinson's disease with diffusion MRI at KTH (now a first-author paper in Frontiers in Human Neuroscience), training ML models to denoise darkfield microscopy at UC Berkeley, building the electronics and software for Tactorum's rodent thermal stimulator, and finishing my B.E. in biomedical engineering at CCNY",
 
   photo: {
     src: "/images/graduation.jpg",
@@ -41,18 +41,18 @@ export const about: AboutContent = {
       org: "CCNY Neural Engineering Group",
       logo: { src: "/logos/ccny-seal-purple.png", alt: "The City College of New York" },
       detail:
-        "Scaling up the high-capacity tES electrodes used in an external 6 mA depression trial at MUSC (NCT07226011); running IRB-approved tolerability sessions and improving the next-generation design.",
+        "Making the high-capacity electrodes for an external 6 mA depression trial at MUSC (NCT07226011) and two trials at UT Southwestern, including a single-use carbon version with tolerability comparable to silver (n = 10). Modeling cerebellar tDCS for a randomized trial in multiple system atrophy.",
       professors: [
         { name: "Prof. Marom Bikson", href: "https://www.neuralengr.org/bikson" },
       ],
     },
     {
-      period: "May – Aug 2026",
+      period: "Jun – Aug 2026",
       role: "Visiting Researcher",
       org: "KTH Royal Institute of Technology, Stockholm",
       logo: { src: "/logos/kth.png", alt: "KTH Royal Institute of Technology" },
       detail:
-        "To our knowledge the first tDCS conductivity model derived from multidimensional diffusion MRI, evaluated in 29 Parkinson's patients and controls.",
+        "To our knowledge the first tDCS conductivity model derived from multidimensional diffusion MRI, evaluated in 29 Parkinson's patients and controls. First-author paper published in Frontiers in Human Neuroscience.",
       professors: [
         { name: "Prof. Rodrigo Moreno", href: "https://www.kth.se/profile/rodmore?l=en" },
       ],
@@ -63,13 +63,13 @@ export const about: AboutContent = {
       org: "CCNY Neural Engineering Group",
       logo: { src: "/logos/ccny-seal-purple.png", alt: "The City College of New York" },
       detail:
-        "High-capacity tDCS: electrode design, EIS, and IRB human-subject validation at 6 mA, triple the conventional dose.",
+        "High-capacity tDCS: electrode design, EIS, and IRB human-subject validation at 6 mA, triple the conventional dose. Published in Brain Stimulation.",
       professors: [
         { name: "Prof. Marom Bikson", href: "https://www.neuralengr.org/bikson" },
       ],
     },
     {
-      period: "Jun – Dec 2025",
+      period: "Jun – Aug 2025",
       role: "Machine Learning Research Intern",
       org: "Computational Imaging Lab, UC Berkeley · SUPERB",
       logo: {
@@ -96,15 +96,8 @@ export const about: AboutContent = {
     },
   ],
 
-  interests: [
-    "Neural engineering",
-    "Neuromodulation",
-    "Transcranial electrical stimulation",
-    "Computational imaging",
-    "Medical imaging",
-    "Signal processing",
-    "Bioinstrumentation",
-  ],
+  interests:
+    "Neuromodulation for psychiatric disorders and for motor recovery after stroke and spinal cord injury, with the goal of therapies patients can use at home to restore function rather than only manage symptoms.",
 
   honors: [
     {
