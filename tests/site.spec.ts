@@ -109,6 +109,14 @@ test("every project has a page and its posters load", async ({ page, request }) 
   }
 });
 
+test("the CV link opens and old CV addresses redirect to it", async ({ request }) => {
+  for (const path of ["/Santiago-Osorio-Jurado-CV-2026-11.pdf", "/Santiago-Osorio-Jurado-CV-2026-10.pdf"]) {
+    const response = await request.get(path);
+    expect(response.status(), path).toBe(200);
+    expect(response.url()).toContain("CV-2026-11.pdf");
+  }
+});
+
 test("the Berkeley video loads its player only on click", async ({ page }) => {
   await page.goto("/");
   await expect(page.locator('iframe[src*="youtube"]')).toHaveCount(0);

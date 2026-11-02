@@ -36,7 +36,7 @@ export const about: AboutContent = {
     {
       period: "Jun – Aug 2026",
       role: "Visiting Researcher",
-      org: "KTH Royal Institute of Technology, Stockholm",
+      org: "KTH Royal Institute of Technology, Stockholm (IRES)",
       logo: { src: "/logos/kth-mark.png", alt: "KTH Royal Institute of Technology", lightInDark: true },
       professors: [
         { name: "Prof. Rodrigo Moreno", href: "https://www.kth.se/profile/rodmore?l=en" },

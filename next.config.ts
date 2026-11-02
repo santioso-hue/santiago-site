@@ -14,12 +14,17 @@ const nextConfig: NextConfig = {
       { source: "/publications", destination: "/#publications", permanent: true },
       {
         source: "/Santiago-Osorio-Jurado-CV.pdf",
-        destination: "/Santiago-Osorio-Jurado-CV-2026-10.pdf",
+        destination: "/Santiago-Osorio-Jurado-CV-2026-11.pdf",
+        permanent: false,
+      },
+      {
+        source: "/Santiago-Osorio-Jurado-CV-2026-10.pdf",
+        destination: "/Santiago-Osorio-Jurado-CV-2026-11.pdf",
         permanent: false,
       },
       {
         source: "/Santiago-Osorio-Jurado-CV-2026-08.pdf",
-        destination: "/Santiago-Osorio-Jurado-CV-2026-10.pdf",
+        destination: "/Santiago-Osorio-Jurado-CV-2026-11.pdf",
         permanent: false,
       },
     ];

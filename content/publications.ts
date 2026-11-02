@@ -67,7 +67,7 @@ export const inPreparation: Publication[] = [
     ],
     title: "Transverse polarization in neuromodulation",
     summary:
-      "A review of transverse polarization: the change in charge across a neuron's diameter rather than along its length, which cable models neglect.",
+      "A review of transverse polarization: the change in electrical charge across a neuron's diameter rather than along its length, which cable models neglect.",
     year: 2026,
     type: "in-preparation",
   },

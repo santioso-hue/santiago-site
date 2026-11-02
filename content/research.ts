@@ -22,7 +22,7 @@ export const research: ResearchEntry[] = [
       },
     ],
     body: [
-      "The three conductivity models produce nearly identical fields: across the cortical surface they differ by a median of 1.8 percent, and the two anisotropic tensors point about 21 degrees apart in white matter without changing the predicted dose. Whole-brain field also tracked MR elastography stiffness, until cerebrospinal fluid volume was accounted for and the correlation vanished.",
+      "The multidimensional and DTI models predict electric fields that differ by 6.6 percent or less, even though the two anisotropic tensors point about 21 degrees apart in white matter. Whole-brain field also tracked MR elastography stiffness, until cerebrospinal fluid volume was accounted for and the correlation vanished.",
       "For tDCS dosing, the tensor choice is second order; individual anatomy, cerebrospinal fluid, and atrophy govern the field, and that is where personalization effort should go. Presented at the 2026 NYC Neuromodulation Conference and the Urban University Conference at KTH.",
     ],
     visual: {
@@ -48,7 +48,7 @@ export const research: ResearchEntry[] = [
     description:
       "Anisotropy in tDCS is conventionally derived from single-shell DTI. I built, to our knowledge, the first head model to derive it from multidimensional diffusion MRI, then compared the predicted electric fields against DTI and isotropic models across 29 participants and four montages.",
     summary:
-      "I built, to our knowledge, **the first tDCS head model with anisotropy from multidimensional diffusion MRI**. In 29 participants, its predicted electric fields differed from DTI and isotropic models by a median of 1.8 percent across the cortex.",
+      "I built, to our knowledge, **the first tDCS head model with anisotropy from multidimensional diffusion MRI**. In 29 participants, its predicted electric fields differed from the DTI model by 6.6 percent or less, and differences in anatomy between people changed the electric field more.",
     tags: ["Parkinson's disease", "tDCS", "MD-dMRI", "SimNIBS", "Finite element modeling"],
   },
   {
@@ -66,7 +66,7 @@ export const research: ResearchEntry[] = [
     detailPage: true,
     body: [
       "Human tES dosing runs from 2 mA for tDCS to roughly 1 A for electroconvulsive therapy, with almost nothing explored between. The practical limit is the electrode-skin interface, which becomes painful above 2 mA, where peak brain electric fields are 1 V/m or less. HC-tDCS redesigns that interface with multilayer hydrogel electrodes. In 10 healthy volunteers, mean pain at 6 mA (17.2 on a 100 mm scale) was comparable to conventional sponges at 2 mA (18.3).",
-      "That opens the door to tripling the dose in patients. Our electrodes supplied an external 6 mA depression trial at MUSC and now go to two trials at UT Southwestern, and a single-use carbon version has shown tolerability comparable to silver. Improving the design (potentially to the point where it runs off its own printed battery, with no external stimulator) and scaling up production are the next steps.",
+      "That opens the door to tripling the dose in patients. Our electrodes supplied an external 6 mA depression trial at MUSC and I now make them for two ongoing trials at UT Southwestern, and a single-use carbon version has shown tolerability comparable to silver. Improving the design (potentially to the point where it runs off its own printed battery, with no external stimulator) and scaling up production are the next steps. I presented this work at ABRCMS 2025 and the 2026 Bioelectronic Medicine Summit.",
     ],
     figures: [
       {
@@ -81,7 +81,7 @@ export const research: ResearchEntry[] = [
     description:
       "High-capacity electrodes that deliver transcranial direct current stimulation at 6 mA, triple the conventional dose, with pain comparable to conventional 2 mA tDCS. We characterized the electrodes by impedance spectroscopy and tested tolerability in an IRB-approved study of 10 healthy volunteers. Skin redness increased with current.",
     summary:
-      "Electrodes that deliver tDCS at **6 mA, triple the conventional dose**. In 10 healthy volunteers, pain was comparable to conventional 2 mA tDCS. Two trials at UT Southwestern now use them.",
+      "Electrodes that deliver tDCS at **6 mA, triple the conventional dose**. In 10 healthy volunteers, pain was comparable to conventional 2 mA tDCS. I now make them for two ongoing trials at UT Southwestern.",
     tags: ["Electrode design", "EIS", "tDCS", "IRB / human subjects", "Electrochemistry"],
     links: [
       {
@@ -124,13 +124,13 @@ export const research: ResearchEntry[] = [
     ],
     detailPage: true,
     description:
-      "A benchmark of two deep-learning models, SID and SNR-Aware, on short-exposure darkfield microscopy. Trained from scratch on simulated and experimental image pairs, SID denoised better and preserved finer detail, at 0.6 percent mean reconstruction error against 1.7 percent.",
+      "A benchmark of two deep-learning models, SID and SNR-Aware, on short-exposure darkfield microscopy. Trained from scratch on simulated and experimental image pairs, SID denoised better and preserved finer detail, with a peak signal-to-noise ratio of 37.7 dB against 24.5 dB on experimental phase targets.",
     body: [
-      "Dynamic biological samples need short exposures to avoid motion blur, which leaves darkfield images with very low signal-to-noise, and pipelines that denoise and brighten separately compound their errors down there. I trained both models from scratch on identical splits, 768 simulated cell pairs and 720 experimental USAF-target pairs from an LED array microscope, and SID won on both datasets: better denoising, finer detail, shorter training time.",
+      "Dynamic biological samples need short exposures to avoid motion blur, which leaves darkfield images with very low signal-to-noise, and pipelines that denoise and brighten separately compound their errors down there. I trained both models from scratch on identical splits, 768 simulated cell pairs and 720 experimental USAF-target pairs from an LED array microscope, and SID won on both datasets: better denoising and finer detail.",
       "The transformer-based SNR-Aware model likely needs larger and more diverse data than this study provided, and everything tested so far is static. Live dynamic samples are the next step.",
     ],
     summary:
-      "I compared two deep-learning models, SID and SNR-Aware, for denoising short-exposure darkfield microscopy. SID had the lower mean reconstruction error, **0.6 percent against 1.7 percent**.",
+      "I compared two deep-learning models, SID and SNR-Aware, for denoising short-exposure darkfield microscopy. SID scored higher on both datasets, reaching **37.7 dB against 24.5 dB** peak signal-to-noise ratio on experimental phase targets.",
     tags: ["Deep learning", "PyTorch", "Computational imaging", "Image restoration", "Vision transformers"],
     video: { youtubeId: "NfUxkJLmI1U", title: "SUPERB 2025 Presentation" },
     links: [
