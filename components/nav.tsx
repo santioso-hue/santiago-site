@@ -18,16 +18,19 @@ export function Nav() {
         <div className="inline-flex items-center gap-1 rounded-full border border-border bg-bg/80 px-1.5 py-1.5 shadow-[0_1px_3px_rgba(0,0,0,0.06)] backdrop-blur-xl transition-colors">
           <Link
             href="/"
-            className="shrink-0 whitespace-nowrap rounded-full px-3 py-1.5 font-serif text-sm font-medium tracking-tight transition-colors hover:text-accent"
+            className="hidden shrink-0 whitespace-nowrap rounded-full px-3 py-1.5 font-serif sm:block text-sm font-medium tracking-tight transition-colors hover:text-accent"
           >
             {site.shortName}
           </Link>
 
-          <span aria-hidden className="mx-0.5 h-4 w-px shrink-0 bg-border" />
+          <span aria-hidden className="mx-0.5 hidden h-4 w-px shrink-0 bg-border sm:block" />
 
           <ul className="flex shrink-0 items-center gap-0.5">
             {site.nav.map((item) => (
-              <li key={item.href} className="shrink-0">
+              <li
+                key={item.href}
+                className={`shrink-0 ${item.href === "/projects" ? "hidden sm:block" : ""}`}
+              >
                 <NavLink href={item.href} label={item.label} />
               </li>
             ))}

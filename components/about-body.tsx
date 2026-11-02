@@ -4,7 +4,6 @@ import { about } from "@/content/about";
 import { site } from "@/content/site";
 import type { AboutContent, TimelineItem } from "@/content/types";
 import { LogoTile } from "@/components/logo-tile";
-import { Reveal } from "@/components/reveal";
 import { cardSurface, metaMono } from "@/components/ui";
 import { publicFileSize } from "@/lib/asset-size";
 
@@ -127,7 +126,6 @@ export function AboutBody() {
       </div>
 
       <Section title="Education">
-        <Reveal>
           <div className={cardClass}>
             {edu ? (
               <div className="flex flex-col gap-5 sm:flex-row sm:gap-6">
@@ -236,14 +234,12 @@ export function AboutBody() {
               </div>
             ) : null}
           </div>
-        </Reveal>
       </Section>
 
       <Section title="Experience">
         <ul className="space-y-4">
           {about.experience.map((item, i) => (
             <li key={`${item.org}-${i}`}>
-              <Reveal delay={i * 60}>
                 <div className={cardClass}>
                   <div className="flex items-start justify-between gap-4">
                     <div className="min-w-0 flex-1">
@@ -275,7 +271,6 @@ export function AboutBody() {
                     </div>
                   </div>
                 </div>
-              </Reveal>
             </li>
           ))}
         </ul>
