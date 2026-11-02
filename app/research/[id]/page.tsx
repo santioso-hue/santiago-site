@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft } from "lucide-react";
 import { research } from "@/content/research";
 import type { ResearchEntry } from "@/content/types";
 import { FigureLightbox } from "@/components/figure-lightbox";
+import { LiteYouTube } from "@/components/lite-youtube";
 import { richText } from "@/components/rich-text";
 import { Tag } from "@/components/tag";
-import { metaText } from "@/components/ui";
+import { metaText, tapTarget } from "@/components/ui";
 
 type Figure = NonNullable<ResearchEntry["figures"]>[number];
 
@@ -27,7 +27,7 @@ function ResearchFigure({ fig, number }: { fig: Figure; number: number }) {
         />
       </FigureLightbox>
       <figcaption className="mt-3 text-sm leading-relaxed text-fg-subtle">
-        <span className={`${metaText} mr-2`}>Fig. {number}</span>
+        <span className="mr-2 font-medium text-fg-muted">Fig. {number}</span>
         {fig.caption}
       </figcaption>
     </figure>
@@ -82,15 +82,14 @@ export default async function ResearchDetailPage({
   return (
     <div className="mx-auto max-w-3xl">
       <Link
-        href="/research"
-        className="inline-flex items-center gap-1.5 text-sm font-medium text-fg-muted transition-colors hover:text-accent"
+        href="/#research"
+        className={`${tapTarget} text-sm font-medium text-accent underline-offset-4 hover:underline`}
       >
-        <ArrowLeft className="h-4 w-4" aria-hidden />
-        Research
+        All research
       </Link>
 
-      <header className="mt-8">
-        <h1 className="text-2xl font-medium tracking-tight sm:text-3xl">
+      <header className="mt-6">
+        <h1 className="text-page font-medium tracking-tight">
           {entry.title}
         </h1>
         <div className="mt-2 flex flex-wrap items-baseline gap-x-3 gap-y-1">
@@ -136,20 +135,21 @@ export default async function ResearchDetailPage({
         </section>
       ) : null}
 
+      {entry.video ? (
+        <LiteYouTube youtubeId={entry.video.youtubeId} title={entry.video.title} />
+      ) : null}
+
       {entry.links?.length ? (
-        <ul className="mt-10 flex flex-col gap-2.5 border-t border-border pt-6">
+        <ul className="mt-10 flex flex-col gap-1">
           {entry.links.map((link) => (
             <li key={link.href} className="flex flex-wrap items-baseline gap-x-3 gap-y-0.5">
               <a
                 href={link.href}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="group text-sm font-medium text-accent underline-offset-4 hover:underline"
+                className={`${tapTarget} text-sm font-medium text-accent underline-offset-4 hover:underline`}
               >
-                {link.label}{" "}
-                <span className="inline-block transition-transform duration-150 group-hover:translate-x-0.5">
-                  &rarr;
-                </span>
+                {link.label}
               </a>
               {link.note ? (
                 <span className="text-sm text-fg-subtle">{link.note}</span>
@@ -170,17 +170,14 @@ export default async function ResearchDetailPage({
       ) : null}
 
       {nextEntry ? (
-        <div className="mt-12 border-t border-border pt-6">
+        <div className="mt-12">
           <Link
             href={`/research/${nextEntry.id}`}
-            className="group inline-flex flex-wrap items-baseline gap-x-3"
+            className="group inline-flex min-h-11 flex-wrap items-baseline gap-x-2 py-2 text-sm"
           >
-            <span className={metaText}>Next</span>
-            <span className="text-sm font-medium text-fg transition-colors group-hover:text-accent">
-              {nextEntry.title}{" "}
-              <span className="inline-block transition-transform duration-150 group-hover:translate-x-0.5">
-                &rarr;
-              </span>
+            <span className="text-fg-subtle">Next:</span>
+            <span className="font-medium text-accent underline-offset-4 group-hover:underline">
+              {nextEntry.title}
             </span>
           </Link>
         </div>

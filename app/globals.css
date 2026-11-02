@@ -73,7 +73,7 @@
 @layer base {
   html {
     /* Anchored headings land below the sticky nav. */
-    scroll-padding-top: 5.5rem;
+    scroll-padding-top: 5rem;
   }
 
   body {
@@ -120,16 +120,6 @@
 
 .prose-reading p:first-child {
   margin-top: 0;
-}
-
-/* Let the nav pill scroll horizontally on narrow screens without showing a scrollbar. */
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
 }
 
 /* The one block set in monospace: BibTeX is code. */

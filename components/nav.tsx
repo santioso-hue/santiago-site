@@ -1,53 +1,27 @@
 import Link from "next/link";
 import { site } from "@/content/site";
-import { NavLink } from "./nav-link";
+import { NavLinks } from "./nav-links";
 import { ThemeToggle } from "./theme-toggle";
 
 /**
- * Floating, centered, rounded-pill navigation (modeled on aidanandrews.info).
- * Sticky to the top; the pill itself scrolls horizontally on narrow screens so
- * every item stays reachable without wrapping.
+ * Plain top bar: name on the left, section links and the theme toggle on the right.
+ * Below `sm` the name and the secondary links drop out so everything fits at 360 px.
  */
 export function Nav() {
   return (
-    <header className="sticky top-0 z-50 flex justify-center px-4 pt-4 sm:pt-5">
+    <header className="sticky top-0 z-50 border-b border-border bg-bg">
       <nav
         aria-label="Primary"
-        className="no-scrollbar max-w-full overflow-x-auto"
+        className="mx-auto flex h-14 w-full max-w-5xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8"
       >
-        <div className="inline-flex items-center gap-1 rounded-full border border-border bg-bg/80 px-1.5 py-1.5 shadow-[0_1px_3px_rgba(0,0,0,0.06)] backdrop-blur-xl transition-colors">
-          <Link
-            href="/"
-            className="hidden shrink-0 whitespace-nowrap rounded-full px-3 py-1.5 font-serif sm:block text-sm font-medium tracking-tight transition-colors hover:text-accent"
-          >
-            {site.shortName}
-          </Link>
-
-          <span aria-hidden className="mx-0.5 hidden h-4 w-px shrink-0 bg-border sm:block" />
-
-          <ul className="flex shrink-0 items-center gap-0.5">
-            {site.nav.map((item) => (
-              <li
-                key={item.href}
-                className={`shrink-0 ${item.href === "/projects" ? "hidden sm:block" : ""}`}
-              >
-                <NavLink href={item.href} label={item.label} />
-              </li>
-            ))}
-            <li className="shrink-0">
-              <a
-                href={site.cvHref}
-                target="_blank"
-                rel="noreferrer noopener"
-                className="inline-flex items-center whitespace-nowrap rounded-full px-3 py-1.5 text-sm font-medium text-fg-muted transition-colors hover:bg-surface hover:text-fg"
-              >
-                CV
-              </a>
-            </li>
-          </ul>
-
-          <span aria-hidden className="mx-0.5 h-4 w-px shrink-0 bg-border" />
-
+        <Link
+          href="/"
+          className="hidden min-h-11 items-center whitespace-nowrap text-sm font-medium sm:inline-flex"
+        >
+          {site.name}
+        </Link>
+        <div className="flex w-full items-center justify-between gap-1 sm:w-auto">
+          <NavLinks />
           <ThemeToggle />
         </div>
       </nav>

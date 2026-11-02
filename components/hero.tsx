@@ -1,57 +1,54 @@
 import Image from "next/image";
+import { about } from "@/content/about";
 import { site } from "@/content/site";
-import { richText } from "./rich-text";
-import { SocialLinks } from "./social-links";
+import { newTabProps, tapTarget } from "./ui";
 
-/**
- * Landing hero: name, a one-line bio, contact, and social links beside a photo.
- * Sits at the top of the home page, above the About content.
- */
+/** Top of the home page: name, intro, interests, and contact links beside a photo. */
 export function Hero() {
+  const links = [
+    { label: "Email", href: `mailto:${site.email}` },
+    { label: "CV", href: site.cvHref },
+    ...site.socials,
+  ];
+
   return (
-    <section className="relative isolate flex flex-col gap-10 md:flex-row md:items-center md:gap-10">
-      <div className="max-w-xl flex-1">
-        <h1
-          className="text-4xl font-medium leading-[1.04] tracking-tight sm:text-5xl"
-        >
-          {site.name}
-        </h1>
+    <section className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between md:gap-14">
+      <div className="min-w-0 max-w-[40rem] flex-1">
+        <h1 className="text-display font-medium tracking-tight">{site.name}</h1>
 
-        <p
-          className="mt-4 text-lg leading-snug text-fg-muted"
-        >
-          {richText(site.tagline)}
-        </p>
-
-        <p className="mt-6">
-          <a
-            href={`mailto:${site.email}`}
-            className="text-sm font-medium text-accent underline-offset-4 hover:underline"
-          >
-            {site.email}
-          </a>
-        </p>
-
-        <div
-          className="mt-3 -ml-2"
-        >
-          <SocialLinks />
+        <div className="prose-reading mt-7 text-base">
+          <p>Currently, I am {about.currently}.</p>
+          <p>Previously, I was {about.previously}.</p>
+          <p>
+            <span className="font-medium text-fg">Research interests.</span>{" "}
+            {about.interests}
+          </p>
         </div>
+
+        <ul className="mt-4 flex flex-wrap gap-x-5">
+          {links.map((link) => (
+            <li key={link.label}>
+              <a
+                href={link.href}
+                {...(link.href.startsWith("mailto:") ? {} : newTabProps)}
+                className={`${tapTarget} text-sm font-medium text-accent underline-offset-4 hover:underline`}
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
 
-      <div
-        className="w-full shrink-0 sm:w-80"
-      >
-        <Image
-          src={site.portrait.src}
-          alt={site.portrait.alt}
-          width={site.portrait.width}
-          height={site.portrait.height}
-          sizes="(max-width: 640px) 100vw, 320px"
-          className="h-auto w-full rounded-2xl border border-border dark:brightness-90"
-          priority
-        />
-      </div>
+      <Image
+        src={site.portrait.src}
+        alt={site.portrait.alt}
+        width={site.portrait.width}
+        height={site.portrait.height}
+        sizes="(max-width: 768px) 100vw, 288px"
+        className="h-auto w-full max-w-72 shrink-0 rounded-lg md:mt-2 dark:brightness-90"
+        priority
+      />
     </section>
   );
 }

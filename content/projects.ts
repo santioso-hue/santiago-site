@@ -1,7 +1,7 @@
 import type { ProjectEntry } from "./types";
 
 /**
- * Projects, shown as cards on /projects (dated entries newest first; undated
+ * Projects, shown as a grid on the home page (dated entries newest first; undated
  * entries keep their slot). Add, remove, or reorder freely. Each needs a unique `id`.
  */
 export const projects: ProjectEntry[] = [
@@ -9,7 +9,7 @@ export const projects: ProjectEntry[] = [
     id: "thermal-stimulator",
     title: "Thermal Stimulator for Automated Rodent Pain Testing",
     period: "Aug 2025 – May 2026",
-    affiliation: "Senior Design Capstone · CCNY",
+    affiliation: "Senior Design Capstone, CCNY",
     description:
       "A modular thermal-stimulus add-on for Tactorum's [Automated Reproducible Mechano-Stimulator (ARM)](https://tactorum.com) that runs reproducible rodent thermal pain tests from 30–60 °C. I designed and validated the embedded control system: a closed-loop PID controller with constant-temperature and 1 °C/s ramp modes, holding ±0.5 °C. A Peltier air-cooling chamber cuts the 50 to 30 °C cooldown from 417 s to 66 s.",
     tags: ["Embedded systems", "PID control", "Arduino", "Control systems"],
@@ -68,7 +68,7 @@ export const projects: ProjectEntry[] = [
     id: "relief-sleeve",
     title: "Relief Sleeve: Wearable for Restless Leg Syndrome",
     period: "2024",
-    affiliation: "Biodesign Hackathon · CCNY (team project)",
+    affiliation: "Biodesign Hackathon, CCNY (team project)",
     description:
       "A hackathon wearable for Restless Leg Syndrome: an accelerometer detects involuntary leg movements and answers them with vibration through a compression sleeve.",
     tags: ["Medical devices", "Wearables", "Arduino", "Embedded systems", "Sensors"],

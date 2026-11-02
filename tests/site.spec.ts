@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 
-const PAGES = ["/", "/research/hc-tdcs", "/publications"];
+const PAGES = ["/", "/research/hc-tdcs"];
 const WIDTHS = [360, 375, 1280];
 const SCHEMES = ["light", "dark"] as const;
 
@@ -49,6 +49,26 @@ test("content is visible without JavaScript", async ({ browser }) => {
   await expect(page.getByText("Currently, I am")).toBeVisible();
   await expect(page.getByRole("heading", { name: "Experience" })).toBeVisible();
   await context.close();
+});
+
+test("old pages redirect to their sections", async ({ page }) => {
+  for (const section of ["research", "projects", "publications"]) {
+    await page.goto(`/${section}`);
+    await expect(page).toHaveURL(new RegExp(`/#${section}$`));
+    await expect(page.locator(`#${section}`)).toBeVisible();
+  }
+});
+
+test("anchors land below the nav", async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 800 });
+  await page.goto("/");
+  await page.getByRole("navigation", { name: "Primary" }).getByRole("link", { name: "Experience" }).click();
+  await expect(page).toHaveURL(/#experience$/);
+  const navBottom = await page.locator("body > header").evaluate((el) => el.getBoundingClientRect().bottom);
+  await expect
+    .poll(() => page.locator("#experience-heading").evaluate((el) => el.getBoundingClientRect().top))
+    .toBeGreaterThanOrEqual(navBottom);
+  await expect(page.getByRole("link", { name: "Experience" }).first()).toHaveAttribute("aria-current", "location");
 });
 
 test("lightbox moves focus in, makes the page inert, and returns focus", async ({

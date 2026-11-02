@@ -1,6 +1,6 @@
 import type { AboutContent } from "./types";
 
-/** Long-form bio, education, trajectory, interests, and honors for /about. */
+/** Long-form bio, education, trajectory, interests, and honors for the home page. */
 export const about: AboutContent = {
   currently:
     "a research engineer in Dr. Marom Bikson's lab and applying to PhD programs for Fall 2027",
@@ -18,28 +18,15 @@ export const about: AboutContent = {
     role: "B.E. Biomedical Engineering",
     org: "The City College of New York, CUNY",
     detail: "Magna Cum Laude, Dean's List",
-    logo: { src: "/logos/ccny-seal-purple.png", alt: "The City College of New York" },
+    logo: { src: "/logos/ccny-mark.png", alt: "The City College of New York" },
   },
-
-  affiliations: [
-    {
-      name: "Tau Beta Pi",
-      role: "Engineering Honor Society · top eighth of juniors",
-      logo: { src: "/logos/tau-beta-pi-blue.png", alt: "Tau Beta Pi" },
-    },
-    {
-      name: "Biomedical Engineering Society",
-      role: "Chapter officer",
-      logo: { src: "/logos/bmes-blue.png", alt: "Biomedical Engineering Society" },
-    },
-  ],
 
   experience: [
     {
       period: "Aug 2026 – Present",
       role: "Research Engineer",
       org: "CCNY Neural Engineering Group",
-      logo: { src: "/logos/ccny-seal-purple.png", alt: "The City College of New York" },
+      logo: { src: "/logos/ccny-mark.png", alt: "The City College of New York" },
       detail:
         "Scaling up electrode manufacturing for two trials at UT Southwestern (late-life depression and addiction). Developed a single-use carbon version with tolerability comparable to silver (n = 10). Building cerebellar tDCS models for a randomized trial in multiple system atrophy.",
       professors: [
@@ -50,7 +37,7 @@ export const about: AboutContent = {
       period: "Jun – Aug 2026",
       role: "Visiting Researcher",
       org: "KTH Royal Institute of Technology, Stockholm",
-      logo: { src: "/logos/kth.png", alt: "KTH Royal Institute of Technology" },
+      logo: { src: "/logos/kth-mark.png", alt: "KTH Royal Institute of Technology" },
       detail:
         "To our knowledge the first tDCS conductivity model derived from multidimensional diffusion MRI, evaluated in 29 Parkinson's patients and controls. First-author paper published in Frontiers in Human Neuroscience.",
       professors: [
@@ -61,7 +48,7 @@ export const about: AboutContent = {
       period: "Jan 2025 – May 2026",
       role: "Undergraduate Researcher",
       org: "CCNY Neural Engineering Group",
-      logo: { src: "/logos/ccny-seal-purple.png", alt: "The City College of New York" },
+      logo: { src: "/logos/ccny-mark.png", alt: "The City College of New York" },
       detail:
         "High-capacity tDCS: electrode design, EIS, and IRB human-subject validation at 6 mA, triple the conventional dose. Published in Brain Stimulation.",
       professors: [
@@ -71,9 +58,9 @@ export const about: AboutContent = {
     {
       period: "Jun – Aug 2025",
       role: "Machine Learning Research Intern",
-      org: "Computational Imaging Lab, UC Berkeley · SUPERB",
+      org: "Computational Imaging Lab, UC Berkeley (SUPERB)",
       logo: {
-        src: "/logos/uc-berkeley-seal.png",
+        src: "/logos/berkeley-mark.png",
         alt: "University of California, Berkeley",
         keepColor: true,
       },
@@ -86,8 +73,8 @@ export const about: AboutContent = {
     {
       period: "May – Sep 2024",
       role: "Medical Imaging Research Intern",
-      org: "KTH Royal Institute of Technology, Stockholm · IRES",
-      logo: { src: "/logos/kth.png", alt: "KTH Royal Institute of Technology" },
+      org: "KTH Royal Institute of Technology, Stockholm (IRES)",
+      logo: { src: "/logos/kth-mark.png", alt: "KTH Royal Institute of Technology" },
       detail:
         "Contrast-to-noise optimization on a Siemens NAEOTOM Alpha photon-counting CT; 90 kVp yielded the highest iodine CNR of the four tube voltages tested.",
       professors: [
@@ -102,30 +89,54 @@ export const about: AboutContent = {
   honors: [
     {
       title: "Rukin Award for Academic and Professional Perseverance in Biomedical Engineering",
-      detail: "CCNY BME · 2026",
+      year: "2026",
+      source: "CCNY Biomedical Engineering",
     },
     {
       title: "BMES Student Chapter Executive Board Award",
-      detail: "CCNY BME · 2025, 2026",
+      year: "2025, 2026",
+      source: "CCNY Biomedical Engineering",
     },
     {
       title: "Wallace H. Coulter Award for Academic Service in Biomedical Engineering",
-      detail: "CCNY BME · 2025, 2026",
+      year: "2025, 2026",
+      source: "CCNY Biomedical Engineering",
     },
     {
       title: "Endowed Scholarship to Support the Pursuit of Engineering Careers",
       href: "https://www.ccny.cuny.edu/news/1m-gift-grove-school-establishes-scholarship-fund-undergrads",
-      detail: "Grove School · 2025",
+      year: "2025",
+      source: "Grove School of Engineering",
     },
     {
       title: "NIH U-RISE Scholar (NIGMS T34)",
       href: "https://www.ccny.cuny.edu/urise",
-      detail: "NIH · 2025–2026",
+      year: "2025 – 2026",
     },
     {
       title: "America Needs You Fellowship",
       href: "https://americaneedsyou.org/",
-      detail: "2023–2024",
+      year: "2023 – 2024",
+    },
+  ],
+
+  leadership: [
+    {
+      period: "2024 – 2026",
+      role: "Chapter Officer (Secretary)",
+      org: "Biomedical Engineering Society, CCNY Chapter",
+      logo: { src: "/logos/bmes-mark.png", alt: "Biomedical Engineering Society" },
+      points: [
+        "Co-organized the Biodesign Challenge for two years, a medical-device prototyping competition with 106 students and $7,000 in prizes. Secured sponsor funding, recruited judges, and taught soldering, CAD, and pitching workshops.",
+        "Led ResearchConnect, which helps students find labs and approach professors, placing eight undergraduates in their first lab positions.",
+      ],
+    },
+    {
+      period: "2025 – 2026",
+      role: "Chapter Officer (Secretary)",
+      org: "Tau Beta Pi Engineering Honor Society, New York Eta",
+      logo: { src: "/logos/tau-beta-pi-mark.png", alt: "Tau Beta Pi" },
+      points: ["Engineering honor society, top eighth of juniors."],
     },
   ],
 

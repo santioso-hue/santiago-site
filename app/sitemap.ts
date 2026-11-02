@@ -6,9 +6,6 @@ import { site } from "@/content/site";
 export default function sitemap(): MetadataRoute.Sitemap {
   const paths = [
     "",
-    "/research",
-    "/projects",
-    "/publications",
     ...research
       .filter((entry) => entry.detailPage)
       .map((entry) => `/research/${entry.id}`),

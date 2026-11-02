@@ -24,6 +24,8 @@ export interface SocialLink {
 export interface NavItem {
   label: string;
   href: string;
+  /** Keep this item in the nav at phone width; the others drop out so the bar fits. */
+  onPhone?: boolean;
 }
 
 /** A small institution/organization logo mark. */
@@ -47,14 +49,10 @@ export interface SiteConfig {
    * code by setting the NEXT_PUBLIC_SITE_URL environment variable.
    */
   url: string;
-  /** Short name/wordmark shown in the nav bar. */
-  shortName: string;
   /** One-line professional title. */
   title: string;
   /** Contact email (no mailto: prefix). */
   email: string;
-  /** First-person one-liner shown in the hero; may contain *emphasis* markup. */
-  tagline: string;
   /** Plain-text summary for the meta description and link previews (no markup). */
   description: string;
   /** Portrait shown in the hero, at its natural aspect (intrinsic pixel size required). */
@@ -73,8 +71,8 @@ export interface ResearchLink {
   href: string;
   /**
    * One-line plain-language description, shown after the label on detail pages
-   * (e.g. "MUSC Brain Stimulation Lab · 6 mA tDCS for depression").
-   * Cards ignore it.
+   * (e.g. "MUSC Brain Stimulation Lab, 6 mA tDCS for depression").
+   * Rows ignore it.
    */
   note?: string;
 }
@@ -83,7 +81,7 @@ export interface ResearchEntry {
   /** Stable slug (also used as the React key). */
   id: string;
   title: string;
-  /** Lab / institution, e.g. "UC Berkeley · Waller Lab". */
+  /** Lab / institution, e.g. "UC Berkeley, Waller Lab". */
   affiliation?: string;
   /** Time span, e.g. "2024 – Present". */
   period?: string;
@@ -112,24 +110,23 @@ export interface ResearchEntry {
     afterParagraph?: number;
   }[];
   /**
-   * Optional standalone visual for the card: a transparent render that reads on
-   * its own, without a caption or surrounding figure. Sits directly on the card
-   * surface, like the institution logos.
+   * Optional standalone visual for the row thumbnail: a transparent render that
+   * reads on its own, without a caption or surrounding figure.
    */
   visual?: { src: string; alt: string; width: number; height: number };
   /**
-   * Optional photograph for the card, shown as a rounded portrait thumbnail in the
-   * same right-column slot `visual` uses for transparent renders. Set one or the other.
+   * Optional photograph for the row, shown as a rounded portrait thumbnail in the
+   * same slot `visual` uses for transparent renders. Set one or the other.
    */
   photo?: { src: string; alt: string };
   /**
    * Set when the entry has enough material to warrant its own page. Only then does
-   * the title link to /research/<id>; otherwise the card stands on its own.
+   * the title link to /research/<id>; otherwise the row stands on its own.
    */
   detailPage?: boolean;
   /** Optional outbound links (paper, code, poster). */
   links?: ResearchLink[];
-  /** Optional inline presentation video (lazy, click-to-play), shown on the detail page. */
+  /** Optional presentation video (lazy, click-to-play), shown on the detail page. */
   video?: { youtubeId: string; title: string };
   /**
    * Optional extra paragraphs shown only on the entry's detail page, after the
@@ -192,7 +189,7 @@ export interface TimelineItem {
   detail?: string;
   /** Optional small institution logo (e.g. on the education entry). */
   logo?: Logo;
-  /** Optional advisors/professors for this role, shown as profile-link chips. */
+  /** Optional advisors/professors for this role, shown as text links. */
   professors?: { name: string; href: string }[];
 }
 
@@ -203,17 +200,23 @@ export interface AboutContent {
   previously: string;
   /** Optional photo shown beside the intro (e.g. graduation). */
   photo?: { src: string; alt: string };
-  /** The degree; the Education card is built around exactly one entry. */
+  /** The degree; the Education section is built around exactly one entry. */
   education: TimelineItem;
   /** Brief trajectory: positions / labs over time. */
   experience: TimelineItem[];
   /** Research interests, one sentence rendered as prose. */
   interests: string;
-  /** Awards / honors. Title renders bold (a link when `href` is set), detail muted. */
-  honors: { title: string; detail?: string; href?: string }[];
-  /** Society memberships, shown with small logos under Education. */
-  affiliations?: { name: string; role?: string; logo: Logo }[];
-  /** Optional personal closing: one line + a photo, shown at the foot of /about. */
+  /** Awards / honors, dated in the left column. Title is a link when `href` is set. */
+  honors: { title: string; year: string; source?: string; href?: string }[];
+  /** Officer roles and service. */
+  leadership: {
+    period: string;
+    role: string;
+    org: string;
+    logo: Logo;
+    points: string[];
+  }[];
+  /** Optional personal closing: one line + a photo, shown at the foot of the home page. */
   personal?: {
     quote: string;
     photo: { src: string; alt: string; caption?: string };

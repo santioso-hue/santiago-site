@@ -8,12 +8,8 @@ export const site: SiteConfig = {
   name: "Santiago Osorio Jurado",
   // Canonical production URL (used for Open Graph / canonical metadata).
   url: "https://santiagoosoriojurado.vercel.app",
-  shortName: "S. Osorio Jurado",
   title: "Biomedical engineer. Neural engineering and neuromodulation.",
   email: "santiagojurado15@hotmail.com",
-
-  tagline:
-    "I'm a biomedical engineer working on neural stimulation and computational imaging.",
 
   description:
     "Biomedical engineer working on neural stimulation and computational imaging.",
@@ -35,9 +31,10 @@ export const site: SiteConfig = {
   ],
 
   nav: [
-    { label: "Research", href: "/research" },
-    { label: "Projects", href: "/projects" },
-    { label: "Publications", href: "/publications" },
+    { label: "Research", href: "/#research", onPhone: true },
+    { label: "Publications", href: "/#publications", onPhone: true },
+    { label: "Experience", href: "/#experience" },
+    { label: "Projects", href: "/#projects" },
   ],
 
   cvHref: "/Santiago-Osorio-Jurado-CV-2026-10.pdf",

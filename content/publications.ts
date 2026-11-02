@@ -1,7 +1,7 @@
 import type { Publication } from "./types";
 
 /**
- * Publications, shown as a citation list on /publications (newest first).
+ * Publications, shown as a citation list on the home page (newest first).
  * Mark your own name with `isMe: true` so it renders in bold. Provide a `doi`
  * (without the https://doi.org/ prefix) to render a "doi.org/..." link.
  */

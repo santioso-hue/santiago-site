@@ -1,16 +1,7 @@
-import { ArrowUpRight } from "lucide-react";
-import type { Publication, PublicationType } from "@/content/types";
+import type { Publication } from "@/content/types";
 import { publicFileSize } from "@/lib/asset-size";
-
-const TYPE_LABELS: Record<PublicationType, string> = {
-  journal: "Journal",
-  conference: "Conference",
-  preprint: "Preprint",
-  "in-preparation": "In preparation",
-  poster: "Poster",
-  talk: "Talk",
-  thesis: "Thesis",
-};
+import { Row } from "./row";
+import { newTabProps, tapTarget } from "./ui";
 
 /** One citation row. Links to the DOI when present, otherwise the provided URL. */
 export function PublicationItem({ pub }: { pub: Publication }) {
@@ -18,26 +9,15 @@ export function PublicationItem({ pub }: { pub: Publication }) {
   const isLocalFile = !pub.doi && pub.url?.startsWith("/");
   const ext = isLocalFile ? pub.url!.split(".").pop()!.toUpperCase() : null;
   const size = isLocalFile ? publicFileSize(pub.url!) : null;
+  const kind = pub.type === "talk" ? "Talk" : "Poster";
 
   return (
-    <article className="border-t border-border py-6 first:border-t-0 first:pt-0">
-      <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-        {pub.type ? (
-          <span className="rounded-full border border-border bg-surface px-2 py-0.5 text-[11px] font-medium uppercase tracking-wide text-fg-subtle">
-            {TYPE_LABELS[pub.type]}
-          </span>
-        ) : null}
-        {pub.type !== "in-preparation" ? (
-          <span className="text-sm text-fg-subtle">{pub.year}</span>
-        ) : null}
-      </div>
-
-      <h2 className="mt-2 text-lg font-medium leading-snug tracking-tight">
+    <Row date={pub.type === "in-preparation" ? undefined : String(pub.year)}>
+      <h4 className="text-title font-medium">
         {href ? (
           <a
             href={href}
-            target="_blank"
-            rel="noreferrer noopener"
+            {...newTabProps}
             className="underline-offset-4 hover:text-accent hover:underline"
           >
             {pub.title}
@@ -45,9 +25,9 @@ export function PublicationItem({ pub }: { pub: Publication }) {
         ) : (
           pub.title
         )}
-      </h2>
+      </h4>
 
-      <p className="mt-1.5 text-sm leading-relaxed text-fg-muted">
+      <p className="mt-1 text-sm leading-relaxed text-fg-muted">
         {pub.authors.map((author, i) => (
           <span key={i}>
             {author.isMe ? (
@@ -55,46 +35,46 @@ export function PublicationItem({ pub }: { pub: Publication }) {
             ) : (
               author.name
             )}
-            {i < pub.authors.length - 1 ? ", " : ""}
+            {i < pub.authors.length - 1
+              ? ", "
+              : author.name.endsWith(".")
+                ? ""
+                : "."}
           </span>
         ))}
         {pub.venue ? (
           <>
-            {" · "}
-            <span className="italic">{pub.venue}</span>
+            {" "}
+            {pub.type === "journal" ? <em>{pub.venue}</em> : pub.venue}.
           </>
         ) : null}
+        {pub.type === "poster" || pub.type === "talk" ? ` ${kind}.` : null}
       </p>
 
       {href ? (
         <a
           href={href}
-          target="_blank"
-          rel="noreferrer noopener"
-          className="group mt-2 inline-flex items-center gap-0.5 text-sm font-medium text-accent underline-offset-4 hover:underline"
+          {...newTabProps}
+          className={`${tapTarget} text-sm font-medium text-accent underline-offset-4 hover:underline`}
         >
           {pub.doi
             ? `doi.org/${pub.doi}`
             : ext
-              ? `Poster (${ext}${size ? `, ${size}` : ""})`
+              ? `${kind} (${ext}${size ? `, ${size}` : ""})`
               : "View"}
-          <ArrowUpRight
-            className="h-3.5 w-3.5 transition-transform duration-150 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-            aria-hidden
-          />
         </a>
       ) : null}
 
       {pub.bibtex ? (
-        <details className="mt-3">
-          <summary className="cursor-pointer text-xs font-medium text-fg-subtle transition-colors hover:text-accent">
+        <details>
+          <summary className="inline-flex min-h-11 cursor-pointer items-center text-sm text-fg-subtle transition-colors hover:text-accent">
             BibTeX
           </summary>
-          <pre className="mt-2 overflow-x-auto bibtex rounded-lg border border-border bg-surface p-4 text-[11px] leading-relaxed text-fg-muted">
+          <pre className="bibtex mt-1 overflow-x-auto rounded-lg bg-surface p-4 text-xs leading-relaxed text-fg-muted">
             {pub.bibtex}
           </pre>
         </details>
       ) : null}
-    </article>
+    </Row>
   );
 }

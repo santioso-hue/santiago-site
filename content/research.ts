@@ -1,7 +1,7 @@
 import type { ResearchEntry } from "./types";
 
 /**
- * Research entries, shown as cards on /research.
+ * Research entries, shown as rows on the home page.
  * Add, remove, or reorder freely. Each needs a unique `id`.
  */
 export const research: ResearchEntry[] = [
@@ -10,7 +10,7 @@ export const research: ResearchEntry[] = [
     title: "Using diffusion MRI to personalize tDCS in Parkinson's",
     affiliation: "KTH Royal Institute of Technology (Prof. Rodrigo Moreno)",
     period: "Jun – Aug 2026",
-    logo: { src: "/logos/kth.png", alt: "KTH Royal Institute of Technology" },
+    logo: { src: "/logos/kth-mark.png", alt: "KTH Royal Institute of Technology" },
     figures: [
       {
         src: "/images/research/tdcs-fig1-pipeline.jpg",
@@ -36,7 +36,7 @@ export const research: ResearchEntry[] = [
       {
         label: "Paper (Frontiers in Human Neuroscience)",
         href: "https://doi.org/10.3389/fnhum.2026.1972676",
-        note: "Osorio Jurado et al., 2026 \u00b7 Frontiers in Human Neuroscience",
+        note: "Osorio Jurado et al., 2026, Frontiers in Human Neuroscience",
       },
     ],
     description:
@@ -48,7 +48,7 @@ export const research: ResearchEntry[] = [
     title: "High-Capacity tDCS (HC-tDCS)",
     affiliation: "CCNY Neural Engineering Group (Prof. Marom Bikson)",
     period: "Jan 2025 – Present",
-    logo: { src: "/logos/ccny-seal-purple.png", alt: "The City College of New York" },
+    logo: { src: "/logos/ccny-mark.png", alt: "The City College of New York" },
     photo: {
       src: "/images/research/hc-tdcs-electrodes.jpg",
       alt: "Santiago Osorio Jurado wearing two high-capacity tDCS electrodes on his forehead during a bench test at the CCNY Neural Engineering Group.",
@@ -75,12 +75,12 @@ export const research: ResearchEntry[] = [
       {
         label: "Paper (Brain Stimulation)",
         href: "https://doi.org/10.1016/j.brs.2026.103233",
-        note: "Donnery et al., 2026 · Brain Stimulation",
+        note: "Donnery et al., 2026, Brain Stimulation",
       },
       {
         label: "NCT07226011",
         href: "https://clinicaltrials.gov/study/NCT07226011",
-        note: "MUSC Brain Stimulation Lab \u00b7 accelerated 6 mA tDCS for depression",
+        note: "MUSC Brain Stimulation Lab, accelerated 6 mA tDCS for depression",
       },
     ],
   },
@@ -89,7 +89,7 @@ export const research: ResearchEntry[] = [
     title: "Transverse polarization in neuromodulation",
     affiliation: "Review with Dr. Boshuo Wang and Prof. Marom Bikson",
     period: "2026 – Present",
-    logo: { src: "/logos/ccny-seal-purple.png", alt: "The City College of New York" },
+    logo: { src: "/logos/ccny-mark.png", alt: "The City College of New York" },
     description:
       "A review in preparation on transverse polarization, the change in electrical charge across the diameter of a neuron rather than along its length, which cable models neglect. I traced decades of studies that modeled it and turned Prof. Bikson's sketch of how an electric field charges opposite sides of a cell into the review's central figure.",
     tags: ["Transverse polarization", "Cable models", "NEURON", "Neuromodulation"],
@@ -99,7 +99,7 @@ export const research: ResearchEntry[] = [
     title: "Cerebellar tDCS models for multiple system atrophy",
     affiliation: "CCNY Neural Engineering Group (Prof. Marom Bikson), with CHA Bundang and Samsung Medical Center",
     period: "Aug 2026 – Present",
-    logo: { src: "/logos/ccny-seal-purple.png", alt: "The City College of New York" },
+    logo: { src: "/logos/ccny-mark.png", alt: "The City College of New York" },
     description:
       "For a randomized, sham-controlled trial of home-based cerebellar tDCS, I build a head model from each participant's MRI and compute the electric field in the cerebellum. The MRI scans end at the neck but the return electrode sits on the shoulder, so I extend each model with a neck-and-shoulder template. We will test whether the electric field each participant received relates to how much they improved.",
     tags: ["Cerebellar tDCS", "SimNIBS", "Simpleware", "COMSOL", "Finite element modeling"],
@@ -107,10 +107,10 @@ export const research: ResearchEntry[] = [
   {
     id: "darkfield-ml",
     title: "Machine Learning for Darkfield Microscopy",
-    affiliation: "UC Berkeley · Computational Imaging Lab (Prof. Laura Waller)",
+    affiliation: "UC Berkeley, Computational Imaging Lab (Prof. Laura Waller)",
     period: "Jun – Aug 2025",
     logo: {
-      src: "/logos/uc-berkeley-seal.png",
+      src: "/logos/berkeley-mark.png",
       alt: "University of California, Berkeley",
       keepColor: true,
     },
@@ -145,7 +145,7 @@ export const research: ResearchEntry[] = [
     title: "Photon-Counting CT Optimization",
     affiliation: "KTH Royal Institute of Technology (Prof. Mats Persson)",
     period: "May – Sep 2024",
-    logo: { src: "/logos/kth.png", alt: "KTH Royal Institute of Technology" },
+    logo: { src: "/logos/kth-mark.png", alt: "KTH Royal Institute of Technology" },
     description:
       "Optimization of iodine contrast-to-noise on a Siemens NAEOTOM Alpha photon-counting CT by tuning tube voltage and reconstruction. 90 kVp with 40 keV virtual monoenergetic reconstruction was optimal at clinically relevant dose.",
     tags: ["Photon-counting CT", "Image quality", "CNR optimization", "Medical imaging"],
