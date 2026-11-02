@@ -8,7 +8,7 @@ import type { ResearchEntry } from "@/content/types";
 import { FigureLightbox } from "@/components/figure-lightbox";
 import { richText } from "@/components/rich-text";
 import { Tag } from "@/components/tag";
-import { metaMono } from "@/components/ui";
+import { metaText } from "@/components/ui";
 
 type Figure = NonNullable<ResearchEntry["figures"]>[number];
 
@@ -27,7 +27,7 @@ function ResearchFigure({ fig, number }: { fig: Figure; number: number }) {
         />
       </FigureLightbox>
       <figcaption className="mt-3 text-sm leading-relaxed text-fg-subtle">
-        <span className={`${metaMono} mr-2`}>Fig. {number}</span>
+        <span className={`${metaText} mr-2`}>Fig. {number}</span>
         {fig.caption}
       </figcaption>
     </figure>
@@ -98,7 +98,7 @@ export default async function ResearchDetailPage({
             <p className="text-sm text-fg-muted">{entry.affiliation}</p>
           ) : null}
           {entry.period ? (
-            <span className={metaMono}>{entry.period}</span>
+            <span className={metaText}>{entry.period}</span>
           ) : null}
         </div>
       </header>
@@ -144,7 +144,7 @@ export default async function ResearchDetailPage({
                 href={link.href}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="group font-mono text-xs font-medium text-accent underline-offset-4 hover:underline"
+                className="group text-sm font-medium text-accent underline-offset-4 hover:underline"
               >
                 {link.label}{" "}
                 <span className="inline-block transition-transform duration-150 group-hover:translate-x-0.5">
@@ -175,7 +175,7 @@ export default async function ResearchDetailPage({
             href={`/research/${nextEntry.id}`}
             className="group inline-flex flex-wrap items-baseline gap-x-3"
           >
-            <span className={metaMono}>Next</span>
+            <span className={metaText}>Next</span>
             <span className="text-sm font-medium text-fg transition-colors group-hover:text-accent">
               {nextEntry.title}{" "}
               <span className="inline-block transition-transform duration-150 group-hover:translate-x-0.5">

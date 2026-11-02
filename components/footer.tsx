@@ -13,10 +13,10 @@ export function Footer() {
     <footer className="mt-24 border-t border-border">
       <div className="mx-auto flex max-w-5xl flex-col gap-6 px-4 py-10 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
         <div>
-          <p className="font-serif text-base font-medium">{site.name}</p>
+          <p className="text-base font-medium">{site.name}</p>
           <p className="mt-0.5 text-sm text-fg-muted">{site.title}</p>
-          <p className="mt-2 font-mono text-xs text-fg-subtle">
-            © {year} {site.name} · Updated {updated}
+          <p className="mt-2 text-xs text-fg-subtle">
+            © {year} {site.name}. Updated {updated}.
           </p>
         </div>
         <div className="-ml-2 sm:ml-0">

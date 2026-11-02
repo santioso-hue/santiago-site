@@ -4,13 +4,13 @@ import { about } from "@/content/about";
 import { site } from "@/content/site";
 import type { AboutContent, TimelineItem } from "@/content/types";
 import { LogoTile } from "@/components/logo-tile";
-import { cardSurface, metaMono } from "@/components/ui";
+import { cardSurface, metaText } from "@/components/ui";
 import { publicFileSize } from "@/lib/asset-size";
 
 // The shared card surface plus the padding the Education and Experience entries use.
 const cardClass = `${cardSurface} p-5`;
 
-/** A titled block. Serif subheading + content, with consistent vertical rhythm. */
+/** A titled block. Subheading + content, with consistent vertical rhythm. */
 function Section({
   title,
   children,
@@ -57,13 +57,13 @@ function Professors({
   );
 }
 
-/** Personal closing: one serif-italic line beside a photo. */
+/** Personal closing: one line beside a photo. */
 function Personal({ data }: { data: NonNullable<AboutContent["personal"]> }) {
   return (
     <section className="mt-16 border-t border-border pt-12">
       <div className="flex flex-col gap-8 sm:flex-row sm:items-center sm:gap-12">
         <blockquote className="max-w-prose flex-1">
-          <p className="font-serif text-[1.6rem] italic leading-snug text-fg sm:text-[1.75rem]">
+          <p className="text-section text-fg">
             &ldquo;{data.quote}&rdquo;
           </p>
         </blockquote>
@@ -224,7 +224,7 @@ export function AboutBody() {
                         )}
                       </span>
                       {honor.detail ? (
-                        <span className="shrink-0 whitespace-nowrap font-mono text-xs text-fg-subtle">
+                        <span className="shrink-0 whitespace-nowrap text-xs text-fg-subtle">
                           {honor.detail}
                         </span>
                       ) : null}
@@ -257,7 +257,7 @@ export function AboutBody() {
                       ) : null}
                     </div>
                     <div className="flex shrink-0 flex-col items-end gap-2.5">
-                      <span className={`whitespace-nowrap ${metaMono}`}>
+                      <span className={`whitespace-nowrap ${metaText}`}>
                         {item.period}
                       </span>
                       {item.logo ? (

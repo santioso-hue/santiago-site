@@ -3,7 +3,7 @@ import type { ResearchLink } from "@/content/types";
 import { CardLinks } from "./card-links";
 import { richText } from "./rich-text";
 import { Tag } from "./tag";
-import { metaMono } from "./ui";
+import { metaText } from "./ui";
 
 /** The two card text sizes: research titles are larger, with a wider header gap. */
 const SIZES = {
@@ -53,7 +53,7 @@ export function CardBody({
           )}
         </h2>
         {entry.period ? (
-          <span className={metaMono}>{entry.period}</span>
+          <span className={metaText}>{entry.period}</span>
         ) : null}
       </div>
 

@@ -9,8 +9,8 @@
 export const cardSurface =
   "rounded-lg border border-border bg-surface/40 transition-[border-color,box-shadow] duration-200 hover:border-accent/40 hover:shadow-md";
 
-/** Muted monospace meta text (dates / periods) shown on cards and the timeline. */
-export const metaMono = "font-mono text-[13px] text-fg-subtle";
+/** Muted meta text (dates / periods) shown on rows and detail pages. */
+export const metaText = "text-sm tabular-nums text-fg-subtle";
 
 /** Attributes to open a link in a new tab without leaking the referrer. */
 export const newTabProps = {

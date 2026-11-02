@@ -87,10 +87,10 @@ export function PublicationItem({ pub }: { pub: Publication }) {
 
       {pub.bibtex ? (
         <details className="mt-3">
-          <summary className="cursor-pointer font-mono text-xs font-medium text-fg-subtle transition-colors hover:text-accent">
+          <summary className="cursor-pointer text-xs font-medium text-fg-subtle transition-colors hover:text-accent">
             BibTeX
           </summary>
-          <pre className="mt-2 overflow-x-auto rounded-lg border border-border bg-surface p-4 font-mono text-[11px] leading-relaxed text-fg-muted">
+          <pre className="mt-2 overflow-x-auto bibtex rounded-lg border border-border bg-surface p-4 text-[11px] leading-relaxed text-fg-muted">
             {pub.bibtex}
           </pre>
         </details>

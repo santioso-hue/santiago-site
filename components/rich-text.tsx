@@ -4,8 +4,8 @@ const TOKEN = /\[([^\]]+)\]\(([^)]+)\)|\*([^*]+)\*/g;
 
 /**
  * Render a plain string, turning inline `[label](href)` markdown links into <a> elements
- * and `*emphasis*` into a serif-italic span. Keeps typed content as plain strings while
- * supporting the occasional inline link or an editorial italic accent.
+ * and `*emphasis*` into italics. Keeps typed content as plain strings while
+ * supporting the occasional inline link or italic.
  */
 export function richText(text: string): React.ReactNode {
   const nodes: React.ReactNode[] = [];
@@ -28,9 +28,7 @@ export function richText(text: string): React.ReactNode {
       );
     } else {
       nodes.push(
-        <em key={idx} className="font-serif italic">
-          {em}
-        </em>,
+        <em key={idx}>{em}</em>,
       );
     }
     last = idx + m[0].length;

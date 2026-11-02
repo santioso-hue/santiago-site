@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import { hanken, jetbrainsMono, newsreader } from "./fonts";
+import { hanken } from "./fonts";
 import { site } from "@/content/site";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Nav } from "@/components/nav";
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default: `${site.name}, ${site.title}`,
-    template: `%s · ${site.name}`,
+    template: `%s | ${site.name}`,
   },
   description: site.description,
   authors: [{ name: site.name }],
@@ -40,8 +40,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#fbf9f5" },
-    { media: "(prefers-color-scheme: dark)", color: "#1a1916" },
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#181818" },
   ],
 };
 
@@ -79,7 +79,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${hanken.variable} ${newsreader.variable} ${jetbrainsMono.variable}`}
+      className={hanken.variable}
     >
       <body className="min-h-screen antialiased" suppressHydrationWarning>
         <script
@@ -96,7 +96,6 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
-          <div aria-hidden className="grain-overlay" />
         </ThemeProvider>
       </body>
     </html>

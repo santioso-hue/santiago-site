@@ -1,34 +1,29 @@
 import Image from "next/image";
 import { site } from "@/content/site";
-import { FieldHero } from "./field-hero";
 import { richText } from "./rich-text";
 import { SocialLinks } from "./social-links";
 
 /**
  * Landing hero: name, a one-line bio, contact, and social links beside a photo.
- * Sits at the top of the home page, above the About content. Children fade/rise in
- * with a short stagger on load (disabled under prefers-reduced-motion).
+ * Sits at the top of the home page, above the About content.
  */
 export function Hero() {
   return (
     <section className="relative isolate flex flex-col gap-10 md:flex-row md:items-center md:gap-10">
-      <FieldHero />
       <div className="max-w-xl flex-1">
         <h1
-          className="animate-rise text-4xl font-medium leading-[1.04] tracking-tight sm:text-5xl"
-          style={{ animationDelay: "0ms" }}
+          className="text-4xl font-medium leading-[1.04] tracking-tight sm:text-5xl"
         >
           {site.name}
         </h1>
 
         <p
-          className="animate-rise mt-4 text-lg leading-snug text-fg-muted"
-          style={{ animationDelay: "140ms" }}
+          className="mt-4 text-lg leading-snug text-fg-muted"
         >
           {richText(site.tagline)}
         </p>
 
-        <p className="animate-rise mt-6" style={{ animationDelay: "210ms" }}>
+        <p className="mt-6">
           <a
             href={`mailto:${site.email}`}
             className="text-sm font-medium text-accent underline-offset-4 hover:underline"
@@ -38,16 +33,14 @@ export function Hero() {
         </p>
 
         <div
-          className="animate-rise mt-3 -ml-2"
-          style={{ animationDelay: "280ms" }}
+          className="mt-3 -ml-2"
         >
           <SocialLinks />
         </div>
       </div>
 
       <div
-        className="animate-rise w-full shrink-0 sm:w-80"
-        style={{ animationDelay: "140ms" }}
+        className="w-full shrink-0 sm:w-80"
       >
         <Image
           src={site.portrait.src}
