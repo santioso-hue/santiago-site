@@ -3,10 +3,10 @@ import type { AboutContent } from "./types";
 /** Long-form bio, education, trajectory, interests, and honors for /about. */
 export const about: AboutContent = {
   currently:
-    "a research engineer in Marom Bikson's lab at CCNY, making the high-capacity electrodes for two trials at UT Southwestern, modeling cerebellar tDCS for a randomized trial in multiple system atrophy, and applying to PhD programs for Fall 2027",
+    "a research engineer in Dr. Marom Bikson's lab and applying to PhD programs for Fall 2027",
 
   previously:
-    "modeling tDCS in Parkinson's disease with diffusion MRI at KTH (now a first-author paper in Frontiers in Human Neuroscience), training ML models to denoise darkfield microscopy at UC Berkeley, building the electronics and software for Tactorum's rodent thermal stimulator, and finishing my B.E. in biomedical engineering at CCNY",
+    "at KTH Royal Institute of Technology, developing tDCS computational models for Parkinson's and writing my first-author paper, now published in Frontiers in Human Neuroscience, and finishing my B.E. in Biomedical Engineering at CCNY",
 
   photo: {
     src: "/images/graduation.jpg",
@@ -41,7 +41,7 @@ export const about: AboutContent = {
       org: "CCNY Neural Engineering Group",
       logo: { src: "/logos/ccny-seal-purple.png", alt: "The City College of New York" },
       detail:
-        "Making the high-capacity electrodes for an external 6 mA depression trial at MUSC (NCT07226011) and two trials at UT Southwestern, including a single-use carbon version with tolerability comparable to silver (n = 10). Modeling cerebellar tDCS for a randomized trial in multiple system atrophy.",
+        "Scaling up electrode manufacturing for two trials at UT Southwestern (late-life depression and addiction). Developed a single-use carbon version with tolerability comparable to silver (n = 10). Building cerebellar tDCS models for a randomized trial in multiple system atrophy.",
       professors: [
         { name: "Prof. Marom Bikson", href: "https://www.neuralengr.org/bikson" },
       ],
@@ -113,7 +113,7 @@ export const about: AboutContent = {
       detail: "CCNY BME · 2025, 2026",
     },
     {
-      title: "Endowed Engineering Careers Scholarship",
+      title: "Endowed Scholarship to Support the Pursuit of Engineering Careers",
       href: "https://www.ccny.cuny.edu/news/1m-gift-grove-school-establishes-scholarship-fund-undergrads",
       detail: "Grove School · 2025",
     },

@@ -169,8 +169,8 @@ export interface Publication {
   id: string;
   authors: Author[];
   title: string;
-  /** Journal / conference / repository. */
-  venue: string;
+  /** Journal / conference / repository, or a short note for unpublished work. */
+  venue?: string;
   year: number;
   type?: PublicationType;
   /** DOI without the https://doi.org/ prefix, e.g. "10.1101/2025.01.01.123456". */

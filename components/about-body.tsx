@@ -103,7 +103,7 @@ export function AboutBody() {
       <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:gap-10">
         <div className="prose-reading min-w-0 flex-1 text-base">
           <p>
-            <span className="font-medium text-fg">Currently I am</span>{" "}
+            <span className="font-medium text-fg">Currently, I am</span>{" "}
             {about.currently}.
           </p>
           <p>

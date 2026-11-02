@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { publications, talks } from "@/content/publications";
+import { inPreparation, publications, talks } from "@/content/publications";
 import { PublicationItem } from "@/components/publication-item";
 import { SectionHeading } from "@/components/section-heading";
 
@@ -27,6 +27,15 @@ export default function PublicationsPage() {
           <PublicationItem key={pub.id} pub={pub} />
         ))}
       </div>
+
+      <section className="mt-14">
+        <h2 className="mb-5 text-lg text-fg">In preparation</h2>
+        <div>
+          {inPreparation.map((pub) => (
+            <PublicationItem key={pub.id} pub={pub} />
+          ))}
+        </div>
+      </section>
 
       {presentations.length > 0 ? (
         <section className="mt-14">

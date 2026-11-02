@@ -27,7 +27,9 @@ export function PublicationItem({ pub }: { pub: Publication }) {
             {TYPE_LABELS[pub.type]}
           </span>
         ) : null}
-        <span className="text-sm text-fg-subtle">{pub.year}</span>
+        {pub.type !== "in-preparation" ? (
+          <span className="text-sm text-fg-subtle">{pub.year}</span>
+        ) : null}
       </div>
 
       <h2 className="mt-2 text-lg font-medium leading-snug tracking-tight">
@@ -56,8 +58,12 @@ export function PublicationItem({ pub }: { pub: Publication }) {
             {i < pub.authors.length - 1 ? ", " : ""}
           </span>
         ))}
-        {" · "}
-        <span className="italic">{pub.venue}</span>
+        {pub.venue ? (
+          <>
+            {" · "}
+            <span className="italic">{pub.venue}</span>
+          </>
+        ) : null}
       </p>
 
       {href ? (

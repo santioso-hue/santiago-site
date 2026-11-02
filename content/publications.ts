@@ -56,6 +56,41 @@ export const publications: Publication[] = [
   },
 ];
 
+/** Manuscripts in preparation, listed apart from published work. */
+export const inPreparation: Publication[] = [
+  {
+    id: "tp-review",
+    authors: [
+      { name: "S. Osorio Jurado", isMe: true },
+      { name: "B. Wang" },
+      { name: "M. Bikson" },
+    ],
+    title: "Transverse polarization in neuromodulation",
+    year: 2026,
+    type: "in-preparation",
+  },
+  {
+    id: "msa-cerebellar-trial",
+    authors: [
+      { name: "Y. E. Huh†" },
+      { name: "S. Oh†" },
+      { name: "J. Ahn" },
+      { name: "S.-H. You" },
+      { name: "S. Osorio Jurado", isMe: true },
+      { name: "M. Belali Koochesfahani" },
+      { name: "M. Bikson" },
+      { name: "H. Park" },
+      { name: "J. Youn" },
+      { name: "J. W. Cho" },
+    ],
+    title:
+      "Home-based cerebellar transcranial direct current stimulation for cerebellar variant of multiple system atrophy: A randomized controlled trial",
+    venue: "†Equal contribution",
+    year: 2026,
+    type: "in-preparation",
+  },
+];
+
 /**
  * Conference talks and posters, shown below the publications list (newest first).
  * `url` links the poster itself where one is available in /public/posters.

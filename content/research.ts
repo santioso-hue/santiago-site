@@ -1,7 +1,7 @@
 import type { ResearchEntry } from "./types";
 
 /**
- * Research entries, shown as cards on /research (newest first).
+ * Research entries, shown as cards on /research.
  * Add, remove, or reorder freely. Each needs a unique `id`.
  */
 export const research: ResearchEntry[] = [
@@ -55,8 +55,8 @@ export const research: ResearchEntry[] = [
     },
     detailPage: true,
     body: [
-      "Human tES dosing runs from 2 mA for tDCS to roughly 1 A for electroconvulsive therapy, with almost nothing explored between. The ceiling is not physiology but the electrode-skin interface, which turns painful past 2 mA, right where cortical fields still sit under the 1 V/m engagement threshold. HC-tDCS redesigns that interface with multi-layer hydrogel electrodes: subjects report the same pain at 6 mA as conventional sponges at 2 mA.",
-      "That opens the door to tripling the dose in patients. Our electrodes now supply an external 6 mA depression trial at MUSC and two trials at UT Southwestern, and a single-use carbon version has shown tolerability comparable to silver. Improving the design (potentially to the point where it runs off its own printed battery, with no external stimulator) and scaling up production are the next steps.",
+      "Human tES dosing runs from 2 mA for tDCS to roughly 1 A for electroconvulsive therapy, with almost nothing explored between. The practical limit is the electrode-skin interface, which becomes painful above 2 mA, where peak brain electric fields are 1 V/m or less. HC-tDCS redesigns that interface with multilayer hydrogel electrodes. In 10 healthy volunteers, mean pain at 6 mA (17.2 on a 100 mm scale) was comparable to conventional sponges at 2 mA (18.3).",
+      "That opens the door to tripling the dose in patients. Our electrodes supplied an external 6 mA depression trial at MUSC and now go to two trials at UT Southwestern, and a single-use carbon version has shown tolerability comparable to silver. Improving the design (potentially to the point where it runs off its own printed battery, with no external stimulator) and scaling up production are the next steps.",
     ],
     figures: [
       {
@@ -65,11 +65,11 @@ export const research: ResearchEntry[] = [
         width: 2048,
         height: 1198,
         caption:
-          "Predicted cortical fields: a conventional 2 mA sponge montage beside the hydrogel electrodes at 2 and 6 mA, and peak field across doses. At 6 mA, frontal fields reach 1.95 to 3.25 V/m, against 0.49 to 0.95 V/m for the sponge.",
+          "Predicted cortical fields: a conventional 2 mA sponge montage beside the hydrogel electrodes at 2 and 6 mA, and peak field across doses. Across eight head models, peak electric fields reach 2.25 to 3.26 V/m at 6 mA, against 0.49 to 0.85 V/m for the 2 mA sponge montage.",
       },
     ],
     description:
-      "High-capacity electrodes that deliver transcranial direct current stimulation at 6 mA, triple the conventional dose, without skin irritation. We characterized the electrode-skin interface by impedance spectroscopy and validated safety and tolerability in an IRB-approved human-subject study.",
+      "High-capacity electrodes that deliver transcranial direct current stimulation at 6 mA, triple the conventional dose, with pain comparable to conventional 2 mA tDCS. We characterized the electrodes by impedance spectroscopy and tested tolerability in an IRB-approved study of 10 healthy volunteers. Skin redness increased with current.",
     tags: ["Electrode design", "EIS", "tDCS", "IRB / human subjects", "Electrochemistry"],
     links: [
       {
@@ -83,6 +83,26 @@ export const research: ResearchEntry[] = [
         note: "MUSC Brain Stimulation Lab \u00b7 accelerated 6 mA tDCS for depression",
       },
     ],
+  },
+  {
+    id: "transverse-polarization",
+    title: "Transverse polarization in neuromodulation",
+    affiliation: "Review with Dr. Boshuo Wang and Prof. Marom Bikson",
+    period: "2026 – Present",
+    logo: { src: "/logos/ccny-seal-purple.png", alt: "The City College of New York" },
+    description:
+      "A review in preparation on transverse polarization, the change in electrical charge across the diameter of a neuron rather than along its length, which cable models neglect. I traced decades of studies that modeled it and turned Prof. Bikson's sketch of how an electric field charges opposite sides of a cell into the review's central figure.",
+    tags: ["Transverse polarization", "Cable models", "NEURON", "Neuromodulation"],
+  },
+  {
+    id: "msa-cerebellar-models",
+    title: "Cerebellar tDCS models for multiple system atrophy",
+    affiliation: "CCNY Neural Engineering Group (Prof. Marom Bikson), with CHA Bundang and Samsung Medical Center",
+    period: "Aug 2026 – Present",
+    logo: { src: "/logos/ccny-seal-purple.png", alt: "The City College of New York" },
+    description:
+      "For a randomized, sham-controlled trial of home-based cerebellar tDCS, I build a head model from each participant's MRI and compute the electric field in the cerebellum. The MRI scans end at the neck but the return electrode sits on the shoulder, so I extend each model with a neck-and-shoulder template. We will test whether the electric field each participant received relates to how much they improved.",
+    tags: ["Cerebellar tDCS", "SimNIBS", "Simpleware", "COMSOL", "Finite element modeling"],
   },
   {
     id: "darkfield-ml",
