@@ -48,7 +48,7 @@ export function ThemeToggle() {
           <Icon
             key={choice}
             aria-hidden
-            className={`absolute h-[18px] w-[18px] transition-all duration-200 ease-out ${
+            className={`absolute h-[18px] w-[18px] transition-[transform,opacity] duration-200 ease-out ${
               choice === current
                 ? "rotate-0 scale-100 opacity-100"
                 : "-rotate-90 scale-50 opacity-0"

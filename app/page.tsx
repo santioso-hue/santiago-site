@@ -12,7 +12,7 @@ export default function Home() {
       <Section id="research" title="Research">
         <ResearchList />
       </Section>
-      <Section id="publications" title="Publications and talks">
+      <Section id="publications" title="Publications">
         <PublicationList />
       </Section>
       <Section id="experience" title="Experience">

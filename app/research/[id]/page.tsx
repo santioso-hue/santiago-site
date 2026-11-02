@@ -6,8 +6,7 @@ import { research } from "@/content/research";
 import type { ResearchEntry } from "@/content/types";
 import { FigureLightbox } from "@/components/figure-lightbox";
 import { LiteYouTube } from "@/components/lite-youtube";
-import { richText } from "@/components/rich-text";
-import { Tag } from "@/components/tag";
+import { plainText, richText } from "@/components/rich-text";
 import { metaText, tapTarget } from "@/components/ui";
 
 type Figure = NonNullable<ResearchEntry["figures"]>[number];
@@ -55,7 +54,7 @@ export async function generateMetadata({
   const { id } = await params;
   const entry = findEntry(id);
   if (!entry) return {};
-  return { title: entry.title, description: entry.description };
+  return { title: entry.title, description: plainText(entry.description) };
 }
 
 export default async function ResearchDetailPage({
@@ -83,7 +82,7 @@ export default async function ResearchDetailPage({
     <div className="mx-auto max-w-3xl">
       <Link
         href="/#research"
-        className={`${tapTarget} text-sm font-medium text-accent underline-offset-4 hover:underline`}
+        className={`${tapTarget} text-sm font-medium underline underline-offset-4`}
       >
         All research
       </Link>
@@ -136,7 +135,9 @@ export default async function ResearchDetailPage({
       ) : null}
 
       {entry.video ? (
-        <LiteYouTube youtubeId={entry.video.youtubeId} title={entry.video.title} />
+        <div className="mt-10">
+          <LiteYouTube youtubeId={entry.video.youtubeId} title={entry.video.title} />
+        </div>
       ) : null}
 
       {entry.links?.length ? (
@@ -147,7 +148,7 @@ export default async function ResearchDetailPage({
                 href={link.href}
                 target="_blank"
                 rel="noreferrer noopener"
-                className={`${tapTarget} text-sm font-medium text-accent underline-offset-4 hover:underline`}
+                className={`${tapTarget} text-sm font-medium underline underline-offset-4`}
               >
                 {link.label}
               </a>
@@ -159,15 +160,7 @@ export default async function ResearchDetailPage({
         </ul>
       ) : null}
 
-      {entry.tags.length > 0 ? (
-        <ul className="mt-6 flex flex-wrap gap-1.5">
-          {entry.tags.map((tag) => (
-            <li key={tag}>
-              <Tag>{tag}</Tag>
-            </li>
-          ))}
-        </ul>
-      ) : null}
+      <p className="mt-4 text-sm text-fg-subtle">{entry.tags.join(", ")}</p>
 
       {nextEntry ? (
         <div className="mt-12">
@@ -176,7 +169,7 @@ export default async function ResearchDetailPage({
             className="group inline-flex min-h-11 flex-wrap items-baseline gap-x-2 py-2 text-sm"
           >
             <span className="text-fg-subtle">Next:</span>
-            <span className="font-medium text-accent underline-offset-4 group-hover:underline">
+            <span className="font-medium underline underline-offset-4">
               {nextEntry.title}
             </span>
           </Link>

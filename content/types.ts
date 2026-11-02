@@ -32,12 +32,8 @@ export interface NavItem {
 export interface Logo {
   src: string;
   alt: string;
-  /**
-   * Keep original colors in dark mode. Set on filled, multi-color marks (e.g. the
-   * UC Berkeley seal) that read on any background; by default marks are inverted
-   * light so line-art stays legible on the dark surface.
-   */
-  keepColor?: boolean;
+  /** Show this mark in a light single color in dark mode, for dark line art. */
+  lightInDark?: boolean;
 }
 
 export interface SiteConfig {
@@ -55,7 +51,7 @@ export interface SiteConfig {
   email: string;
   /** Plain-text summary for the meta description and link previews (no markup). */
   description: string;
-  /** Portrait shown in the hero, at its natural aspect (intrinsic pixel size required). */
+  /** Photo at the top of the home page, at its natural aspect (intrinsic pixel size required). */
   portrait: { src: string; alt: string; width: number; height: number };
   /** Profile links rendered as an icon row in the hero and footer. */
   socials: SocialLink[];
@@ -69,6 +65,8 @@ export interface ResearchLink {
   /** e.g. "Preprint", "Code", "Poster". */
   label: string;
   href: string;
+  /** Shorter label for the pill on home-page rows, when `label` is long. */
+  short?: string;
   /**
    * One-line plain-language description, shown after the label on detail pages
    * (e.g. "MUSC Brain Stimulation Lab, 6 mA tDCS for depression").
@@ -87,6 +85,8 @@ export interface ResearchEntry {
   period?: string;
   /** One-paragraph description. */
   description: string;
+  /** One or two sentences for the home-page row when `description` is longer. */
+  summary?: string;
   /** Methods / tools, rendered as chips. */
   tags: string[];
   /** Optional small institution logo, shown above the title. */
@@ -115,10 +115,10 @@ export interface ResearchEntry {
    */
   visual?: { src: string; alt: string; width: number; height: number };
   /**
-   * Optional photograph for the row, shown as a rounded portrait thumbnail in the
-   * same slot `visual` uses for transparent renders. Set one or the other.
+   * Optional photograph for the row, in the same slot `visual` uses for transparent
+   * renders. Set one or the other.
    */
-  photo?: { src: string; alt: string };
+  photo?: { src: string; alt: string; width: number; height: number };
   /**
    * Set when the entry has enough material to warrant its own page. Only then does
    * the title link to /research/<id>; otherwise the row stands on its own.
@@ -126,7 +126,7 @@ export interface ResearchEntry {
   detailPage?: boolean;
   /** Optional outbound links (paper, code, poster). */
   links?: ResearchLink[];
-  /** Optional presentation video (lazy, click-to-play), shown on the detail page. */
+  /** Optional presentation video (lazy, click-to-play), shown on the row and detail page. */
   video?: { youtubeId: string; title: string };
   /**
    * Optional extra paragraphs shown only on the entry's detail page, after the
@@ -143,7 +143,10 @@ export interface ProjectEntry {
   description: string;
   tags: string[];
   /** Optional cover figure, shown 16:9 (object-contain). */
-  image?: { src: string; alt: string };
+  /** Figure at its natural aspect, on the home-page gallery and the project's page. */
+  image: { src: string; alt: string; width: number; height: number };
+  /** The full description for the project's page; falls back to `description`. */
+  body?: string[];
   links?: ResearchLink[];
 }
 
@@ -174,6 +177,8 @@ export interface Publication {
   doi?: string;
   /** Direct link (arXiv, bioRxiv, PDF) if there is no DOI yet. */
   url?: string;
+  /** Optional one sentence on the work, shown under the citation. */
+  summary?: string;
   /** Optional BibTeX entry, shown in a collapsible block under the citation. */
   bibtex?: string;
 }
@@ -198,16 +203,16 @@ export interface AboutContent {
   currently: string;
   /** Text after "Previously, I was …". */
   previously: string;
-  /** Optional photo shown beside the intro (e.g. graduation). */
-  photo?: { src: string; alt: string };
+  /** Optional graduation photo, at its natural aspect. */
+  photo?: { src: string; alt: string; width: number; height: number };
   /** The degree; the Education section is built around exactly one entry. */
   education: TimelineItem;
   /** Brief trajectory: positions / labs over time. */
   experience: TimelineItem[];
   /** Research interests, one sentence rendered as prose. */
   interests: string;
-  /** Awards / honors, dated in the left column. Title is a link when `href` is set. */
-  honors: { title: string; year: string; source?: string; href?: string }[];
+  /** Awards / honors. Title is a link when `href` is set. */
+  honors: { title: string; year: string; href?: string }[];
   /** Officer roles and service. */
   leadership: {
     period: string;
@@ -219,6 +224,6 @@ export interface AboutContent {
   /** Optional personal closing: one line + a photo, shown at the foot of the home page. */
   personal?: {
     quote: string;
-    photo: { src: string; alt: string; caption?: string };
+    photo: { src: string; alt: string; width: number; height: number; caption?: string };
   };
 }

@@ -9,10 +9,10 @@ import { ThemeToggle } from "./theme-toggle";
  */
 export function Nav() {
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-bg">
+    <header className="sticky top-0 z-50 bg-bg">
       <nav
         aria-label="Primary"
-        className="mx-auto flex h-14 w-full max-w-5xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8"
+        className="mx-auto flex h-14 w-full max-w-4xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8"
       >
         <Link
           href="/"

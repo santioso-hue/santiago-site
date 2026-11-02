@@ -18,7 +18,7 @@ export function LiteYouTube({
   const [active, setActive] = useState(false);
 
   return (
-    <div className="relative mt-5 aspect-video w-full overflow-hidden rounded-md border border-border bg-surface">
+    <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-surface">
       {active ? (
         <iframe
           src={`https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1`}
@@ -42,10 +42,11 @@ export function LiteYouTube({
             src={`https://i.ytimg.com/vi/${youtubeId}/hqdefault.jpg`}
             alt=""
             aria-hidden="true"
+            loading="lazy"
             className="h-full w-full object-cover"
           />
           <span className="absolute inset-0 grid place-items-center bg-black/20 transition-colors group-hover:bg-black/30">
-            <span className="grid h-14 w-14 place-items-center rounded-full bg-bg/90 shadow-sm transition-transform group-hover:scale-105">
+            <span className="grid h-14 w-14 place-items-center rounded-full bg-bg/90 transition-transform group-hover:scale-105">
               <Play className="h-6 w-6 translate-x-px text-fg" aria-hidden="true" />
             </span>
           </span>

@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { projects } from "@/content/projects";
 import { research } from "@/content/research";
 import { site } from "@/content/site";
 
@@ -9,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...research
       .filter((entry) => entry.detailPage)
       .map((entry) => `/research/${entry.id}`),
+    ...projects.map((entry) => `/projects/${entry.id}`),
   ];
   return paths.map((path) => ({
     url: `${site.url}${path}`,

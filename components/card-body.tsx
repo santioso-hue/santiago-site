@@ -1,36 +1,43 @@
 import Link from "next/link";
-import type { Logo, ResearchLink } from "@/content/types";
-import { CardLinks } from "./card-links";
+import type { ResearchLink } from "@/content/types";
+import { IconLink } from "./link-pill";
 import { richText } from "./rich-text";
-import { OrgLine } from "./row";
-import { Tag } from "./tag";
+import { Entry } from "./row";
 
-/** Fields CardBody renders; both ProjectEntry and ResearchEntry satisfy this. */
+/** Fields CardBody renders; ResearchEntry satisfies this. */
 interface CardBodyEntry {
   title: string;
+  period?: string;
   affiliation?: string;
   description: string;
-  tags: string[];
+  summary?: string;
   links?: ResearchLink[];
-  logo?: Logo;
 }
 
 /**
- * The text block shared by research rows and project entries: title, organization
- * line, description, tag chips, and outbound links.
+ * A research entry: image or logo, title and date,
+ * organization, a short summary, then link symbols.
  */
 export function CardBody({
   entry,
+  media,
+  wideMedia = false,
   titleHref,
 }: {
   entry: CardBodyEntry;
-  /** When set, the title links here (e.g. to the entry's detail page). */
+  media: React.ReactNode;
+  wideMedia?: boolean;
+  /** When set, the title and a Details pill link here (the entry's detail page). */
   titleHref?: string;
 }) {
   return (
-    <>
-      <h3 className="text-title font-medium">
-        {titleHref ? (
+    <Entry
+      media={media}
+      wideMedia={wideMedia}
+      date={entry.period}
+      org={entry.affiliation}
+      title={
+        titleHref ? (
           <Link
             href={titleHref}
             className="underline-offset-4 transition-colors hover:text-accent hover:underline"
@@ -39,28 +46,25 @@ export function CardBody({
           </Link>
         ) : (
           entry.title
-        )}
-      </h3>
-
-      {entry.affiliation ? (
-        <OrgLine logo={entry.logo}>{entry.affiliation}</OrgLine>
-      ) : null}
-
-      <p className="mt-2 text-[15px] leading-relaxed text-fg-muted">
-        {richText(entry.description)}
+        )
+      }
+    >
+      <p className="mt-2 leading-relaxed text-fg-muted">
+        {richText(entry.summary ?? entry.description)}
       </p>
 
-      {entry.tags.length > 0 ? (
-        <ul className="mt-3 flex flex-wrap gap-1.5">
-          {entry.tags.map((tag) => (
-            <li key={tag}>
-              <Tag>{tag}</Tag>
-            </li>
-          ))}
-        </ul>
-      ) : null}
-
-      {entry.links ? <CardLinks links={entry.links} /> : null}
-    </>
+      <ul className="-ml-1.5 mt-0.5 flex flex-wrap items-center gap-x-1">
+        {entry.links?.map((link) => (
+          <li key={link.label}>
+            <IconLink href={link.href} label={link.short ?? link.label} />
+          </li>
+        ))}
+        {titleHref ? (
+          <li>
+            <IconLink href={titleHref} label="Details" />
+          </li>
+        ) : null}
+      </ul>
+    </Entry>
   );
 }

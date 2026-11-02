@@ -10,7 +10,7 @@ export const research: ResearchEntry[] = [
     title: "Using diffusion MRI to personalize tDCS in Parkinson's",
     affiliation: "KTH Royal Institute of Technology (Prof. Rodrigo Moreno)",
     period: "Jun – Aug 2026",
-    logo: { src: "/logos/kth-mark.png", alt: "KTH Royal Institute of Technology" },
+    logo: { src: "/logos/kth-mark.png", alt: "KTH Royal Institute of Technology", lightInDark: true },
     figures: [
       {
         src: "/images/research/tdcs-fig1-pipeline.jpg",
@@ -35,23 +35,33 @@ export const research: ResearchEntry[] = [
     links: [
       {
         label: "Paper (Frontiers in Human Neuroscience)",
+        short: "Paper",
         href: "https://doi.org/10.3389/fnhum.2026.1972676",
         note: "Osorio Jurado et al., 2026, Frontiers in Human Neuroscience",
+      },
+      {
+        label: "Poster",
+        href: "/posters/mre-tdcs-pd-neuromodulation-2026.jpg",
+        note: "NYC Neuromodulation Conference and Urban University Conference Series (UUC2026), KTH",
       },
     ],
     description:
       "Anisotropy in tDCS is conventionally derived from single-shell DTI. I built, to our knowledge, the first head model to derive it from multidimensional diffusion MRI, then compared the predicted electric fields against DTI and isotropic models across 29 participants and four montages.",
+    summary:
+      "I built, to our knowledge, **the first tDCS head model with anisotropy from multidimensional diffusion MRI**. In 29 participants, its predicted electric fields differed from DTI and isotropic models by a median of 1.8 percent across the cortex.",
     tags: ["Parkinson's disease", "tDCS", "MD-dMRI", "SimNIBS", "Finite element modeling"],
   },
   {
     id: "hc-tdcs",
-    title: "High-Capacity tDCS (HC-tDCS)",
+    title: "High-capacity tDCS (HC-tDCS)",
     affiliation: "CCNY Neural Engineering Group (Prof. Marom Bikson)",
     period: "Jan 2025 – Present",
     logo: { src: "/logos/ccny-mark.png", alt: "The City College of New York" },
     photo: {
       src: "/images/research/hc-tdcs-electrodes.jpg",
       alt: "Santiago Osorio Jurado wearing two high-capacity tDCS electrodes on his forehead during a bench test at the CCNY Neural Engineering Group.",
+      width: 900,
+      height: 1125,
     },
     detailPage: true,
     body: [
@@ -70,49 +80,37 @@ export const research: ResearchEntry[] = [
     ],
     description:
       "High-capacity electrodes that deliver transcranial direct current stimulation at 6 mA, triple the conventional dose, with pain comparable to conventional 2 mA tDCS. We characterized the electrodes by impedance spectroscopy and tested tolerability in an IRB-approved study of 10 healthy volunteers. Skin redness increased with current.",
+    summary:
+      "Electrodes that deliver tDCS at **6 mA, triple the conventional dose**. In 10 healthy volunteers, pain was comparable to conventional 2 mA tDCS. Two trials at UT Southwestern now use them.",
     tags: ["Electrode design", "EIS", "tDCS", "IRB / human subjects", "Electrochemistry"],
     links: [
       {
         label: "Paper (Brain Stimulation)",
+        short: "Paper",
         href: "https://doi.org/10.1016/j.brs.2026.103233",
         note: "Donnery et al., 2026, Brain Stimulation",
       },
       {
         label: "NCT07226011",
+        short: "Trial",
         href: "https://clinicaltrials.gov/study/NCT07226011",
         note: "MUSC Brain Stimulation Lab, accelerated 6 mA tDCS for depression",
+      },
+      {
+        label: "Poster",
+        href: "/posters/hc-tdcs-abrcms-2025.jpg",
+        note: "ABRCMS, San Antonio, TX, 2025",
       },
     ],
   },
   {
-    id: "transverse-polarization",
-    title: "Transverse polarization in neuromodulation",
-    affiliation: "Review with Dr. Boshuo Wang and Prof. Marom Bikson",
-    period: "2026 – Present",
-    logo: { src: "/logos/ccny-mark.png", alt: "The City College of New York" },
-    description:
-      "A review in preparation on transverse polarization, the change in electrical charge across the diameter of a neuron rather than along its length, which cable models neglect. I traced decades of studies that modeled it and turned Prof. Bikson's sketch of how an electric field charges opposite sides of a cell into the review's central figure.",
-    tags: ["Transverse polarization", "Cable models", "NEURON", "Neuromodulation"],
-  },
-  {
-    id: "msa-cerebellar-models",
-    title: "Cerebellar tDCS models for multiple system atrophy",
-    affiliation: "CCNY Neural Engineering Group (Prof. Marom Bikson), with CHA Bundang and Samsung Medical Center",
-    period: "Aug 2026 – Present",
-    logo: { src: "/logos/ccny-mark.png", alt: "The City College of New York" },
-    description:
-      "For a randomized, sham-controlled trial of home-based cerebellar tDCS, I build a head model from each participant's MRI and compute the electric field in the cerebellum. The MRI scans end at the neck but the return electrode sits on the shoulder, so I extend each model with a neck-and-shoulder template. We will test whether the electric field each participant received relates to how much they improved.",
-    tags: ["Cerebellar tDCS", "SimNIBS", "Simpleware", "COMSOL", "Finite element modeling"],
-  },
-  {
     id: "darkfield-ml",
-    title: "Machine Learning for Darkfield Microscopy",
+    title: "Machine learning for darkfield microscopy",
     affiliation: "UC Berkeley, Computational Imaging Lab (Prof. Laura Waller)",
     period: "Jun – Aug 2025",
     logo: {
       src: "/logos/berkeley-mark.png",
       alt: "University of California, Berkeley",
-      keepColor: true,
     },
     figures: [
       {
@@ -131,6 +129,8 @@ export const research: ResearchEntry[] = [
       "Dynamic biological samples need short exposures to avoid motion blur, which leaves darkfield images with very low signal-to-noise, and pipelines that denoise and brighten separately compound their errors down there. I trained both models from scratch on identical splits, 768 simulated cell pairs and 720 experimental USAF-target pairs from an LED array microscope, and SID won on both datasets: better denoising, finer detail, shorter training time.",
       "The transformer-based SNR-Aware model likely needs larger and more diverse data than this study provided, and everything tested so far is static. Live dynamic samples are the next step.",
     ],
+    summary:
+      "I compared two deep-learning models, SID and SNR-Aware, for denoising short-exposure darkfield microscopy. SID had the lower mean reconstruction error, **0.6 percent against 1.7 percent**.",
     tags: ["Deep learning", "PyTorch", "Computational imaging", "Image restoration", "Vision transformers"],
     video: { youtubeId: "NfUxkJLmI1U", title: "SUPERB 2025 Presentation" },
     links: [
@@ -142,12 +142,12 @@ export const research: ResearchEntry[] = [
   },
   {
     id: "photon-counting-ct",
-    title: "Photon-Counting CT Optimization",
+    title: "Photon-counting CT optimization",
     affiliation: "KTH Royal Institute of Technology (Prof. Mats Persson)",
     period: "May – Sep 2024",
-    logo: { src: "/logos/kth-mark.png", alt: "KTH Royal Institute of Technology" },
+    logo: { src: "/logos/kth-mark.png", alt: "KTH Royal Institute of Technology", lightInDark: true },
     description:
-      "Optimization of iodine contrast-to-noise on a Siemens NAEOTOM Alpha photon-counting CT by tuning tube voltage and reconstruction. 90 kVp with 40 keV virtual monoenergetic reconstruction was optimal at clinically relevant dose.",
+      "I optimized iodine contrast-to-noise on a Siemens NAEOTOM Alpha photon-counting CT. At clinically relevant dose, 90 kVp with 40 keV virtual monoenergetic reconstruction was optimal.",
     tags: ["Photon-counting CT", "Image quality", "CNR optimization", "Medical imaging"],
     links: [
       {

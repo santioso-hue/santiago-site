@@ -3,14 +3,16 @@ import type { AboutContent } from "./types";
 /** Long-form bio, education, trajectory, interests, and honors for the home page. */
 export const about: AboutContent = {
   currently:
-    "a research engineer in Dr. Marom Bikson's lab and applying to PhD programs for Fall 2027",
+    "a research engineer in [Dr. Marom Bikson's lab](https://www.neuralengr.org/bikson) and applying to PhD programs for Fall 2027",
 
   previously:
-    "at KTH Royal Institute of Technology, developing tDCS computational models for Parkinson's and writing my first-author paper, now published in Frontiers in Human Neuroscience, and finishing my B.E. in Biomedical Engineering at CCNY",
+    "at [KTH Royal Institute of Technology](https://www.kth.se/en), developing tDCS computational models for Parkinson's and writing my [first-author paper](https://doi.org/10.3389/fnhum.2026.1972676), now published in Frontiers in Human Neuroscience, and finishing my B.E. in Biomedical Engineering at [CCNY](https://www.ccny.cuny.edu/)",
 
   photo: {
     src: "/images/graduation.jpg",
     alt: "Santiago Osorio Jurado in cap and gown at his City College of New York graduation, 2026.",
+    width: 1200,
+    height: 900,
   },
 
   education: {
@@ -27,8 +29,6 @@ export const about: AboutContent = {
       role: "Research Engineer",
       org: "CCNY Neural Engineering Group",
       logo: { src: "/logos/ccny-mark.png", alt: "The City College of New York" },
-      detail:
-        "Scaling up electrode manufacturing for two trials at UT Southwestern (late-life depression and addiction). Developed a single-use carbon version with tolerability comparable to silver (n = 10). Building cerebellar tDCS models for a randomized trial in multiple system atrophy.",
       professors: [
         { name: "Prof. Marom Bikson", href: "https://www.neuralengr.org/bikson" },
       ],
@@ -37,9 +37,7 @@ export const about: AboutContent = {
       period: "Jun – Aug 2026",
       role: "Visiting Researcher",
       org: "KTH Royal Institute of Technology, Stockholm",
-      logo: { src: "/logos/kth-mark.png", alt: "KTH Royal Institute of Technology" },
-      detail:
-        "To our knowledge the first tDCS conductivity model derived from multidimensional diffusion MRI, evaluated in 29 Parkinson's patients and controls. First-author paper published in Frontiers in Human Neuroscience.",
+      logo: { src: "/logos/kth-mark.png", alt: "KTH Royal Institute of Technology", lightInDark: true },
       professors: [
         { name: "Prof. Rodrigo Moreno", href: "https://www.kth.se/profile/rodmore?l=en" },
       ],
@@ -49,8 +47,6 @@ export const about: AboutContent = {
       role: "Undergraduate Researcher",
       org: "CCNY Neural Engineering Group",
       logo: { src: "/logos/ccny-mark.png", alt: "The City College of New York" },
-      detail:
-        "High-capacity tDCS: electrode design, EIS, and IRB human-subject validation at 6 mA, triple the conventional dose. Published in Brain Stimulation.",
       professors: [
         { name: "Prof. Marom Bikson", href: "https://www.neuralengr.org/bikson" },
       ],
@@ -62,10 +58,7 @@ export const about: AboutContent = {
       logo: {
         src: "/logos/berkeley-mark.png",
         alt: "University of California, Berkeley",
-        keepColor: true,
       },
-      detail:
-        "Benchmarked SID against SNR-Aware for denoising low-SNR darkfield microscopy; SID achieved up to 13 dB higher PSNR.",
       professors: [
         { name: "Prof. Laura Waller", href: "https://www.laurawaller.com/" },
       ],
@@ -74,9 +67,7 @@ export const about: AboutContent = {
       period: "May – Sep 2024",
       role: "Medical Imaging Research Intern",
       org: "KTH Royal Institute of Technology, Stockholm (IRES)",
-      logo: { src: "/logos/kth-mark.png", alt: "KTH Royal Institute of Technology" },
-      detail:
-        "Contrast-to-noise optimization on a Siemens NAEOTOM Alpha photon-counting CT; 90 kVp yielded the highest iodine CNR of the four tube voltages tested.",
+      logo: { src: "/logos/kth-mark.png", alt: "KTH Royal Institute of Technology", lightInDark: true },
       professors: [
         { name: "Prof. Mats Persson", href: "https://www.kth.se/profile/persson6?l=en" },
       ],
@@ -90,23 +81,19 @@ export const about: AboutContent = {
     {
       title: "Rukin Award for Academic and Professional Perseverance in Biomedical Engineering",
       year: "2026",
-      source: "CCNY Biomedical Engineering",
     },
     {
-      title: "BMES Student Chapter Executive Board Award",
+      title: "BMES Student Chapter Executive Board Award, CCNY",
       year: "2025, 2026",
-      source: "CCNY Biomedical Engineering",
     },
     {
       title: "Wallace H. Coulter Award for Academic Service in Biomedical Engineering",
       year: "2025, 2026",
-      source: "CCNY Biomedical Engineering",
     },
     {
       title: "Endowed Scholarship to Support the Pursuit of Engineering Careers",
       href: "https://www.ccny.cuny.edu/news/1m-gift-grove-school-establishes-scholarship-fund-undergrads",
       year: "2025",
-      source: "Grove School of Engineering",
     },
     {
       title: "NIH U-RISE Scholar (NIGMS T34)",
@@ -125,26 +112,27 @@ export const about: AboutContent = {
       period: "2024 – 2026",
       role: "Chapter Officer (Secretary)",
       org: "Biomedical Engineering Society, CCNY Chapter",
-      logo: { src: "/logos/bmes-mark.png", alt: "Biomedical Engineering Society" },
+      logo: { src: "/logos/bmes-mark.png", alt: "Biomedical Engineering Society", lightInDark: true },
       points: [
-        "Co-organized the Biodesign Challenge for two years, a medical-device prototyping competition with 106 students and $7,000 in prizes. Secured sponsor funding, recruited judges, and taught soldering, CAD, and pitching workshops.",
-        "Led ResearchConnect, which helps students find labs and approach professors, placing eight undergraduates in their first lab positions.",
+        "Co-organized the Biodesign Challenge (106 students, $7,000 in prizes) and led ResearchConnect, which placed eight undergraduates in their first lab positions.",
       ],
     },
     {
       period: "2025 – 2026",
       role: "Chapter Officer (Secretary)",
       org: "Tau Beta Pi Engineering Honor Society, New York Eta",
-      logo: { src: "/logos/tau-beta-pi-mark.png", alt: "Tau Beta Pi" },
-      points: ["Engineering honor society, top eighth of juniors."],
+      logo: { src: "/logos/tau-beta-pi-mark.png", alt: "Tau Beta Pi", lightInDark: true },
+      points: ["Top eighth of juniors."],
     },
   ],
 
   personal: {
-    quote: "All that I am, or hope to be, I owe to my angel, my mother.",
+    quote: "All that I am, or hope to be, I\u00a0owe to my angel, my mother.",
     photo: {
       src: "/images/mom.jpg",
       alt: "Santiago with his mother at an ice rink in New York, winter 2025.",
+      width: 960,
+      height: 1280,
       caption: "New York, 2025.",
     },
   },
